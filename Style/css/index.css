@@ -1,0 +1,53 @@
+html {
+  font-size: 62.5%;
+}
+
+* {
+  direction: rtl;
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.logo {
+  width: 5rem;
+}
+
+.nav-bar ul {
+  list-style: none;
+}
+.nav-bar ul li {
+  padding: 1rem;
+  display: inline;
+}
+
+.banner {
+  background-image: url("assets/pic/bg.jpg");
+  background-position: center;
+}
+
+footer {
+  background-color: red;
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  padding-right: 20px;
+}
+
+.links ul {
+  padding: 0px;
+  list-style: none;
+}
+.links ul li {
+  display: inline;
+  padding-left: 0.5rem;
+}
+
+/*# sourceMappingURL=index.css.map */
