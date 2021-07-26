@@ -1,4 +1,10 @@
-html {
+@font-face {
+  font-family: vaziri;
+  src: url("../../assets/fonts/Vazir.ttf");
+}
+
+html{
+  font-family: vaziri, sans-serif;
   font-size: 62.5%;
 }
 
