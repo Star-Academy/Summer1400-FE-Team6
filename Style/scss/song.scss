@@ -1,15 +1,4 @@
-@font-face {
-  font-family: vaziri;
-  src: url("../../assets/fonts/Vazir.ttf");
-}
-
-html{
-  font-family: vaziri, sans-serif;
-  font-size: 62.5%;
-}
-
 body{
-  direction: rtl;
   background-image: url("../../assets/pic/29209674 (3).jpg");
   background-size: cover;
 }
@@ -20,11 +9,12 @@ body{
   color: aliceblue;
   justify-content: center;
   align-items: center;
-  background-image: url("../../assets/pic/song-item-background.png");
+  box-shadow: 15px 20px 15px black;
+  background-image: url("../../assets/pic/song-item-background.gif");
   background-size: cover;
   border-radius: 10px 100px;
   width: 70%;
-  margin: auto;
+  margin: auto auto 10rem;
 
   .song-name {
     margin-top: 1vh;
