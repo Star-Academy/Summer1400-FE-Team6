@@ -2,13 +2,27 @@ html {
   font-size: 62.5%;
 }
 
+body {
+  background-image: url("assets/pic/bg.jpg");
+  font-size: 1.5rem;
+  color: white;
+}
+
 * {
+  padding: 0;
+  margin: 0;
   direction: rtl;
+}
+
+header {
+  position: relative;
+  top: 0px;
 }
 
 .main-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 20px;
 }
 
@@ -23,14 +37,36 @@ html {
   padding: 1rem;
   display: inline;
 }
+.nav-bar ul li a:link {
+  color: white;
+  text-decoration: none;
+}
 
 .banner {
-  background-image: url("assets/pic/bg.jpg");
-  background-position: center;
+  position: relative;
+  height: 50vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.banner button {
+  background-color: transparent;
+  color: white;
+  border: none;
+}
+
+video {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 footer {
-  background-color: red;
+  background-color: #0c0c2a;
   position: fixed;
   bottom: 0px;
   left: 0;
@@ -38,7 +74,7 @@ footer {
   display: flex;
   justify-content: space-around;
   align-items: baseline;
-  padding-right: 20px;
+  padding: 20px;
 }
 
 .links ul {
@@ -48,6 +84,10 @@ footer {
 .links ul li {
   display: inline;
   padding-left: 0.5rem;
+}
+.links ul li a:link {
+  color: white;
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=index.css.map */
