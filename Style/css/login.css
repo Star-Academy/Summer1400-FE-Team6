@@ -1,0 +1,82 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #212121;
+  font-size: 1.5rem;
+  color: white;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  direction: rtl;
+}
+
+header {
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  width: 5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+form label {
+  margin-bottom: 5px;
+}
+form input {
+  width: 40vw;
+  margin-bottom: 20px;
+  color: white;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid white;
+  border-radius: 2px;
+  text-align: center;
+}
+form input:nth-of-type(3) {
+  border: none;
+  width: 20vw;
+}
+form button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  width: 20vw;
+}
+
+footer {
+  background-color: #0c0c2a;
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  padding: 20px;
+}
+
+.links ul {
+  padding: 0px;
+  list-style: none;
+}
+.links ul li {
+  display: inline;
+  padding-left: 0.5rem;
+}
+.links ul li a:link {
+  color: white;
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=login.css.map */
