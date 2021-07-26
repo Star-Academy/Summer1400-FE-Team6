@@ -1,0 +1,62 @@
+@font-face {
+  font-family: vaziri;
+  src: url("../../assets/fonts/Vazir.ttf");
+}
+html {
+  font-family: vaziri, sans-serif;
+  font-size: 62.5%;
+}
+
+body {
+  direction: rtl;
+  background-image: url("../../assets/pic/29209674 (3).jpg");
+  background-size: cover;
+}
+
+.song-item {
+  display: flex;
+  flex-flow: column wrap;
+  color: aliceblue;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../assets/pic/song-item-background.png");
+  background-size: cover;
+  border-radius: 10px 100px;
+  width: 70%;
+  margin: auto;
+}
+.song-item .song-name {
+  margin-top: 1vh;
+  font-size: 2.2vw;
+}
+.song-item .artist {
+  margin-top: 0;
+  font-size: 1vw;
+}
+.song-item img {
+  width: 60%;
+  margin: auto;
+}
+.song-item .album {
+  margin: 0;
+  font-size: 0.8vw;
+}
+.song-item .release-date {
+  margin: 2px;
+  font-size: 0.8vw;
+}
+.song-item .control {
+  margin-top: 15vh;
+  margin-bottom: 2rem;
+}
+.song-item audio {
+  color: black;
+}
+
+@media screen and (min-width: 768px) {
+  .song-item {
+    width: 30%;
+  }
+}
+
+/*# sourceMappingURL=song.css.map */
