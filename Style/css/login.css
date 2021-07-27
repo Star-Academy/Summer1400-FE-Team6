@@ -1,27 +1,70 @@
+@font-face {
+  font-family: vaziri;
+  src: url("../../assets/fonts/Vazir.ttf");
+}
 html {
   font-size: 62.5%;
 }
 
 body {
-  background-color: #212121;
   font-size: 1.5rem;
   color: white;
+  background-image: url("../../assets/pic/login-bg.jpg");
+  background-size: auto;
 }
 
 * {
+  font-family: vaziri, sans-serif;
   padding: 0;
   margin: 0;
   direction: rtl;
 }
 
 header {
-  margin: 30px;
+  margin: 40px;
   display: flex;
   justify-content: center;
 }
 
 .logo {
-  width: 5rem;
+  width: 10rem;
+}
+
+a:link {
+  color: gray;
+  text-decoration: none;
+}
+
+a:visited {
+  color: gray;
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+  color: #0dad0d;
+}
+
+svg {
+  width: 30px;
+}
+
+svg .svgSocialMedia {
+  transition: 200ms;
+  transition-timing-function: ease-in-out;
+  -webkit-transition: 500ms;
+  -webkit-transition-timing-function: ease-in-out;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  display: flex;
+  justify-content: center;
 }
 
 form {
@@ -29,32 +72,61 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 50vw;
+  max-width: 500px;
+  background-color: rgba(0, 0, 0, 0.68);
+  border: 3px white solid;
+  border-radius: 10px;
+  padding: 30px;
+}
+form span {
+  font-size: 1rem;
+  margin-bottom: 30px;
 }
 form label {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 form input {
   width: 40vw;
+  max-width: 450px;
   margin-bottom: 20px;
   color: white;
   background-color: transparent;
   border: none;
   border-bottom: 2px solid white;
-  border-radius: 2px;
   text-align: center;
 }
+form input:nth-of-type(2) {
+  margin-bottom: 15px;
+}
 form input:nth-of-type(3) {
-  border: none;
-  width: 20vw;
+  border: 2px white solid;
+  padding: 5px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+form input:nth-of-type(3):hover {
+  background-color: #0dad0d;
+  cursor: pointer;
 }
 form button {
   background-color: transparent;
   color: white;
-  border: none;
-  width: 20vw;
+  padding: 5px;
+  border: 2px white solid;
+  width: 40vw;
+  max-width: 450px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+form button:hover {
+  background-color: #0dad0d;
+  cursor: pointer;
 }
 
 footer {
+  font-size: 1.5rem;
   background-color: #0c0c2a;
   position: fixed;
   bottom: 0px;
@@ -62,10 +134,13 @@ footer {
   width: 100%;
   display: flex;
   justify-content: space-around;
-  align-items: baseline;
+  align-items: center;
   padding: 20px;
 }
 
+.links {
+  font-size: 1.5rem;
+}
 .links ul {
   padding: 0px;
   list-style: none;
@@ -74,9 +149,21 @@ footer {
   display: inline;
   padding-left: 0.5rem;
 }
-.links ul li a:link {
+.links ul li a {
   color: white;
+}
+.links ul li a:link {
   text-decoration: none;
+  cursor: pointer;
+}
+.links ul li a:hover {
+  color: #0dad0d;
+}
+
+@media (max-width: 780px) {
+  footer {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=login.css.map */
