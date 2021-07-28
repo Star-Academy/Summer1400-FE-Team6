@@ -40,18 +40,18 @@ header {
 }
 
 a:link {
-  color: gray;
+  color: white;
   text-decoration: none;
 }
 
 a:visited {
-  color: gray;
+  color: white;
   text-decoration: none;
 }
 
 a:hover {
   cursor: pointer;
-  color: #0dad0d;
+  color: #00efd1;
 }
 
 
@@ -124,7 +124,7 @@ form {
       cursor: pointer;
 
       &:hover {
-        background-color: #0dad0d;
+        background-color: #00efd1;
         cursor: pointer;
       }
     }
@@ -143,7 +143,7 @@ form {
     cursor: pointer;
 
     &:hover {
-      background-color: #0dad0d;
+      background-color: #00efd1;
       cursor: pointer;
     }
   }
@@ -152,7 +152,7 @@ form {
 
 footer {
   font-size: 1.5rem;
-  background-color: #0c0c2a;
+  background-color: #111010;
   position: fixed;
   bottom: 0px;
   left: 0;
@@ -185,7 +185,7 @@ footer {
       }
 
       a:hover {
-        color: #0dad0d;
+        color: #00efd1;
       }
     }
   }
