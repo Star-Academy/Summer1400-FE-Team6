@@ -10,7 +10,7 @@ html {
 
 header {
   position: relative;
-  top: 0px;
+  top: 0;
 }
 
 .main-header {
@@ -18,11 +18,11 @@ header {
   justify-content: space-between;
   padding: 15px 30px;
   align-items: center;
-  background-color: red;
+  background-color: #111010;
 }
 
 .logo {
-  width: 5rem;
+  width: 8rem;
 }
 
 .nav-bar ul {
@@ -32,13 +32,24 @@ header {
   padding: 1rem;
   display: inline;
 }
-.nav-bar ul li a:link {
+
+a:link {
   color: white;
   text-decoration: none;
 }
 
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+  color: #00efd1;
+}
+
 footer {
-  background-color: #0c0c2a;
+  background-color: #111010;
   position: fixed;
   bottom: 0px;
   left: 0;
@@ -58,8 +69,11 @@ footer {
   padding-left: 0.5rem;
 }
 .links ul li a:link {
-  color: white;
   text-decoration: none;
+  cursor: pointer;
+}
+.links ul li a:hover {
+  color: #00efd1;
 }
 
 ul {

@@ -11,7 +11,7 @@ html {
 
 header {
   position: relative;
-  top: 0px;
+  top: 0;
 }
 
 .main-header {
@@ -20,12 +20,12 @@ header {
   padding: 15px 30px;
   align-items: center;
   //margin: 20px;
-  background-color: red;
+  background-color: #111010;
 
 }
 
 .logo {
-  width: 5rem;
+  width: 8rem;
 }
 
 .nav-bar {
@@ -36,16 +36,28 @@ header {
       padding: 1rem;
       display: inline;
 
-      a:link {
-        color: white;
-        text-decoration: none;
-      }
+
     }
   }
 }
 
+a:link {
+  color: white;
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+  color: #00efd1;
+}
+
 footer {
-  background-color: #0c0c2a;
+  background-color: #111010;
   position: fixed;
   bottom: 0px;
   left: 0;
@@ -66,8 +78,13 @@ footer {
       padding-left: 0.5rem;
 
       a:link {
-        color: white;
+
         text-decoration: none;
+        cursor: pointer;
+      }
+
+      a:hover {
+        color: #00efd1;
       }
     }
   }

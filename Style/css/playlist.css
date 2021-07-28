@@ -1,0 +1,129 @@
+body {
+  margin: 0;
+  height: 100%;
+}
+
+html {
+  height: 100%;
+}
+
+main {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 15% auto;
+}
+main .side-bar {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main .side-bar a {
+  color: aliceblue;
+}
+main .side-bar .home {
+  margin-top: 2rem;
+  text-align: center;
+}
+main .side-bar .home img {
+  width: 30%;
+}
+main .side-bar .options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 5rem;
+}
+main .side-bar .options a {
+  width: inherit;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 2rem;
+}
+main .side-bar .options a:hover {
+  background-color: grey;
+}
+main .side-bar .logout {
+  position: absolute;
+  bottom: 20%;
+  text-align: center;
+}
+main .content {
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+}
+main .content .playlist-header {
+  display: flex;
+  background-image: linear-gradient(30deg, #502280, teal);
+  height: 30%;
+  align-items: center;
+}
+main .content .playlist-header .music-icon {
+  background-image: linear-gradient(to left top, #6414c8, teal);
+  box-shadow: 10px 10px 15px black;
+  width: 20vh;
+  height: 20vh;
+  display: flex;
+  margin: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+main .content .playlist-header .music-icon img {
+  width: 80%;
+}
+main .content .playlist-header h1 {
+  margin-right: 2vw;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 4rem;
+  text-shadow: 10px 10px 15px black;
+  color: aliceblue;
+}
+main .content .items {
+  background-image: url("../../assets/pic/29209674 (3).jpg");
+  background-size: cover;
+}
+main .content .items .song-item {
+  display: grid;
+  grid-template-areas: "song album year favorite" "artist album year favorite";
+  align-items: center;
+  margin: 2rem;
+  color: aliceblue;
+  background-color: gray;
+  border-radius: 0 0 2rem 2rem;
+  padding-right: 2rem;
+}
+main .content .items .song-item:hover {
+  opacity: 20%;
+}
+main .content .add-to-favorite {
+  grid-area: favorite;
+  color: white;
+  width: 2.5rem;
+  height: auto;
+}
+main .content .song-name {
+  grid-area: song;
+  font-size: 2rem;
+}
+main .content .artist {
+  grid-area: artist;
+  font-size: 1.5rem;
+}
+main .content .album {
+  grid-area: album;
+  font-size: 1.5rem;
+}
+main .content .release-year {
+  grid-area: year;
+  font-size: 1.5rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=playlist.css.map */
