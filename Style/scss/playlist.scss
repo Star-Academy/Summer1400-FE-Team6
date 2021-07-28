@@ -2,11 +2,6 @@ body {
   margin: 0;
   height: 100%;
 }
-//
-//.playlist-header{
-//  background-color: red;
-//  height: 20%;
-//}
 
 html {
   height: 100%;
@@ -16,7 +11,7 @@ main {
   height: 100%;
   grid-template-columns: 15% auto;
   .side-bar{
-    background-color: black;
+    background-image: url("../../assets/pic/4205784.jpg");
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,7 +30,7 @@ main {
       flex-direction: column;
       align-items: center;
       width: 100%;
-      margin-top: 5rem;
+      margin-top: 10rem;
       a{
         width: inherit;
         text-align: center;
@@ -43,14 +38,20 @@ main {
         padding-bottom: 5px;
         font-size: 2rem;
         &:hover{
-          background-color: grey;
+          color: cyan;
+          font-size: 2.2rem;
         }
       }
     }
     .logout {
+      font-size: 13px ;
       position: absolute;
+      display: flex;
+      align-items: center;
       bottom: 20%;
-      text-align: center;
+      margin-bottom: 2rem;
+      &:hover{
+      }
     }
   }
   .content {
@@ -59,46 +60,46 @@ main {
     overflow: scroll;
     .playlist-header {
       display: flex;
-      background-image: linear-gradient(30deg, rgb(80, 34, 128), teal);
+      background-image: url("../../assets/pic/3813525.jpg");
       height: 30%;
       align-items: center;
       .music-icon{
-        background-image: linear-gradient(to left top, rgb(100, 20, 200), teal);
-        box-shadow: 10px 10px 15px black;
-        width: 20vh;
-        height:20vh;
         display: flex;
-        margin: 2rem;
+        margin: 4rem;
         justify-content: center;
         align-items: center;
         img{
-          width: 80%;
-        }
+          border-radius: 2rem;
+          box-shadow: 10px 10px 15px black;
+          width: 200px;
+          height: 200px;
+          }
       }
       h1 {
         margin-right: 2vw;
         margin-top: auto;
         margin-bottom: auto;
         font-size: 4rem;
-        text-shadow: 10px 10px 15px black;
+        text-shadow: 0 0 2rem #00efd1;
         color: aliceblue;
       }
     }
     .items{
-      background-image: url("../../assets/pic/29209674 (3).jpg");
-      background-size: cover;
+      background-image: linear-gradient(to top right, #098080, #111010, #000000);
+      padding-bottom: 5rem;
       .song-item{
         display: grid;
-        //background-color: red;
         grid-template-areas: "song album year favorite" "artist album year favorite";
         align-items: center;
-        margin: 2rem;
+        margin: 4rem;
         color: aliceblue;
-        background-color: gray;
+        border-right: 2px ridge cyan;
+        border-bottom: 1px ridge cyan;
         border-radius: 0 0 2rem 2rem;
         padding-right: 2rem;
         &:hover {
-          opacity: 20%;
+          background-color: #111010;
+          border: 2px ridge cyan;
         }
       }
     }
