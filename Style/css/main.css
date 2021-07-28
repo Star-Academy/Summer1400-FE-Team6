@@ -18,7 +18,7 @@ header {
   justify-content: space-between;
   padding: 15px 30px;
   align-items: center;
-  background-color: #1d1b1b;
+  background-color: red;
 }
 
 .logo {
@@ -38,14 +38,14 @@ header {
 }
 
 footer {
-  background-color: #1d1b1b;
+  background-color: #0c0c2a;
   position: fixed;
   bottom: 0px;
   left: 0;
   width: 100%;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: baseline;
   padding: 20px;
 }
 
@@ -60,36 +60,6 @@ footer {
 .links ul li a:link {
   color: white;
   text-decoration: none;
-}
-
-svg {
-  width: 30px;
-}
-
-a:link{
-  color: gray;
-  text-decoration: none;
-}
-a:visited{
-  color: white;
-  text-decoration: none;
-}
-a:hover{
-  cursor: pointer;
-  color: #0dad0d;
-}
-
-svg .svgSocialMedia {
-  transition: 200ms;
-  transition-timing-function: ease-in-out;
-  -webkit-transition: 500ms;
-  -webkit-transition-timing-function: ease-in-out;
-}
-
-.social {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 /*# sourceMappingURL=main.css.map */

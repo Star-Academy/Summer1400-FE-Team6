@@ -29,6 +29,9 @@ header {
 .logo {
   width: 10rem;
 }
+.logo:hover {
+  cursor: pointer;
+}
 
 a:link {
   color: gray;
@@ -70,7 +73,7 @@ main {
 form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   width: 50vw;
   max-width: 500px;

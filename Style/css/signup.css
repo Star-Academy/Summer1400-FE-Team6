@@ -45,6 +45,9 @@ header {
 .logo {
   width: 8rem;
 }
+.logo:hover {
+  cursor: pointer;
+}
 
 main {
   display: flex;
@@ -134,8 +137,8 @@ footer {
   left: 0;
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: baseline;
+  justify-content: space-around;
+  align-items: center;
   padding: 20px;
 }
 
