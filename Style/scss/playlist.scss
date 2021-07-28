@@ -1,0 +1,134 @@
+body {
+  margin: 0;
+  height: 100%;
+}
+//
+//.playlist-header{
+//  background-color: red;
+//  height: 20%;
+//}
+
+html {
+  height: 100%;
+}
+main {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 15% auto;
+  .side-bar{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    a{
+      color: aliceblue;
+    }
+    .home{
+      margin-top: 2rem;
+      text-align: center;
+      img {
+        width: 30%;
+      }
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin-top: 5rem;
+      a{
+        width: inherit;
+        text-align: center;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-size: 2rem;
+        &:hover{
+          background-color: grey;
+        }
+      }
+    }
+    .logout {
+      position: absolute;
+      bottom: 20%;
+      text-align: center;
+    }
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    .playlist-header {
+      display: flex;
+      background-image: linear-gradient(30deg, rgb(80, 34, 128), teal);
+      height: 30%;
+      align-items: center;
+      .music-icon{
+        background-image: linear-gradient(to left top, rgb(100, 20, 200), teal);
+        box-shadow: 10px 10px 15px black;
+        width: 20vh;
+        height:20vh;
+        display: flex;
+        margin: 2rem;
+        justify-content: center;
+        align-items: center;
+        img{
+          width: 80%;
+        }
+      }
+      h1 {
+        margin-right: 2vw;
+        margin-top: auto;
+        margin-bottom: auto;
+        font-size: 4rem;
+        text-shadow: 10px 10px 15px black;
+        color: aliceblue;
+      }
+    }
+    .items{
+      background-image: url("../../assets/pic/29209674 (3).jpg");
+      background-size: cover;
+      .song-item{
+        display: grid;
+        //background-color: red;
+        grid-template-areas: "song album year favorite" "artist album year favorite";
+        align-items: center;
+        margin: 2rem;
+        color: aliceblue;
+        background-color: gray;
+        border-radius: 0 0 2rem 2rem;
+        padding-right: 2rem;
+        &:hover {
+          opacity: 20%;
+        }
+      }
+    }
+
+    .add-to-favorite {
+      grid-area: favorite;
+      color: white;
+      width: 2.5rem;
+      height: auto;
+    }
+    .song-name{
+      grid-area: song;
+      font-size: 2rem;
+    }
+    .artist{
+      grid-area: artist;
+      font-size: 1.5rem;
+    }
+    .album {
+      grid-area: album;
+      font-size: 1.5rem;
+    }
+    .release-year {
+      grid-area: year;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
