@@ -69,23 +69,6 @@ video {
   left: 0;
 }
 
-svg {
-  width: 30px;
-}
-
-svg .svgSocialMedia {
-  transition: 200ms;
-  transition-timing-function: ease-in-out;
-  -webkit-transition: 500ms;
-  -webkit-transition-timing-function: ease-in-out;
-}
-
-.social {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 @media (max-width: 780px) {
 
   .banner {
