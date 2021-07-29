@@ -12,52 +12,53 @@ main {
   height: 100%;
   grid-template-columns: 15% auto;
 }
-main .side-bar {
+main .my-side-bar {
   background-image: url("../../assets/pic/4205784.jpg");
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-main .side-bar a {
+main .my-side-bar a {
   color: aliceblue;
 }
-main .side-bar .home {
+main .my-side-bar .home {
   margin-top: 2rem;
   text-align: center;
 }
-main .side-bar .home img {
+main .my-side-bar .home img {
   width: 30%;
 }
-main .side-bar .options {
+main .my-side-bar .options {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   margin-top: 10rem;
 }
-main .side-bar .options a {
+main .my-side-bar .options a {
   width: inherit;
   text-align: center;
   padding-top: 5px;
   padding-bottom: 5px;
   font-size: 2rem;
 }
-main .side-bar .options a:hover {
+main .my-side-bar .options a:hover {
   color: cyan;
   font-size: 2.2rem;
 }
-main .side-bar .logout {
+main .my-side-bar .logout {
   font-size: 13px;
   position: absolute;
   display: flex;
   align-items: center;
   bottom: 20%;
   margin-bottom: 2rem;
+  text-align: center;
 }
 main .content {
   display: flex;
   flex-direction: column;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 main .content .playlist-header {
   display: flex;
@@ -88,12 +89,16 @@ main .content .playlist-header h1 {
 main .content .items {
   background-image: linear-gradient(to top right, #098080, #111010, #000000);
   padding-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 main .content .items .song-item {
   display: grid;
   grid-template-areas: "song album year favorite" "artist album year favorite";
   align-items: center;
   margin: 4rem;
+  cursor: initial;
   color: aliceblue;
   border-right: 2px ridge cyan;
   border-bottom: 1px ridge cyan;
@@ -104,11 +109,17 @@ main .content .items .song-item:hover {
   background-color: #111010;
   border: 2px ridge cyan;
 }
-main .content .add-to-favorite {
+main .content .custom-checkbox {
   grid-area: favorite;
-  color: white;
-  width: 2.5rem;
-  height: auto;
+}
+main .content .custom-checkbox input {
+  display: none;
+}
+main .content .custom-checkbox input + i {
+  cursor: pointer;
+}
+main .content .custom-checkbox input:checked + i {
+  color: cyan;
 }
 main .content .song-name {
   grid-area: song;

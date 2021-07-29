@@ -10,7 +10,7 @@ main {
   display: grid;
   height: 100%;
   grid-template-columns: 15% auto;
-  .side-bar{
+  .my-side-bar{
     background-image: url("../../assets/pic/4205784.jpg");
     display: flex;
     flex-direction: column;
@@ -50,6 +50,7 @@ main {
       align-items: center;
       bottom: 20%;
       margin-bottom: 2rem;
+      text-align: center;
       &:hover{
       }
     }
@@ -57,7 +58,7 @@ main {
   .content {
     display: flex;
     flex-direction: column;
-    overflow: scroll;
+    overflow-y: scroll;
     .playlist-header {
       display: flex;
       background-image: url("../../assets/pic/3813525.jpg");
@@ -87,11 +88,15 @@ main {
     .items{
       background-image: linear-gradient(to top right, #098080, #111010, #000000);
       padding-bottom: 5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
       .song-item{
         display: grid;
         grid-template-areas: "song album year favorite" "artist album year favorite";
         align-items: center;
         margin: 4rem;
+        cursor: initial;
         color: aliceblue;
         border-right: 2px ridge cyan;
         border-bottom: 1px ridge cyan;
@@ -103,12 +108,17 @@ main {
         }
       }
     }
-
-    .add-to-favorite {
+    .custom-checkbox {
       grid-area: favorite;
-      color: white;
-      width: 2.5rem;
-      height: auto;
+      input {
+        display: none;
+        + i {
+          cursor: pointer;
+        }
+        &:checked + i {
+          color: cyan;
+        }
+      }
     }
     .song-name{
       grid-area: song;
