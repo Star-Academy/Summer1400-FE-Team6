@@ -1,6 +1,11 @@
 body{
-  background-image: url("../../assets/pic/29209674 (3).jpg");
+  margin: 0;
+  height: 100%;
+  background-image: url("../../assets/pic/4205784.jpg");
   background-size: cover;
+  main{
+    height: 100%;
+  }
 }
 
 .song-item{
@@ -10,11 +15,12 @@ body{
   justify-content: center;
   align-items: center;
   box-shadow: 15px 20px 15px black;
-  background-image: url("../../assets/pic/song-item-background.gif");
+  background-color: rgba(0, 0, 0, 0.7);
   background-size: cover;
   border-radius: 10px 100px;
+  border: 2px solid cyan;
   width: 70%;
-  margin: auto auto 10rem;
+  margin: 10px auto auto auto ;
 
   .song-name {
     margin-top: 1vh;
@@ -39,7 +45,7 @@ body{
   }
 
   .control {
-    margin-top:15vh;
+    margin-top:15%;
     margin-bottom: 2rem;
   }
   audio{
