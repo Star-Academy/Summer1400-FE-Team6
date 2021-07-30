@@ -47,7 +47,7 @@ main .my-side-bar .options a {
 main .my-side-bar .options a:hover {
   color: cyan;
 }
-main .my-side-bar .options a:first-child::before {
+main .my-side-bar .options a.underlined::before {
   content: "";
   position: absolute;
   width: 100%;
