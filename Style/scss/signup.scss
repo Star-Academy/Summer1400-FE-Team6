@@ -1,26 +1,9 @@
-@font-face {
-  font-family: vaziri;
-  src: url("../../assets/fonts/Vazir.ttf");
-}
-
-html {
-  //font-family: vaziri, sans-serif;
-  font-size: 62.5%;
-}
-
 body {
   background-color: #212121;
   font-size: 1.5rem;
   color: white;
-  background-image: url("../../assets/pic/3813525.jpg");
+  background-image: url("../../assets/pic/background_main.jpg");
   background-size: auto;
-}
-
-* {
-  font-family: vaziri, sans-serif;
-  padding: 0;
-  margin: 0;
-  direction: rtl;
 }
 
 a:link {
@@ -96,7 +79,6 @@ form {
     &:nth-of-type(5) {
       border: 2px white solid;
       padding: 5px;
-      //width: 20vw;
       margin-bottom: 10px;
       border-radius: 10px;
       cursor: pointer;
@@ -113,7 +95,6 @@ form {
     background-color: transparent;
     color: white;
     padding: 5px;
-    //border: none;
     border: 2px white solid;
     width: 40vw;
     max-width: 450px;
@@ -149,7 +130,7 @@ footer {
   font-size: 1.5rem;
   background-color: #111010;
   position: fixed;
-  bottom: 0px;
+  bottom: 0;
   left: 0;
   width: 100%;
   display: flex;
@@ -162,7 +143,7 @@ footer {
   font-size: 1.5rem;
 
   ul {
-    padding: 0px;
+    padding: 0;
     list-style: none;
 
     li {
