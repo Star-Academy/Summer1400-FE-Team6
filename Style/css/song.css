@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  height: 100%;
+  background-image: url("../../assets/pic/background_song.jpg");
+  background-size: cover;
+}
+body main {
+  height: 100%;
+}
+
+.song-item {
+  display: flex;
+  flex-flow: column wrap;
+  color: aliceblue;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 15px 20px 15px black;
+  background-color: rgba(0, 0, 0, 0.7);
+  background-size: cover;
+  border-radius: 10px 100px;
+  border: 2px solid cyan;
+  width: 70%;
+  margin: 10px auto auto auto;
+}
+.song-item .song-name {
+  margin-top: 1vh;
+  font-size: 2.2vw;
+}
+.song-item .artist {
+  margin-top: 0;
+  font-size: 1vw;
+}
+.song-item img {
+  width: 60%;
+  margin: auto;
+}
+.song-item .album {
+  margin: 0;
+  font-size: 0.8vw;
+}
+.song-item .release-date {
+  margin: 2px;
+  font-size: 0.8vw;
+}
+.song-item .control {
+  margin-top: 15%;
+  margin-bottom: 2rem;
+}
+.song-item audio {
+  color: black;
+}
+
+@media screen and (min-width: 768px) {
+  .song-item {
+    width: 30%;
+  }
+}
+
+/*# sourceMappingURL=song.css.map */

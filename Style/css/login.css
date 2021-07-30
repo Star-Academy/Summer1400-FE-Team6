@@ -1,0 +1,100 @@
+body {
+  font-size: 1.5rem;
+  color: white;
+  background-image: url("../../assets/pic/background_main.jpg");
+  background-size: auto;
+}
+
+header {
+  margin: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  width: 10rem;
+}
+.logo:hover {
+  cursor: pointer;
+}
+
+svg {
+  width: 30px;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 50vw;
+  max-width: 500px;
+  background-color: rgba(0, 0, 0, 0.68);
+  border: 3px white solid;
+  border-radius: 10px;
+  padding: 30px;
+}
+form span {
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+form label {
+  margin-bottom: 10px;
+}
+form input {
+  width: 40vw;
+  max-width: 450px;
+  margin-bottom: 20px;
+  color: white;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid white;
+  text-align: center;
+}
+form input:nth-of-type(2) {
+  margin-bottom: 15px;
+}
+form input:nth-of-type(3) {
+  border: 2px white solid;
+  padding: 5px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+form input:nth-of-type(3):hover {
+  background-color: #00efd1;
+  cursor: pointer;
+}
+form button {
+  background-color: transparent;
+  color: white;
+  padding: 5px;
+  border: 2px white solid;
+  width: 40vw;
+  max-width: 450px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+form button:hover {
+  background-color: #00efd1;
+  cursor: pointer;
+}
+
+@media (max-width: 780px) {
+  footer {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=login.css.map */

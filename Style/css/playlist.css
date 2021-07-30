@@ -1,0 +1,155 @@
+body {
+  margin: 0;
+  height: 100%;
+}
+
+html {
+  height: 100%;
+}
+
+main {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 15% auto;
+}
+main .my-side-bar {
+  background: #111010;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main .my-side-bar a {
+  color: aliceblue;
+}
+main .my-side-bar .home {
+  margin-top: 2rem;
+  text-align: center;
+}
+main .my-side-bar .home img {
+  width: 30%;
+}
+main .my-side-bar .options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 10rem;
+}
+main .my-side-bar .options a {
+  position: relative;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 2rem;
+  margin: 10px;
+}
+main .my-side-bar .options a:hover {
+  color: cyan;
+}
+main .my-side-bar .options a:first-child::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  border-radius: 3px;
+  top: 100%;
+  background: linear-gradient(130deg, #12b2b2, cyan);
+}
+main .my-side-bar .logout {
+  font-size: 13px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  bottom: 20%;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+main .content {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+main .content .playlist-header {
+  display: flex;
+  background-image: url("../../assets/pic/background_main.jpg");
+  height: 30%;
+  align-items: center;
+}
+main .content .playlist-header .music-icon {
+  display: flex;
+  margin: 4rem;
+  justify-content: center;
+  align-items: center;
+}
+main .content .playlist-header .music-icon img {
+  border-radius: 2rem;
+  box-shadow: 10px 10px 15px black;
+  width: 200px;
+  height: 200px;
+}
+main .content .playlist-header h1 {
+  margin-right: 2vw;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 4rem;
+  text-shadow: 0 0 2rem #00efd1;
+  color: aliceblue;
+}
+main .content .items {
+  background-image: linear-gradient(to top right, #098080, #111010, #000000);
+  padding-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+main .content .items .song-item {
+  display: grid;
+  grid-template-areas: "song album year favorite" "artist album year favorite";
+  align-items: center;
+  margin: 4rem;
+  cursor: initial;
+  color: aliceblue;
+  border-right: 2px ridge cyan;
+  border-bottom: 1px ridge cyan;
+  border-radius: 0 0 2rem 2rem;
+  padding-right: 2rem;
+}
+main .content .items .song-item:hover {
+  background-color: #111010;
+  border: 2px ridge cyan;
+}
+main .content .custom-checkbox {
+  grid-area: favorite;
+}
+main .content .custom-checkbox input {
+  display: none;
+}
+main .content .custom-checkbox input + i {
+  cursor: pointer;
+}
+main .content .custom-checkbox input:checked + i {
+  color: cyan;
+}
+main .content .song-name {
+  grid-area: song;
+  font-size: 2rem;
+}
+main .content .artist {
+  grid-area: artist;
+  font-size: 1.5rem;
+}
+main .content .album {
+  grid-area: album;
+  font-size: 1.5rem;
+}
+main .content .release-year {
+  grid-area: year;
+  font-size: 1.5rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=playlist.css.map */
