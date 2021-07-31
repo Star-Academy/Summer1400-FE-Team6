@@ -8,6 +8,10 @@ body main {
   height: 100%;
 }
 
+.title {
+  margin: 2rem 0;
+}
+
 .song-item {
   display: flex;
   flex-flow: column wrap;
