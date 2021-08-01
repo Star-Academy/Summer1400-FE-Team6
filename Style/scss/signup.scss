@@ -1,50 +1,21 @@
+@use "global";
+
 body {
-  background-color: #212121;
-  font-size: 1.5rem;
-  color: white;
   background-image: url("../../assets/pic/background_main.jpg");
-  background-size: auto;
-}
-
-a:link {
-  color: gray;
-  text-decoration: none;
-}
-
-a:visited {
-  color: gray;
-  text-decoration: none;
-}
-
-a:hover {
-  cursor: pointer;
-  color: #00efd1;
 }
 
 header {
   margin: 20px;
-  display: flex;
-  justify-content: center;
-}
-
-.logo {
-  width: 8rem;
-
-  &:hover {
-    cursor: pointer;
-  }
+  @include global.flex();
 }
 
 main {
-  display: flex;
-  justify-content: center;
+  @include global.flex();
 }
 
 form {
-  display: flex;
+  @include global.flex();
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   width: 50vw;
   max-width: 500px;
   background-color: rgba(0, 0, 0, 0.68);
@@ -52,14 +23,8 @@ form {
   border-radius: 10px;
   padding: 30px;
 
-  span {
-    font-size: 1rem;
-    margin-bottom: 30px;
-
-  }
-
   label {
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
   }
 
   input {
@@ -77,14 +42,13 @@ form {
     }
 
     &:nth-of-type(5) {
-      border: 2px white solid;
+      border: 2px solid;
       padding: 5px;
       margin-bottom: 10px;
       border-radius: 10px;
-      cursor: pointer;
 
       &:hover {
-        background-color: #00efd1;
+        background-color: global.$dark_cyan;
         cursor: pointer;
       }
     }
@@ -99,78 +63,16 @@ form {
     width: 40vw;
     max-width: 450px;
     border-radius: 10px;
-    cursor: pointer;
 
     &:hover {
-      background-color: #00efd1;
+      background-color: global.$dark_cyan;
       cursor: pointer;
     }
   }
 }
 
-svg {
-  width: 30px;
-}
-
-svg .svgSocialMedia {
-  transition: 200ms;
-  transition-timing-function: ease-in-out;
-  -webkit-transition: 500ms;
-  -webkit-transition-timing-function: ease-in-out;
-}
-
-.social {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-footer {
-  font-size: 1.5rem;
-  background-color: #111010;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 20px;
-}
-
-.links {
-  font-size: 1.5rem;
-
-  ul {
-    padding: 0;
-    list-style: none;
-
-    li {
-      display: inline;
-      padding-left: 0.5rem;
-
-      a {
-        color: white;
-      }
-
-      a:link {
-
-        text-decoration: none;
-        cursor: pointer;
-      }
-
-      a:hover {
-        color: #00efd1;
-      }
-    }
-  }
-}
-
 @media (max-width: 780px) {
-
   footer {
     display: none;
   }
-
 }
