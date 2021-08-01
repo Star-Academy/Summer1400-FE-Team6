@@ -1,11 +1,10 @@
 body {
-  margin: 0;
-  height: 100%;
   background-image: url("../../assets/pic/background_song.jpg");
-  background-size: cover;
+  height: 100vh;
+  overflow: hidden;
 }
 body main {
-  height: 100%;
+  margin-top: 10rem;
 }
 
 .title {
@@ -23,7 +22,7 @@ body main {
   height: 5px;
   width: 10%;
   border-radius: 999rem;
-  background-color: red;
+  background-image: linear-gradient(130deg, cyan, #00efd1, #12b2b2);
 }
 
 .timeline {
@@ -40,7 +39,7 @@ body main {
   box-shadow: 15px 20px 15px black;
   background-color: rgba(0, 0, 0, 0.7);
   background-size: cover;
-  border-radius: 10px 100px;
+  border-radius: 10px;
   border: 2px solid cyan;
   width: 70%;
   margin: 10px auto auto auto;
@@ -70,12 +69,10 @@ body main {
   margin-top: 2rem;
   margin-bottom: 2rem;
   text-align: center;
+  direction: ltr;
 }
-.song-item .control button {
-  background-color: transparent;
-  border: none;
-  color: white;
-  font-size: 2rem;
+.song-item .control input {
+  display: none;
 }
 .song-item audio {
   color: black;

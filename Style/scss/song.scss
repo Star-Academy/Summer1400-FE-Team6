@@ -1,10 +1,9 @@
 body{
-  margin: 0;
-  height: 100%;
   background-image: url("../../assets/pic/background_song.jpg");
-  background-size: cover;
+  height: 100vh;
+  overflow: hidden;
   main{
-    height: 100%;
+    margin-top: 10rem;
   }
 }
 .title{
@@ -21,7 +20,7 @@ body{
   height: 5px;
   width: 10%;
   border-radius: 999rem;
-  background-color: red;
+  background-image: linear-gradient(130deg, cyan, #00efd1, #12b2b2);
 }
 .timeline{
   display: flex;
@@ -38,7 +37,7 @@ body{
   box-shadow: 15px 20px 15px black;
   background-color: rgba(0, 0, 0, 0.7);
   background-size: cover;
-  border-radius: 10px 100px;
+  border-radius: 10px;
   border: 2px solid cyan;
   width: 70%;
   margin: 10px auto auto auto ;
@@ -70,15 +69,9 @@ body{
     margin-top:2rem;
     margin-bottom: 2rem;
     text-align: center;
-    //display: flex;
-    //justify-content: center;
-    //flex-direction: column;
-
-    button{
-      background-color: transparent;
-      border: none;
-      color: white;
-      font-size: 2rem;
+    direction: ltr;
+    input {
+      display: none;
     }
   }
   audio{

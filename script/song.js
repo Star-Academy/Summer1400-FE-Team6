@@ -20,16 +20,14 @@ function loadSong(song) {
 loadSong(songs);
 
 function playSong() {
-    playBtn.innerText = '||';
-    playBtn.classList.remove('pause');
-    playBtn.classList.add('play');
+    document.querySelector(".far").classList.remove("fa-play-circle");
+    document.querySelector(".far").classList.add("fa-pause-circle");
     audio.play();
 }
 
 function pauseSong() {
-    playBtn.innerText = '▶';
-    playBtn.classList.remove('play');
-    playBtn.classList.add('pause');
+    document.querySelector(".far").classList.remove("fa-pause-circle");
+    document.querySelector(".far").classList.add("fa-play-circle");
     audio.pause();
 }
 
@@ -53,13 +51,11 @@ function timeFixer(time ) {
 
 
 playBtn.addEventListener('click', () => {
-    const isPlaying = playBtn.classList.contains('play');
-
-    if (isPlaying) {
-        pauseSong();
-    } else {
-        playSong();
-    }
+    console.log("salam")
+    if (playBtn.checked)
+        playSong()
+    else
+        pauseSong()
 });
 
 
