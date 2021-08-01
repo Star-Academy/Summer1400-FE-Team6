@@ -11,6 +11,24 @@ body{
   margin: 2rem 0;
 }
 
+.progress{
+  background-color: white;
+  height: 5px;
+  border-radius: 999rem;
+  width: 100%;
+}
+.duration{
+  height: 5px;
+  width: 10%;
+  border-radius: 999rem;
+  background-color: red;
+}
+.timeline{
+  display: flex;
+  justify-content: space-between;
+
+}
+
 .song-item{
   display: flex;
   flex-flow: column wrap;
@@ -48,8 +66,20 @@ body{
   }
 
   .control {
-    margin-top:15%;
+    width: 70%;
+    margin-top:2rem;
     margin-bottom: 2rem;
+    text-align: center;
+    //display: flex;
+    //justify-content: center;
+    //flex-direction: column;
+
+    button{
+      background-color: transparent;
+      border: none;
+      color: white;
+      font-size: 2rem;
+    }
   }
   audio{
     color: black;

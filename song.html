@@ -13,6 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <link rel="stylesheet" href="Style/css/global.css">
     <link rel="stylesheet" href="Style/css/song.css">
+    <script src="script/song.js" defer></script>
 </head>
 <body>
 
@@ -38,13 +39,25 @@
                 بازگشت به پلی لیست ↩
             </a>
         </h2>
-        <img src="assets/pic/album-cover.jpeg" alt="music cover picture" class="cover">
-        <h2 class="song-name">زلف</h2>
+        <img src="assets/pic/album-cover.jpeg" alt="music cover picture" class="cover" id="cover">
+        <h2 class="song-name" id="title">زلف</h2>
         <h3 class="artist">محسن نامجو</h3>
             <h4 class="album">ترنج</h4>
             <h4 class="release-date">۱۳۸۶</h4>
         <div class="control">
-            <audio controls>
+            <button id="play" class="play">
+<!--                ▶-->
+                ||
+            </button>
+            <div class="timeline">
+                <div id="currTime">2:15</div>
+                <div id="durTime">4:55</div>
+            </div>
+            <div class="progress">
+                <div class="duration" id="progress"></div>
+            </div>
+
+            <audio id="audio" controls autoplay hidden>
                 <source src="assets/music/zolf-namjoo.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>

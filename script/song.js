@@ -5,29 +5,33 @@ const progress = document.getElementById('progress');
 const title = document.getElementById('title');
 const cover = document.getElementById('cover');
 
-const currTime = document.querySelector('#currTime');
-const durTime = document.querySelector('#durTime');
+const currTime = document.getElementById('currTime');
+// const durTime = document.getElementById('durTime');
 
-const songs = [];
-let songIndex = 2;
+const songs = 'zolf-namjoo';
 
 function loadSong(song) {
+    console.log("hi")
     title.innerText = song;
     audio.src = `../assets/music/${song}.mp3`;
-    cover.src = `../assets/pic/${song}.jpg`;
+    cover.src = `../assets/music/cover/${song}.png`;
+
 }
 
-loadSong(songs[songIndex]);
+loadSong(songs);
 
 function playSong() {
-    //todo change icons
-
+    playBtn.innerText = '||';
+    playBtn.classList.remove('pause');
+    playBtn.classList.add('play');
     audio.play();
 }
 
 function pauseSong() {
     //todo change icons
-
+    playBtn.innerText = '▶';
+    playBtn.classList.remove('play');
+    playBtn.classList.add('pause');
     audio.pause();
 }
 
@@ -35,23 +39,24 @@ function pauseSong() {
 // Update progress bar
 function updateProgress(e) {
     const {duration, currentTime} = e.srcElement;
+    let curr = currentTime;
     const progressPercent = (currentTime / duration) * 100;
+    timeFixer(curr.toFixed(0))
     progress.style.width = `${progressPercent}%`;
 }
 
-// Set progress bar
-function setProgress(e) {
-    const width = this.clientWidth;
-    const clickX = e.offsetX;
-    const duration = audio.duration;
+function timeFixer(time ) {
+    let min = time / 60;
+   console.log(min.toFixed(0))
+    let sec = time % 60;
+    currTime.innerText = '' + min.toFixed(0) + ':' + sec;
 
-    audio.currentTime = (clickX / width) * duration;
 }
 
 
 playBtn.addEventListener('click', () => {
     //todo to know the state
-    const isPlaying = musicContainer.classList.contains('play');
+    const isPlaying = playBtn.classList.contains('play');
 
     if (isPlaying) {
         pauseSong();
@@ -62,8 +67,3 @@ playBtn.addEventListener('click', () => {
 
 
 audio.addEventListener('timeupdate', updateProgress);
-
-
-
-// Time of song
-audio.addEventListener('timeupdate', durTime);
