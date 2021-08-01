@@ -11,7 +11,6 @@ const currTime = document.getElementById('currTime');
 const songs = 'zolf-namjoo';
 
 function loadSong(song) {
-    console.log("hi")
     title.innerText = song;
     audio.src = `../assets/music/${song}.mp3`;
     cover.src = `../assets/music/cover/${song}.png`;
@@ -28,7 +27,6 @@ function playSong() {
 }
 
 function pauseSong() {
-    //todo change icons
     playBtn.innerText = '▶';
     playBtn.classList.remove('play');
     playBtn.classList.add('pause');
@@ -55,7 +53,6 @@ function timeFixer(time ) {
 
 
 playBtn.addEventListener('click', () => {
-    //todo to know the state
     const isPlaying = playBtn.classList.contains('play');
 
     if (isPlaying) {
