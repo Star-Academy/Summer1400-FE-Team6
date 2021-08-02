@@ -6,7 +6,6 @@ const title = document.getElementById('title');
 const cover = document.getElementById('cover');
 
 const currTime = document.getElementById('currTime');
-// const durTime = document.getElementById('durTime');
 
 const songs = 'zolf-namjoo';
 
@@ -43,7 +42,6 @@ function updateProgress(e) {
 
 function timeFixer(time ) {
     let min = time / 60;
-   console.log(min.toFixed(0))
     let sec = time % 60;
     currTime.innerText = '' + min.toFixed(0) + ':' + sec;
 
@@ -51,7 +49,6 @@ function timeFixer(time ) {
 
 
 playBtn.addEventListener('click', () => {
-    console.log("salam")
     if (playBtn.checked)
         playSong()
     else
