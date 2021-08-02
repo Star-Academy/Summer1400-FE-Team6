@@ -1,25 +1,21 @@
 @use "global";
 
-body {
-  margin: 0;
-  height: 100%;
-}
-
 html {
   height: 100%;
+  body {
+    height: 100%;
+  }
 }
+
 main {
   display: grid;
   height: 100%;
   grid-template-columns: 15% auto;
   .my-side-bar{
-    background: #111010;
+    background: global.$carbon_black;
     display: flex;
     flex-direction: column;
     align-items: center;
-    a{
-      color: aliceblue;
-    }
     .home{
       margin-top: 2rem;
       text-align: center;
@@ -28,10 +24,8 @@ main {
       }
     }
     .options {
-      display: flex;
+      @include global.flex();
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
       width: 100%;
       margin-top: 10rem;
       a{
@@ -41,8 +35,8 @@ main {
         padding-bottom: 5px;
         font-size: 2rem;
         margin: 10px;
-        &:hover{
-          color: cyan;
+        &:hover {
+          color: inherit;
         }
         &.underlined::before{
           content: "";
@@ -64,6 +58,7 @@ main {
       margin-bottom: 2rem;
       text-align: center;
       &:hover{
+        color: inherit;
       }
     }
   }
@@ -77,10 +72,7 @@ main {
       height: 30%;
       align-items: center;
       .music-icon{
-        display: flex;
         margin: 4rem;
-        justify-content: center;
-        align-items: center;
         img{
           border-radius: 2rem;
           box-shadow: 10px 10px 15px black;
@@ -94,7 +86,6 @@ main {
         margin-bottom: auto;
         font-size: 4rem;
         text-shadow: 0 0 2rem #00efd1;
-        color: aliceblue;
       }
     }
     .items{
@@ -138,20 +129,12 @@ main {
     }
     .artist{
       grid-area: artist;
-      font-size: 1.5rem;
     }
     .album {
       grid-area: album;
-      font-size: 1.5rem;
     }
     .release-year {
       grid-area: year;
-      font-size: 1.5rem;
     }
   }
 }
-
-a {
-  text-decoration: none;
-}
-

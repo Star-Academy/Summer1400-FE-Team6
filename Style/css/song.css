@@ -85,29 +85,6 @@ body main {
   margin-top: 10rem;
 }
 
-.title {
-  margin: 2rem 0;
-}
-
-.progress {
-  background-color: white;
-  height: 5px;
-  border-radius: 999rem;
-  width: 100%;
-}
-
-.duration {
-  height: 5px;
-  width: 10%;
-  border-radius: 999rem;
-  background-image: linear-gradient(130deg, cyan, #00efd1, #12b2b2);
-}
-
-.timeline {
-  display: flex;
-  justify-content: space-between;
-}
-
 .song-item {
   display: flex;
   flex-flow: column wrap;
@@ -118,9 +95,29 @@ body main {
   background-color: rgba(0, 0, 0, 0.7);
   background-size: cover;
   border-radius: 10px;
-  border: 2px solid cyan;
+  border: 2px solid #00efd1;
   width: 70%;
   margin: 10px auto auto auto;
+}
+.song-item .title {
+  margin: 2rem 0;
+}
+.song-item .progress {
+  background-color: white;
+  height: 5px;
+  border-radius: 999rem;
+  width: 100%;
+}
+.song-item .duration {
+  height: 5px;
+  width: 0;
+  border-radius: 999rem;
+  background-image: linear-gradient(130deg, cyan, #00efd1, #12b2b2);
+}
+.song-item .timeline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .song-item .song-name {
   margin-top: 1vh;
@@ -151,9 +148,6 @@ body main {
 }
 .song-item .control input {
   display: none;
-}
-.song-item audio {
-  color: black;
 }
 
 @media screen and (min-width: 768px) {
