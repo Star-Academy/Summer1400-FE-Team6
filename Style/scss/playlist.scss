@@ -42,7 +42,7 @@ main {
         &:hover{
           color: cyan;
         }
-        &:first-child::before{
+        &.underlined::before{
           content: "";
           position: absolute;
           width: 100%;
