@@ -5,12 +5,27 @@ body {
 }
 
 header {
-  margin: 20px;
+  margin: 10px;
   @include global.flex();
 }
 
 main {
   @include global.flex();
+}
+
+.firstN-lastN {
+  @include global.flex();
+  justify-content: center;
+  margin-bottom: 2rem;
+  div {
+    @include global.flex();
+    flex-direction: column;
+    input{
+      width: 15vw;
+      margin: 0 2.5rem;
+      max-width: 200px;
+    }
+  }
 }
 
 form {
@@ -30,7 +45,7 @@ form {
   input {
     width: 40vw;
     max-width: 450px;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
     color: white;
     background-color: transparent;
     border: none;

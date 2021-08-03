@@ -20,6 +20,16 @@
     </a></header>
 <main>
     <form action="">
+        <div class="firstN-lastN">
+            <div>
+                <label for="fName">نام</label>
+                <input type="text" id="fName" name="fName" placeholder="نام">
+            </div>
+            <div>
+                <label for="lName">نام خانوادگی</label>
+                <input type="text" id="lName" name="lName" placeholder="نام خانوادگی">
+            </div>
+        </div>
         <label for="username">یورنیم</label>
         <input type="text" id="username" name="username" placeholder="spotify">
 
@@ -32,7 +42,7 @@
         <label for="confirm-pass">تایید پسورد</label>
         <input type=password id="confirm-pass" name="confirm-pass" placeholder="**********">
 
-        <input type="button" value="ثبت نام" onclick="document.location='playlist.html'">
+        <input type="button" value="ثبت نام" id="submit">
 
         <button onclick="document.location='login.html'" type="button">
             ورود
