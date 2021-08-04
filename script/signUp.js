@@ -7,9 +7,13 @@ let confirmPassword = document.getElementById("confirm-pass");
 let submitBtn = document.getElementById("submit");
 
 async function sginUp() {
+    let body = {username: username.value, email: email.value, password: password.value, firstName:firstName.value, lastName:lastName.value };
     let response = await fetch('http://130.185.120.192:5000/user/register', {
         method: 'POST',
-        body: JSON.stringify({username: username.value, email: email.value, password: password.value, firstName:firstName.value, lastName:lastName.value })
+        headers:{
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body)
     });
     if (response.ok) {
         //todo dont know
