@@ -77,10 +77,30 @@ ul {
 }
 
 html {
+  scroll-behavior: smooth;
   height: 100%;
 }
 html body {
   height: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #6f6f6f;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #d4d4d4;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: white;
 }
 
 main {
@@ -130,7 +150,7 @@ main .my-side-bar .options a.underlined::before {
   background: linear-gradient(130deg, #12b2b2, cyan);
 }
 main .my-side-bar .logout {
-  font-size: 13px;
+  font-size: 1.2rem;
   position: absolute;
   display: flex;
   align-items: center;
@@ -178,8 +198,8 @@ main .content .items {
 main .content .items .list-songs {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
-  margin-top: 10rem;
-  margin-bottom: 10rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
   padding: 2rem;
 }
 main .content .items .list-songs ul {
@@ -236,6 +256,96 @@ main .content .items .list-songs input + i {
 }
 main .content .items .list-songs input:checked + i {
   color: cyan;
+}
+
+.page-btn {
+  display: flex;
+  justify-content: center;
+}
+.page-btn button {
+  margin: 0 1rem;
+  padding: 1rem;
+  background-color: transparent;
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+}
+.page-btn button i {
+  margin: 0 0.5rem;
+}
+.page-btn button:hover {
+  cursor: pointer;
+  color: #00efd1;
+}
+
+.options-style {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+.options-style .view-options div {
+  display: inline;
+}
+.options-style .view-options label {
+  margin-right: 2rem;
+}
+.options-style .view-options select {
+  background-color: transparent;
+  border: white 1px solid;
+  border-radius: 5px;
+  color: white;
+  padding: 0.3rem;
+}
+.options-style .view-options select option {
+  color: black;
+}
+.options-style .search-options {
+  margin-left: 2rem;
+}
+.options-style .search-options button {
+  background-color: transparent;
+  font-size: 1.8rem;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+.options-style .search-options button:hover {
+  cursor: pointer;
+  color: #00efd1;
+}
+.options-style .search-options .search-container input {
+  background-color: transparent;
+  border: white 1px solid;
+  border-radius: 5px;
+  color: white;
+  padding: 0.3rem;
+}
+.options-style .search-options .search-container #number-relevant-results {
+  width: 3rem;
+  alignment: center;
+}
+
+.display-none {
+  display: none;
+}
+
+@media (max-width: 780px) {
+  .options-style {
+    flex-direction: column;
+    align-items: center;
+  }
+  .options-style div {
+    margin-bottom: 1rem;
+  }
+  .options-style .view-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .options-style .view-options div {
+    display: block;
+  }
 }
 
 /*# sourceMappingURL=playlist.css.map */

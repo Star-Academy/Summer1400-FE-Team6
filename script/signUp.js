@@ -17,9 +17,12 @@ async function sginUp() {
     });
     if (response.ok) {
         //todo dont know
-
         window.alert("ثبت نام شدید :)");
-        document.location = "login.html";
+        localStorage.setItem("id", responseJson.id)
+        localStorage.setItem("token", responseJson.token);
+        localStorage.setItem("isLogin", "true");
+        console.log(localStorage.getItem('id'))
+        document.location = "playlist.html";
     }
     else {
 
