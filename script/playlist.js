@@ -163,14 +163,28 @@ function displayManager() {
     displaySongs(requestedSongs.slice(startIndex, endIndex));
   }
   pagingBtnController();
+  attachListener();
+}
+
+function attachListener() {
+  const songElements = document.querySelectorAll(".song-item");
+  songElements.forEach((el) =>
+    el.addEventListener("click", redirectToSongPage)
+  );
+}
+
+function redirectToSongPage() {
+  const songId = this.id;
+  const urlParams = new URLSearchParams();
+  urlParams.append("id", songId);
+  location.href = "song.html?" + urlParams.toString();
 }
 
 function pagingBtnController() {
-  prevPageBtn.style.display = pagingOptions.current === 1 ? "none" : "initial";
+  prevPageBtn.disabled = pagingOptions.current === 1;
   if (isInSearchMode) {
-    if (pagingOptions.current * pagingOptions.size >= requestedSongs.length)
-      nextPageBtn.style.display = "none";
-    else nextPageBtn.style.display = "initial";
+    nextPageBtn.disabled =
+      pagingOptions.current * pagingOptions.size >= requestedSongs.length;
   }
 }
 
@@ -190,7 +204,7 @@ function createTemplate(song) {
 }
 
 function createStringTemplate(song) {
-  return ` <li>
+  return ` <li class="song-item" id="${song.id}">
                         <a href="#">
                             <img src="${song.cover}" alt="cover" class="cover">
                             <span class="song-name">${song.name}</span>

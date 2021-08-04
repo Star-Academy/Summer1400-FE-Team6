@@ -7,15 +7,27 @@ const cover = document.getElementById("cover");
 
 const currTime = document.getElementById("currTime");
 
-const songs = "zolf-namjoo";
+const baseUrl = "http://130.185.120.192:5000/song/one/";
 
-function loadSong(song) {
-  title.innerText = song;
-  audio.src = `../assets/music/${song}.mp3`;
-  cover.src = `../assets/music/cover/${song}.png`;
+let song;
+
+loadSong();
+
+function loadSong() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const songId = urlParams.get("id");
+  fetchSong(songId);
 }
 
-loadSong(songs);
+async function fetchSong(songId) {
+  response = await fetch(baseUrl + songId);
+  if (response.ok) {
+    song = await response.json().then((json) => json.song);
+    title.innerText = song.name;
+    audio.src = song.file;
+    cover.src = song.cover;
+  }
+}
 
 function playSong() {
   document.querySelector(".far").classList.remove("fa-play-circle");
