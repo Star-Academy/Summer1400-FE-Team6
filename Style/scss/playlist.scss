@@ -94,47 +94,70 @@ main {
       display: flex;
       flex-direction: column;
       flex-grow: 1;
-      .song-item{
-        display: grid;
-        grid-template-areas: "song album year favorite" "artist album year favorite";
-        align-items: center;
-        margin: 4rem;
-        cursor: initial;
-        color: aliceblue;
-        border-right: 2px ridge cyan;
-        border-bottom: 1px ridge cyan;
-        border-radius: 0 0 2rem 2rem;
-        padding-right: 2rem;
-        &:hover {
-          background-color: #111010;
-          border: 2px ridge cyan;
+      .list-songs {
+        height: 100%;
+        background-color: rgba(0,0,0, 0.7);
+        margin-top: 10rem;
+        margin-bottom: 10rem;
+        padding: 2rem;
+        ul {
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          column-gap: 1rem;
+          justify-items: center;
+          row-gap: 5rem;
+        ;
+        }
+        li {
+          width: 20rem;
+          background-color: global.$carbon_black;
+          position: relative;
+          padding: 1rem;
+          padding-top: 2rem;
+          border-radius: 1rem;
+          transition: transform 500ms;
+          //border-top: 1rem solid silver;
+          &:hover {
+            transform: scale(1.05, 1.05);
+          }
+          a{
+            height: 100%;
+            cursor: default;
+            &:hover {
+              color: inherit;
+            }
+            display: flex;
+            flex-direction: column;
+            img {
+              width: 20rem;
+              height: 20rem;
+            }
+            .song-name {
+              font-size: 2rem;
+            }
+            .row-2 {
+              margin-top: auto;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              label {
+                margin-left: 1rem;
+              }
+              margin-bottom: 1rem;
+            }
+          }
+        }
+        input {
+          display: none;
+          +i {
+            cursor: pointer;
+            transition: color 0.25s ease-in-out;
+          }
+          &:checked + i{
+            color: cyan;
+          }
         }
       }
-    }
-    .custom-checkbox {
-      grid-area: favorite;
-      input {
-        display: none;
-        + i {
-          cursor: pointer;
-        }
-        &:checked + i {
-          color: cyan;
-        }
-      }
-    }
-    .song-name{
-      grid-area: song;
-      font-size: 2rem;
-    }
-    .artist{
-      grid-area: artist;
-    }
-    .album {
-      grid-area: album;
-    }
-    .release-year {
-      grid-area: year;
     }
   }
 }

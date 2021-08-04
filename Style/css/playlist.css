@@ -175,46 +175,67 @@ main .content .items {
   flex-direction: column;
   flex-grow: 1;
 }
-main .content .items .song-item {
+main .content .items .list-songs {
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+  padding: 2rem;
+}
+main .content .items .list-songs ul {
   display: grid;
-  grid-template-areas: "song album year favorite" "artist album year favorite";
-  align-items: center;
-  margin: 4rem;
-  cursor: initial;
-  color: aliceblue;
-  border-right: 2px ridge cyan;
-  border-bottom: 1px ridge cyan;
-  border-radius: 0 0 2rem 2rem;
-  padding-right: 2rem;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 1rem;
+  justify-items: center;
+  row-gap: 5rem;
 }
-main .content .items .song-item:hover {
+main .content .items .list-songs li {
+  width: 20rem;
   background-color: #111010;
-  border: 2px ridge cyan;
+  position: relative;
+  padding: 1rem;
+  padding-top: 2rem;
+  border-radius: 1rem;
+  transition: transform 500ms;
 }
-main .content .custom-checkbox {
-  grid-area: favorite;
+main .content .items .list-songs li:hover {
+  transform: scale(1.05, 1.05);
 }
-main .content .custom-checkbox input {
-  display: none;
+main .content .items .list-songs li a {
+  height: 100%;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
 }
-main .content .custom-checkbox input + i {
-  cursor: pointer;
+main .content .items .list-songs li a:hover {
+  color: inherit;
 }
-main .content .custom-checkbox input:checked + i {
-  color: cyan;
+main .content .items .list-songs li a img {
+  width: 20rem;
+  height: 20rem;
 }
-main .content .song-name {
-  grid-area: song;
+main .content .items .list-songs li a .song-name {
   font-size: 2rem;
 }
-main .content .artist {
-  grid-area: artist;
+main .content .items .list-songs li a .row-2 {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
 }
-main .content .album {
-  grid-area: album;
+main .content .items .list-songs li a .row-2 label {
+  margin-left: 1rem;
 }
-main .content .release-year {
-  grid-area: year;
+main .content .items .list-songs input {
+  display: none;
+}
+main .content .items .list-songs input + i {
+  cursor: pointer;
+  transition: color 0.25s ease-in-out;
+}
+main .content .items .list-songs input:checked + i {
+  color: cyan;
 }
 
 /*# sourceMappingURL=playlist.css.map */
