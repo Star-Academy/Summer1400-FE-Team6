@@ -9,7 +9,7 @@ async function login() {
     if (re.test(email.value)) {
         body = {email: email.value, password: password.value};
     } else {
-        body = {email: email.value, password: password.value};
+        body = {username: email.value, password: password.value};
     }
 
     let response = await fetch('http://130.185.120.192:5000/user/login', {
