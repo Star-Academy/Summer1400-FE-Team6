@@ -37,7 +37,7 @@ body {
 }
 
 a {
-  color: aliceblue;
+  color: #f0f8ff;
   text-decoration: none;
 }
 a:hover {
@@ -74,6 +74,10 @@ footer {
 
 ul {
   list-style: none;
+}
+
+button {
+  cursor: pointer;
 }
 
 .banner {

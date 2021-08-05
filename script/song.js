@@ -41,7 +41,7 @@ function updateProgress(e) {
 function timeFixer(time) {
   let min = time / 60;
   let sec = time % 60;
-  currTime.innerText = "" + min.toFixed(0) + ":" + sec;
+  currTime.innerText = `${min.toFixed(0)}:${sec}`;
 }
 
 playBtn.addEventListener("click", () => {
