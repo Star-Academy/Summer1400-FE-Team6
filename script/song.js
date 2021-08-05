@@ -4,6 +4,7 @@ const audio = document.getElementById("audio");
 const progress = document.getElementById("progress");
 const title = document.getElementById("title");
 const cover = document.getElementById("cover");
+const artist = document.querySelector(".artist");
 
 const currTime = document.getElementById("currTime");
 
@@ -13,10 +14,11 @@ let song;
 
 loadSong();
 
-function loadSong() {
+async function loadSong() {
   const urlParams = new URLSearchParams(window.location.search);
   const songId = urlParams.get("id");
-  fetchSong(songId);
+  await fetchSong(songId);
+  document.querySelector("title").textContent = song.name;
 }
 
 async function fetchSong(songId) {
@@ -26,6 +28,7 @@ async function fetchSong(songId) {
     title.innerText = song.name;
     audio.src = song.file;
     cover.src = song.cover;
+    artist.textContent = song.artist;
   }
 }
 

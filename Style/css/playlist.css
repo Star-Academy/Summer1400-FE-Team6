@@ -204,7 +204,6 @@ main .content .items .list-songs {
 }
 main .content .items .list-songs ul {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
   column-gap: 1rem;
   justify-items: center;
   row-gap: 5rem;
@@ -212,7 +211,6 @@ main .content .items .list-songs ul {
 main .content .items .list-songs li {
   width: 20rem;
   background-color: #111010;
-  position: relative;
   padding: 1rem;
   padding-top: 2rem;
   border-radius: 1rem;
@@ -247,15 +245,9 @@ main .content .items .list-songs li a .row-2 {
 main .content .items .list-songs li a .row-2 label {
   margin-left: 1rem;
 }
-main .content .items .list-songs input {
-  display: none;
-}
-main .content .items .list-songs input + i {
+main .content .items .list-songs i {
   cursor: pointer;
   transition: color 0.25s ease-in-out;
-}
-main .content .items .list-songs input:checked + i {
-  color: cyan;
 }
 
 .page-btn {
@@ -345,6 +337,21 @@ main .content .items .list-songs input:checked + i {
   }
   .options-style .view-options div {
     display: block;
+  }
+}
+@media screen and (min-width: 480px) {
+  .list-songs ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 768px) {
+  .list-songs ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (min-width: 992px) {
+  .list-songs ul {
+    grid-template-columns: repeat(5, 1fr);
   }
 }
 
