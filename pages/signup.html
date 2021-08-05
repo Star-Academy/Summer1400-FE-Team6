@@ -2,54 +2,43 @@
 <html lang="en" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>زلف</title>
+    <title>ثبت نام</title>
+
     <meta name="description" content="Music player app">
     <meta name="keywords" content="MUSIC, MUSIC PLAYER, APP, CODE-STAR, HTML, CSS, JavaScript, SCSS, Angular">
     <meta name="author" content="SALEH, HESAM">
-    <meta
-            name="viewport"
-            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-    />
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <link rel="stylesheet" href="Style/css/song.css">
-    <script src="https://kit.fontawesome.com/c36f77d407.js" crossorigin="anonymous"></script>
-    <script src="script/song.js" defer></script>
+    <link rel="stylesheet" href="../Style/css/signup.css">
+
 </head>
 <body>
-
+<header>
+    <a href="index.html" class="home">
+        <img src="../assets/images/logo.png" alt="logo" class="logo">
+    </a></header>
 <main>
-    <div class="song-item">
-        <h2 class="title">
-            <a href="playlist.html">
-                بازگشت به پلی لیست ↩
-            </a>
-        </h2>
-        <img src="assets/pic/album-cover.jpeg" alt="music cover picture" class="cover" id="cover">
-        <h2 class="song-name" id="title">زلف</h2>
-        <h3 class="artist">محسن نامجو</h3>
-            <h4 class="album">ترنج</h4>
-            <h4 class="release-date">۱۳۸۶</h4>
-        <div class="control">
-            <label>
-                <input type="checkbox" id="play" checked>
-                <i class="far fa-pause-circle fa-2x"></i>
-            </label>
-            <div class="timeline">
-                <div id="currTime">2:15</div>
-                <div id="durTime">4:55</div>
-            </div>
-            <div class="progress">
-                <div class="duration" id="progress"></div>
-            </div>
+    <form action="">
+        <label for="username">یورنیم</label>
+        <input type="text" id="username" name="username" placeholder="spotify">
 
-            <audio id="audio" controls autoplay hidden>
-                <source src="assets/music/zolf-namjoo.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-        </div>
-    </div>
+        <label for="email">ایمیل</label>
+        <input type="email" id="email" name="email" placeholder="test@test.com">
+
+        <label for="password">پسورد</label>
+        <input type="password" id="password" name="password" pattern="" placeholder="**********">
+
+        <label for="confirm-pass">تایید پسورد</label>
+        <input type=password id="confirm-pass" name="confirm-pass" placeholder="**********">
+
+        <input type="button" value="ثبت نام" onclick="document.location='playlist.html'">
+
+        <button onclick="document.location='login.html'" type="button">
+            ورود
+        </button>
+    </form>
 </main>
-</body>
 <footer>
     <div class="copyright">تمام حقوق سایت محفوظ است.</div>
     <div class="social">
@@ -70,7 +59,6 @@
             </svg>
             </a>
         </div>
-
         <div class="socialMediaIcons">
             <a href="http://www.instagram.com" target="_blank">
                 <svg class="gradient" width="100%" height="100%" viewBox="0 0 500 500" version="1.1"
@@ -138,4 +126,5 @@
         </ul>
     </div>
 </footer>
+</body>
 </html>

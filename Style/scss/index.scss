@@ -1,6 +1,12 @@
 @use "global";
 
 
+body{
+  background-image: url("../../assets/images/index-bg.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
 .banner {
   position: relative;
   height: 80vh;

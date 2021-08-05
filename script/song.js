@@ -31,7 +31,7 @@ function pauseSong() {
 
 // Update progress bar
 function updateProgress(e) {
-  const { duration, currentTime } = e.srcElement;
+  const { duration, currentTime } = e.target;
   let curr = currentTime;
   const progressPercent = (currentTime / duration) * 100;
   timeFixer(curr.toFixed(0));
