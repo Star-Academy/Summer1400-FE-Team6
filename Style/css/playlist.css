@@ -106,7 +106,7 @@ html body {
 main {
   display: grid;
   height: 100%;
-  grid-template-columns: 15% auto;
+  grid-template-columns: 25rem auto;
 }
 main .my-side-bar {
   background: #111010;
@@ -165,11 +165,13 @@ main .content {
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
+  min-width: max-content;
 }
 main .content .playlist-header {
+  width: 100%;
   display: flex;
   background-image: url("../../assets/pic/background_main.jpg");
-  height: 30%;
+  height: 25rem;
   align-items: center;
 }
 main .content .playlist-header .music-icon {
@@ -182,9 +184,7 @@ main .content .playlist-header .music-icon img {
   height: 200px;
 }
 main .content .playlist-header h1 {
-  margin-right: 2vw;
-  margin-top: auto;
-  margin-bottom: auto;
+  margin: auto 2rem auto 2rem;
   font-size: 4rem;
   text-shadow: 0 0 2rem #00efd1;
 }
@@ -204,7 +204,8 @@ main .content .items .list-songs {
 }
 main .content .items .list-songs ul {
   display: grid;
-  column-gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 2rem;
   justify-items: center;
   row-gap: 5rem;
 }
@@ -242,8 +243,8 @@ main .content .items .list-songs li a .row-2 {
   align-items: center;
   margin-bottom: 1rem;
 }
-main .content .items .list-songs li a .row-2 label {
-  margin-left: 1rem;
+main .content .items .list-songs li a .row-2 .liked {
+  color: cyan;
 }
 main .content .items .list-songs i {
   cursor: pointer;
@@ -266,9 +267,11 @@ main .content .items .list-songs i {
 .page-btn button i {
   margin: 0 0.5rem;
 }
-.page-btn button:hover {
+.page-btn button:enabled:hover {
   cursor: pointer;
-  color: #00efd1;
+}
+.page-btn button:disabled {
+  opacity: 0.2;
 }
 
 .options-style {
@@ -322,35 +325,13 @@ main .content .items .list-songs i {
   display: none;
 }
 
-@media (max-width: 780px) {
-  .options-style {
-    flex-direction: column;
-    align-items: center;
-  }
-  .options-style div {
-    margin-bottom: 1rem;
-  }
-  .options-style .view-options {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .options-style .view-options div {
-    display: block;
-  }
-}
-@media screen and (min-width: 480px) {
-  .list-songs ul {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 @media screen and (min-width: 768px) {
-  .list-songs ul {
+  main .content .items .list-songs ul {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 @media screen and (min-width: 992px) {
-  .list-songs ul {
+  main .content .items .list-songs ul {
     grid-template-columns: repeat(5, 1fr);
   }
 }

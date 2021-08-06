@@ -1,31 +1,5 @@
-// const allSongs = document.querySelector(".all-songs");
-// const favoriteSongs = document.querySelector(".favorite-songs");
-// const options = document.querySelectorAll(".options > a");
-// const listSongs = document.querySelectorAll(".items li");
-// options.forEach((option) => option.addEventListener("click", changeUnderline));
-// favoriteSongs.addEventListener("click", filter);
-// allSongs.addEventListener("click", removfilterSeeFilter);
-// function removeFilter() {
-//   document.querySelector(".playlist-header h1").innerHTML = "همه آهنگ ها";
-//   document.querySelector(".music-icon img").src =
-//     "../assets/pic/music_note.jpg";
-//   listSongs.forEach((song) => (song.style.display = "initial"));
-// }
-
-// function filter() {
-//   document.querySelector(".playlist-header h1").innerHTML =
-//     "آهنگ های مورد علاقه";
-//   document.querySelector(".music-icon img").src =
-//     "../assets/pic/favorite_header.jpg";
-//   listSongs.forEach((song) => {
-//     if (!song.querySelector("input").checked) song.style.display = "none";
-//   });
-// }
-//
-// function changeUnderline() {
-//   options.forEach((option) => option.classList.remove("underlined"));
-//   this.classList.add("underlined");
-// }
+import { availableSongs, setAvailableSongs } from "./data.js";
+import { displaySongs } from "./utils.js";
 
 let filterSearch = document.getElementById("filter-search");
 
@@ -40,7 +14,6 @@ const pagingOptions = {
 };
 
 let isInSearchMode = false;
-let requestedSongs;
 
 requestManager();
 
@@ -139,10 +112,6 @@ function nextPage() {
   }
 }
 
-function clearList() {
-  document.querySelector(".items ul").innerHTML = null;
-}
-
 async function fetchSongs(url, body) {
   const serverResponse = await fetch(url, {
     method: "POST",
@@ -152,83 +121,28 @@ async function fetchSongs(url, body) {
     body: JSON.stringify(body),
   });
   if (serverResponse.ok) {
-    jsonResponse = await serverResponse.json();
-    requestedSongs = jsonResponse.songs;
+    const jsonResponse = await serverResponse.json();
+    setAvailableSongs(jsonResponse.songs);
     displayManager();
   }
 }
 
 function displayManager() {
-  if (!isInSearchMode) displaySongs(requestedSongs);
+  if (!isInSearchMode) displaySongs(availableSongs);
   else {
-    startIndex = (pagingOptions.current - 1) * pagingOptions.size;
-    endIndex = startIndex + pagingOptions.size;
-    displaySongs(requestedSongs.slice(startIndex, endIndex));
+    const startIndex = (pagingOptions.current - 1) * pagingOptions.size;
+    const endIndex = startIndex + pagingOptions.size;
+    displaySongs(availableSongs.slice(startIndex, endIndex));
   }
   pagingBtnController();
-  attachListener();
-}
-
-function attachListener() {
-  const songElements = document.querySelectorAll(".song-item");
-  songElements.forEach((el) => {
-    el.addEventListener("click", redirectToSongPage);
-    el.querySelector(".fa-heart").addEventListener("click", likeSong);
-  });
-}
-
-function redirectToSongPage() {
-  const songId = this.id;
-  const urlParams = new URLSearchParams();
-  urlParams.append("id", songId);
-  location.href = "song.html?" + urlParams.toString();
 }
 
 function pagingBtnController() {
   prevPageBtn.disabled = pagingOptions.current === 1;
   if (isInSearchMode) {
     nextPageBtn.disabled =
-      pagingOptions.current * pagingOptions.size >= requestedSongs.length;
+      pagingOptions.current * pagingOptions.size >= availableSongs.length;
   }
-}
-
-function displaySongs(songs) {
-  let listSongs = songs.map(createTemplate);
-  clearList();
-  listSongs.forEach((song) =>
-    document.querySelector(".items ul").appendChild(song)
-  );
-}
-
-function createTemplate(song) {
-  templateString = createStringTemplate(song);
-  DOMTemplate = document.createElement("template");
-  DOMTemplate.innerHTML = templateString;
-  return DOMTemplate.content;
-}
-
-function createStringTemplate(song) {
-  return ` <li class="song-item" id="${song.id}">
-                        <a href="#">
-                            <img src="${song.cover}" alt="cover" class="cover">
-                            <span class="song-name">${song.name}</span>
-                            <span class="row-2">
-                                <span class="artist">${song.artist}</span>
-                            <i class="fas fa-heart fa-lg""></i>
-                            </span>
-                        </a>
-                    </li>`;
-}
-
-function likeSong(event) {
-  if (this.classList.contains("liked")) {
-    this.classList.remove("liked");
-    this.style = null;
-  } else {
-    this.classList.add("liked");
-    this.style.color = "cyan";
-  }
-  event.stopPropagation();
 }
 
 filterSearch.addEventListener("click", () => {
