@@ -89,7 +89,7 @@ body {
 .banner {
   position: relative;
   height: 80vh;
-  font-size: 8rem;
+  font-size: 4rem;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -141,7 +141,7 @@ video {
 
 @media (max-width: 780px) {
   .banner {
-    font-size: 4rem;
+    font-size: 2rem;
   }
 }
 
