@@ -3,7 +3,6 @@ let lastName = document.getElementById("lName");
 let username = document.getElementById("username");
 let email = document.getElementById("email");
 let password = document.getElementById("password");
-let confirmPassword = document.getElementById("confirm-pass");
 let submitBtn = document.getElementById("submit");
 
 async function sginUp() {
@@ -37,12 +36,8 @@ async function sginUp() {
 }
 
 submitBtn.addEventListener("click", () => {
-    if (username.value && email.value && password.value && confirmPassword.value && firstName.value && lastName.value){
-        if (password.value === confirmPassword.value){
+    if (username.value && email.value && password.value && firstName.value && lastName.value){
             sginUp();
-        }else {
-            window.alert("پسورد های وارد شده برابر نیست!");
-        }
     }else {
         window.alert("فیلد ها خالی است !");
     }

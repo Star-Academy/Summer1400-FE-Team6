@@ -1,0 +1,147 @@
+@font-face {
+  font-family: vaziri;
+  src: url("../../assets/fonts/Vazir.ttf");
+}
+html {
+  font-size: 62.5%;
+}
+
+* {
+  font-family: vaziri, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-size: 1.5rem;
+  color: aliceblue;
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  top: 0;
+  padding: 1.5rem 5rem;
+  background-color: #111010;
+}
+
+.logo {
+  width: 8rem;
+}
+
+.nav-bar li {
+  padding: 1rem;
+  display: inline;
+}
+
+a {
+  color: aliceblue;
+  text-decoration: none;
+}
+a:hover {
+  color: #00efd1;
+}
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #111010;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+}
+
+.links li {
+  padding-left: 1rem;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+}
+.social .socialMediaIcons {
+  margin: 0 1rem;
+}
+.social .socialMediaIcons svg {
+  width: 40px;
+  margin: 5px;
+  vertical-align: middle;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  background-image: url("../../assets/images/index-bg.jpg");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+}
+
+.banner {
+  position: relative;
+  height: 80vh;
+  font-size: 6rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.79);
+}
+.banner button {
+  background-color: white;
+  font-size: 2rem;
+  color: black;
+  padding: 0.8rem;
+  width: 8vw;
+  min-width: 17rem;
+  border-radius: 10px;
+  border: 3px solid white;
+}
+.banner button:hover {
+  background-color: #00efd1;
+  border-color: #00efd1;
+  cursor: pointer;
+}
+
+a:link {
+  color: white;
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+  color: #00efd1;
+}
+
+video {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+@media (max-width: 780px) {
+  .banner {
+    font-size: 3rem;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */
