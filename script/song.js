@@ -12,6 +12,14 @@ const baseUrl = "http://130.185.120.192:5000/song/one/";
 
 let song;
 
+function loginStatus(){
+  if(localStorage.getItem("isLogin") === "false"){
+    document.location = "login.html";
+  }
+}
+
+loginStatus();
+
 loadSong();
 
 async function loadSong() {

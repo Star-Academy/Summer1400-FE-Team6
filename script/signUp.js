@@ -5,6 +5,14 @@ let email = document.getElementById("email");
 let password = document.getElementById("password");
 let submitBtn = document.getElementById("submit");
 
+function loginStatus(){
+    if(localStorage.getItem("isLogin") === "true"){
+        document.location = "playlist.html";
+    }
+}
+
+loginStatus();
+
 async function sginUp() {
     let body = {username: username.value, email: email.value, password: password.value, firstName:firstName.value, lastName:lastName.value };
     let response = await fetch('http://130.185.120.192:5000/user/register', {

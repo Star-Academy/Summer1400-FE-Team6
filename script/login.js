@@ -3,6 +3,14 @@ let password = document.getElementById("password");
 let submitBtn = document.getElementById("submit");
 const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
+function loginStatus(){
+    if(localStorage.getItem("isLogin") === "true"){
+        document.location = "playlist.html";
+    }
+}
+
+loginStatus();
+
 async function login() {
     let body;
 

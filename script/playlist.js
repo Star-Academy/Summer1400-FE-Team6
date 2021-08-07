@@ -2,9 +2,18 @@ import { availableSongs, setAvailableSongs } from "./data.js";
 import { displaySongs } from "./utils.js";
 
 let filterSearch = document.getElementById("filter-search");
+let logout = document.getElementById("logout");
 
 const pagingUrl = "http://130.185.120.192:5000/song/page";
 const searchUrl = "http://130.185.120.192:5000/song/find";
+
+function loginStatus(){
+  if(localStorage.getItem("isLogin") === "false"){
+    document.location = "login.html";
+  }
+}
+
+loginStatus();
 
 const retrieveLastPage = () =>
   sessionStorage.getItem("lastPage")
@@ -155,4 +164,10 @@ function pagingBtnController() {
 filterSearch.addEventListener("click", () => {
   document.querySelector(".search-btn").classList.add("display-none");
   document.querySelector(".search-container").classList.remove("display-none");
+});
+
+logout.addEventListener("click", () => {
+  localStorage.clear();
+  localStorage.setItem("isLogin", "false");
+  document.location = "index.html";
 });
