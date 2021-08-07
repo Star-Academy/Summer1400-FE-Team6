@@ -1,5 +1,8 @@
 import { favoriteSongs, availableSongs } from "./data.js";
 
+const HEART_SRC = "../assets/svg/Love_Heart_SVG.svg";
+const LIKED_HEART_SRC = "../assets/svg/Love_Heart_Liked.svg";
+
 function displaySongs(songs) {
   let listSongs = songs.map(createTemplate);
   clearList();
@@ -23,16 +26,16 @@ function createStringTemplate(song) {
                             <span class="song-name">${song.name}</span>
                             <span class="row-2">
                                 <span class="artist">${song.artist}</span>
-                            <i class="fas fa-heart fa-lg ${isFavorite(
-                              song.id
-                            )}""></i>
+                            <img src="${
+                              isFavorite(song.id) ? LIKED_HEART_SRC : HEART_SRC
+                            }" alt="like-icon" class="like-icon">
                             </span>
                         </a>
                     </li>`;
 }
 
 function isFavorite(id) {
-  return favoriteSongs.some((song) => song.id === id) ? "liked" : "";
+  return favoriteSongs.some((song) => song.id == id);
 }
 
 function clearList() {
@@ -43,18 +46,19 @@ function attachListener() {
   const songElements = document.querySelectorAll(".song-item");
   songElements.forEach((el) => {
     el.addEventListener("click", redirectToSongPage);
-    el.querySelector(".fa-heart").addEventListener("click", toggleLike);
+    el.querySelector(".like-icon").addEventListener("click", toggleLike);
   });
 }
 
 function toggleLike(event) {
   const id = this.closest("li").id;
   const song = availableSongs.find((song) => song.id == id);
-  if (this.classList.contains("liked")) {
-    this.classList.remove("liked");
+  if (isFavorite(id)) {
+    console.log("what");
+    this.setAttribute("src", HEART_SRC);
     removeFromFavorite(song);
   } else {
-    this.classList.add("liked");
+    this.setAttribute("src", LIKED_HEART_SRC);
     addToFavorites(song);
   }
   event.stopPropagation();

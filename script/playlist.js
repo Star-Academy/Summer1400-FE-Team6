@@ -6,9 +6,14 @@ let filterSearch = document.getElementById("filter-search");
 const pagingUrl = "http://130.185.120.192:5000/song/page";
 const searchUrl = "http://130.185.120.192:5000/song/find";
 
+const retrieveLastPage = () =>
+  sessionStorage.getItem("lastPage")
+    ? parseInt(sessionStorage.getItem("lastPage"))
+    : 1;
+
 const pagingOptions = {
   size: 10,
-  current: 1,
+  current: retrieveLastPage(),
   sorter: null,
   desc: false,
 };
@@ -101,6 +106,7 @@ function prevPage() {
   } else {
     displayManager();
   }
+  sessionStorage.setItem("lastPage", pagingOptions.current.toString());
 }
 
 function nextPage() {
@@ -110,6 +116,7 @@ function nextPage() {
   } else {
     displayManager();
   }
+  sessionStorage.setItem("lastPage", pagingOptions.current.toString());
 }
 
 async function fetchSongs(url, body) {

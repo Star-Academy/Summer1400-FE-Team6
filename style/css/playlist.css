@@ -88,7 +88,7 @@ html body {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 15px;
 }
 
 /* Track */
@@ -143,7 +143,14 @@ main .my-side-bar .options a {
 main .my-side-bar .options a:hover {
   color: inherit;
 }
-main .my-side-bar .options a.underlined::before {
+main .my-side-bar .options a:not(.underlined)::before {
+  transition: 0.5s transform ease-in-out;
+  transform: scaleX(0);
+}
+main .my-side-bar .options a:not(.underlined):hover::before {
+  transform: scaleX(1);
+}
+main .my-side-bar .options a::before {
   content: "";
   position: absolute;
   width: 100%;
@@ -154,12 +161,11 @@ main .my-side-bar .options a.underlined::before {
 }
 main .my-side-bar .logout {
   font-size: 1.2rem;
-  position: absolute;
   display: flex;
   align-items: center;
-  bottom: 20%;
-  margin-bottom: 2rem;
   text-align: center;
+  margin-top: auto;
+  margin-bottom: 15rem;
 }
 main .my-side-bar .logout:hover {
   color: inherit;
@@ -168,31 +174,33 @@ main .content {
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
-  min-width: max-content;
+  min-width: fit-content;
 }
 main .content .playlist-header {
   width: 100%;
   display: flex;
-  background-image: url("../../assets/images/background_main.jpg");
-  height: 25rem;
+  flex-shrink: 0;
+  background-image: linear-gradient(to top right, #098080, #111010, #000000);
+  height: 20rem;
   align-items: center;
+  border-bottom: 2px ridge cyan;
 }
 main .content .playlist-header .music-icon {
-  margin: 4rem;
+  margin: 2rem;
 }
 main .content .playlist-header .music-icon img {
   border-radius: 2rem;
   box-shadow: 10px 10px 15px black;
-  width: 200px;
-  height: 200px;
+  width: 10rem;
 }
 main .content .playlist-header h1 {
   margin: auto 2rem auto 2rem;
   font-size: 4rem;
-  text-shadow: 0 0 2rem #00efd1;
+  min-width: max-content;
 }
 main .content .items {
-  background-image: linear-gradient(to top right, #098080, #111010, #000000);
+  background-image: linear-gradient(to top right, #1a1a1a, #111010, black);
+  padding-top: 2rem;
   padding-bottom: 5rem;
   display: flex;
   flex-direction: column;
@@ -206,15 +214,14 @@ main .content .items .list-songs {
   padding: 2rem;
 }
 main .content .items .list-songs ul {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 2rem;
-  justify-items: center;
-  row-gap: 5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 main .content .items .list-songs li {
   width: 20rem;
   background-color: #111010;
+  margin: 3rem;
   padding: 1rem;
   padding-top: 2rem;
   border-radius: 1rem;
@@ -246,8 +253,10 @@ main .content .items .list-songs li a .row-2 {
   align-items: center;
   margin-bottom: 1rem;
 }
-main .content .items .list-songs li a .row-2 .liked {
-  color: cyan;
+main .content .items .list-songs li a .row-2 img {
+  height: 2rem;
+  width: auto;
+  cursor: pointer;
 }
 main .content .items .list-songs i {
   cursor: pointer;
@@ -326,17 +335,6 @@ main .content .items .list-songs i {
 
 .display-none {
   display: none;
-}
-
-@media screen and (min-width: 768px) {
-  main .content .items .list-songs ul {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-@media screen and (min-width: 992px) {
-  main .content .items .list-songs ul {
-    grid-template-columns: repeat(5, 1fr);
-  }
 }
 
 /*# sourceMappingURL=playlist.css.map */
