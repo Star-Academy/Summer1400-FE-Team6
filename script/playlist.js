@@ -120,7 +120,7 @@ function changeSorter(event) {
     case "artist":
       pagingOptions.sorter = "artist";
       break;
-    case "song-name":
+    case "name":
       pagingOptions.sorter = "name";
   }
   requestManager();
