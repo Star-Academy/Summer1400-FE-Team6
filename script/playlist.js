@@ -13,23 +13,14 @@ function loginStatus(){
   }
 }
 
-loginStatus();
-
-const retrieveLastPage = () =>
-  sessionStorage.getItem("lastPage")
-    ? parseInt(sessionStorage.getItem("lastPage"))
-    : 1;
-
-const pagingOptions = {
+let pagingOptions = {
   size: 10,
-  current: retrieveLastPage(),
+  current: 1,
   sorter: null,
   desc: false,
 };
 
 let isInSearchMode = false;
-
-requestManager();
 
 const nextPageBtn = document.querySelector("#next-page");
 const prevPageBtn = document.querySelector("#prev-page");
@@ -54,7 +45,14 @@ const numberRelevantResultsSelector = document.querySelector(
 
 searchForm.addEventListener("submit", performSearch);
 
+
+loginStatus();
+retrieveState();
+requestManager();
+
+
 function requestManager() {
+  saveState();
   let body;
   let url;
   if (isInSearchMode) {
@@ -70,6 +68,32 @@ function requestManager() {
     body = pagingOptions;
   }
   fetchSongs(url, body);
+}
+
+function saveState() {
+  const state = {
+    isInSearchMode: isInSearchMode,
+    phrase: searchBox.value,
+    pagingOptions: pagingOptions
+  }
+  sessionStorage.setItem("state", JSON.stringify(state))
+}
+
+function retrieveState() {
+  const state = sessionStorage.getItem("state")
+  if (state) {
+    const stateObj = JSON.parse(state);
+    isInSearchMode = stateObj.isInSearchMode;
+    searchBox.value = stateObj.phrase;
+    pagingOptions = stateObj.pagingOptions;
+    retrieveViews();
+  }
+}
+
+function retrieveViews() {
+  pageSizeSelector.value = pagingOptions.size.toString()
+  pageSortOrderSelector.value = pagingOptions.desc ? "descending" : "ascending"
+  pageSorterSelector.value = pagingOptions.sorter ? pagingOptions.sorter.toString() : "date";
 }
 
 function performSearch(event) {
@@ -129,17 +153,21 @@ function nextPage() {
 }
 
 async function fetchSongs(url, body) {
-  const serverResponse = await fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(body),
-  });
-  if (serverResponse.ok) {
-    const jsonResponse = await serverResponse.json();
-    setAvailableSongs(jsonResponse.songs);
-    displayManager();
+  try {
+    const serverResponse = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+    if (serverResponse.ok) {
+      const jsonResponse = await serverResponse.json();
+      setAvailableSongs(jsonResponse.songs);
+      displayManager();
+    }
+  } catch (e) {
+    console.log(e)
   }
 }
 
