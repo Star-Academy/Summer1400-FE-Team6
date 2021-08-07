@@ -7,6 +7,7 @@ const cover = document.getElementById("cover");
 const artist = document.querySelector(".artist");
 
 const currTime = document.getElementById("currTime");
+const durTime = document.getElementById("durTime");
 
 const baseUrl = "http://130.185.120.192:5000/song/one/";
 
@@ -54,17 +55,21 @@ function pauseSong() {
 
 // Update progress bar
 function updateProgress(e) {
-  const { duration, currentTime } = e.srcElement;
+  const { duration, currentTime } = e.target;
   let curr = currentTime;
   const progressPercent = (currentTime / duration) * 100;
   timeFixer(curr.toFixed(0));
   progress.style.width = `${progressPercent}%`;
 }
 
+function secFixer(n){
+  return n > 9 ? "" + n: "0" + n;
+}
+
 function timeFixer(time) {
   let min = time / 60;
   let sec = time % 60;
-  currTime.innerText = "" + min.toFixed(0) + ":" + sec;
+  currTime.innerText = "" + secFixer(min.toFixed(0)) + ":" + secFixer(sec);
 }
 
 playBtn.addEventListener("click", () => {
