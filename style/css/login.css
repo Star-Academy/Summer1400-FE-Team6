@@ -3,6 +3,7 @@
   src: url("../../assets/fonts/Vazir.ttf");
 }
 html {
+  height: 100%;
   font-size: 62.5%;
 }
 
@@ -80,7 +81,7 @@ ul {
 }
 
 body {
-  background-color: #111115;
+  background-image: linear-gradient(to top right, #098080, #111010, #000000);
 }
 
 header {

@@ -1,11 +1,16 @@
 @use "global";
 
 body{
-  background-image: url("../../assets/images/background_song.jpg");
+  background-image: linear-gradient(to top right, #098080, #111010, #000000);
   height: 100vh;
   overflow: hidden;
+  display: grid;
+  place-items: center;
   main{
-    margin-top: 10rem;
+    display: grid;
+    place-items: center;
+    margin-bottom: 4rem;
+    width: 100%;
   }
 }
 
@@ -20,9 +25,8 @@ body{
   background-size: cover;
   border-radius: 10px;
   border: 2px solid global.$dark_cyan;
-  width: 70%;
-  margin: 10px auto auto auto ;
-
+  width: 50rem;
+  max-width: 70%;
   .title{
     margin: 2rem 0;
   }
@@ -73,14 +77,12 @@ body{
     margin-bottom: 2rem;
     text-align: center;
     direction: ltr;
+    i {
+      cursor: pointer;
+    }
     input {
       display: none;
     }
   }
 }
 
-@media screen and (min-width: 768px){
-  .song-item {
-    width: 30%;
-  }
-}

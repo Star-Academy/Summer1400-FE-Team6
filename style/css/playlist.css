@@ -3,6 +3,7 @@
   src: url("../../assets/fonts/Vazir.ttf");
 }
 html {
+  height: 100%;
   font-size: 62.5%;
 }
 

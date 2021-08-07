@@ -3,6 +3,7 @@
   src: url("../../assets/fonts/Vazir.ttf");
 }
 html {
+  height: 100%;
   font-size: 62.5%;
 }
 
@@ -80,12 +81,17 @@ ul {
 }
 
 body {
-  background-image: url("../../assets/images/background_song.jpg");
+  background-image: linear-gradient(to top right, #098080, #111010, #000000);
   height: 100vh;
   overflow: hidden;
+  display: grid;
+  place-items: center;
 }
 body main {
-  margin-top: 10rem;
+  display: grid;
+  place-items: center;
+  margin-bottom: 4rem;
+  width: 100%;
 }
 
 .song-item {
@@ -99,8 +105,8 @@ body main {
   background-size: cover;
   border-radius: 10px;
   border: 2px solid #00efd1;
-  width: 70%;
-  margin: 10px auto auto auto;
+  width: 50rem;
+  max-width: 70%;
 }
 .song-item .title {
   margin: 2rem 0;
@@ -149,14 +155,11 @@ body main {
   text-align: center;
   direction: ltr;
 }
+.song-item .control i {
+  cursor: pointer;
+}
 .song-item .control input {
   display: none;
-}
-
-@media screen and (min-width: 768px) {
-  .song-item {
-    width: 30%;
-  }
 }
 
 /*# sourceMappingURL=song.css.map */
