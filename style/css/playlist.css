@@ -241,6 +241,7 @@ main .content .items .list-songs li a:hover {
   color: inherit;
 }
 main .content .items .list-songs li a img {
+  cursor: pointer;
   width: 20rem;
   height: 20rem;
 }
