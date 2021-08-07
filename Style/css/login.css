@@ -1,25 +1,64 @@
-body {
-  font-size: 1.5rem;
-  color: white;
-  background-image: url("../../assets/pic/background_main.jpg");
-  background-size: auto;
+@font-face {
+  font-family: vaziri;
+  src: url("../../assets/fonts/Vazir.ttf");
+}
+html {
+  font-size: 62.5%;
 }
 
-header {
-  margin: 40px;
+* {
+  font-family: vaziri, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-size: 1.5rem;
+  color: aliceblue;
+}
+
+.main-header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  top: 0;
+  padding: 15px 30px;
+  background-color: #111010;
 }
 
 .logo {
-  width: 10rem;
-}
-.logo:hover {
-  cursor: pointer;
+  width: 8rem;
 }
 
-svg {
-  width: 30px;
+.nav-bar li {
+  padding: 1rem;
+  display: inline;
+}
+
+a {
+  color: #f0f8ff;
+  text-decoration: none;
+}
+a:hover {
+  color: #00efd1;
+}
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #111010;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+}
+
+.links li {
+  display: inline;
+  padding-left: 0.5rem;
 }
 
 .social {
@@ -27,17 +66,46 @@ svg {
   justify-content: center;
   align-items: center;
 }
+.social .socialMediaIcons svg {
+  width: 40px;
+  margin: 5px;
+  vertical-align: middle;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+body {
+  background-image: url("../../assets/images/background_main.jpg");
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px;
+}
+
+.logo {
+  width: 10rem;
+}
 
 main {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 form {
   display: flex;
-  flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  flex-direction: column;
   width: 50vw;
   max-width: 500px;
   background-color: rgba(0, 0, 0, 0.68);
@@ -70,7 +138,6 @@ form input:nth-of-type(3) {
   padding: 5px;
   margin-bottom: 10px;
   border-radius: 10px;
-  cursor: pointer;
 }
 form input:nth-of-type(3):hover {
   background-color: #00efd1;
@@ -84,7 +151,6 @@ form button {
   width: 40vw;
   max-width: 450px;
   border-radius: 10px;
-  cursor: pointer;
 }
 form button:hover {
   background-color: #00efd1;

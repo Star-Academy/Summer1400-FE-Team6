@@ -1,45 +1,25 @@
+@use "global";
+
 body {
-  font-size: 1.5rem;
-  color: white;
-  background-image: url("../../assets/pic/background_main.jpg");
-  background-size: auto;
+  background-image: url("../../assets/images/background_main.jpg");
 }
 
 header {
+  @include global.flex();
   margin: 40px;
-  display: flex;
-  justify-content: center;
 }
 
 .logo {
   width: 10rem;
-
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-svg {
-  width: 30px;
-}
-
-
-.social {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 main {
-  display: flex;
-  justify-content: center;
+  @include global.flex();
 }
 
 form {
-  display: flex;
+  @include global.flex(space-around);
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
   width: 50vw;
   max-width: 500px;
   background-color: rgba(0, 0, 0, 0.68);
@@ -77,10 +57,9 @@ form {
       padding: 5px;
       margin-bottom: 10px;
       border-radius: 10px;
-      cursor: pointer;
 
       &:hover {
-        background-color: #00efd1;
+        background-color: global.$dark_cyan;
         cursor: pointer;
       }
     }
@@ -95,10 +74,9 @@ form {
     width: 40vw;
     max-width: 450px;
     border-radius: 10px;
-    cursor: pointer;
 
     &:hover {
-      background-color: #00efd1;
+      background-color: global.$dark_cyan;
       cursor: pointer;
     }
   }

@@ -1,12 +1,95 @@
+@font-face {
+  font-family: vaziri;
+  src: url("../../assets/fonts/Vazir.ttf");
+}
+html {
+  font-size: 62.5%;
+}
+
+* {
+  font-family: vaziri, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
 body {
   font-size: 1.5rem;
-  color: white;
+  color: aliceblue;
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  top: 0;
+  padding: 15px 30px;
+  background-color: #111010;
+}
+
+.logo {
+  width: 8rem;
+}
+
+.nav-bar li {
+  padding: 1rem;
+  display: inline;
+}
+
+a {
+  color: #f0f8ff;
+  text-decoration: none;
+}
+a:hover {
+  color: #00efd1;
+}
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #111010;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+}
+
+.links li {
+  display: inline;
+  padding-left: 0.5rem;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.social .socialMediaIcons svg {
+  width: 40px;
+  margin: 5px;
+  vertical-align: middle;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+body {
+  background-image: url("../../assets/images/index-bg.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 .banner {
   position: relative;
   height: 80vh;
-  font-size: 8rem;
+  font-size: 4rem;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -58,7 +141,7 @@ video {
 
 @media (max-width: 780px) {
   .banner {
-    font-size: 4rem;
+    font-size: 2rem;
   }
 }
 
