@@ -255,10 +255,12 @@ main .content .items .list-songs li a .row-2 {
   align-items: center;
   margin-bottom: 1rem;
 }
-main .content .items .list-songs li a .row-2 img {
-  height: 2rem;
-  width: auto;
+main .content .items .list-songs li a .row-2 .like-icon {
   cursor: pointer;
+  transition: 0.25s fill ease-in-out;
+}
+main .content .items .list-songs li a .row-2 .like-icon.liked {
+  fill: #00efd1;
 }
 main .content .items .list-songs i {
   cursor: pointer;

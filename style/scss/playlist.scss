@@ -186,12 +186,13 @@ main {
               display: flex;
               justify-content: space-between;
               align-items: center;
-              img {
-                height: 2rem;
-                width: auto;
+              .like-icon {
                 cursor: pointer;
+                transition: 0.25s fill ease-in-out;
+                &.liked {
+                  fill: global.$dark_cyan;
+                }
               }
-
               margin-bottom: 1rem;
             }
           }
