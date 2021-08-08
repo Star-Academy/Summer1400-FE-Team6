@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="description" content="Music player app">
+    <meta name="keywords" content="MUSIC, MUSIC PLAYER, APP, CODE-STAR, HTML, CSS, JavaScript, SCSS, Angular">
+    <meta name="author" content="SALEH, HESAM">
+    <meta
+            name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link rel="stylesheet" href="../style/css/song.css">
+    <script src="https://kit.fontawesome.com/c36f77d407.js" crossorigin="anonymous"></script>
+    <script src="../script/song.js" defer></script>
+</head>
+<body>
+
+<main>
+    <div class="song-item">
+        <h2 class="title">
+            <a href="playlist.html">
+                بازگشت به پلی لیست ↩
+            </a>
+        </h2>
+        <img src="" alt="music cover picture" class="cover" id="cover">
+        <h2 class="song-name" id="title"></h2>
+        <h3 class="artist"></h3>
+        <div class="control">
+            <label>
+                <input type="checkbox" id="play" checked>
+                <i class="far fa-pause-circle fa-2x"></i>
+            </label>
+            <div class="timeline">
+                <div id="currTime">2:15</div>
+                <div id="durTime">04:55</div>
+            </div>
+            <div class="progress">
+                <div class="duration" id="progress"></div>
+            </div>
+
+            <audio id="audio" controls autoplay hidden>
+                <source type="audio/mpeg" src="">
+                پشتیبانی نمی شود!
+            </audio>
+        </div>
+    </div>
+</main>
+</body>
+<footer>
+    <div class="copyright">تمام حقوق سایت محفوظ است.</div>
+    <div class="social">
+        <div class="socialMediaIcons">
+            <a href="https://twitter.com" target="_blank">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </div>
+
+        <div class="socialMediaIcons">
+            <a href="https://www.instagram.com" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+
+        <div class="socialMediaIcons">
+            <a href="https://ca.linkedin.com" target="_blank">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+</html>
