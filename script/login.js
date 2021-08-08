@@ -28,8 +28,6 @@ async function login() {
         body: JSON.stringify(body)
     });
     let responseJson = await response.json();
-    console.log(response)
-    console.log(responseJson)
     if (response.ok) {
         //todo dont Know
 
