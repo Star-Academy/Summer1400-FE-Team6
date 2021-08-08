@@ -50,7 +50,7 @@ body {
 }
 
 a {
-  color: aliceblue;
+  color: #f0f8ff;
   text-decoration: none;
   &:hover {
     color: $dark_cyan;
@@ -90,4 +90,8 @@ footer {
 
 ul{
   list-style: none;
+}
+
+button{
+  cursor: pointer;
 }
