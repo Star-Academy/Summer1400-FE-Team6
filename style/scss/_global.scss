@@ -14,6 +14,7 @@ $carbon_black: #111010;
 }
 
 html {
+  height: 100%;
   font-size: 62.5%;
 }
 
@@ -29,10 +30,11 @@ body {
 }
 
 .main-header {
-  @include flex(space-between);
+  @include flex(space-around);
   position: relative;
   top: 0;
-  padding: 15px 30px;
+  //padding: 15px 30px;
+  padding: 1.5rem 5rem;
   background-color: $carbon_black;
 }
 
@@ -62,24 +64,27 @@ footer {
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 20px;
+  padding: 2rem;
+  //padding: 20px;
 }
 
 .links {
     li {
-      display: inline;
-      padding-left: 0.5rem;
+      //display: inline;
+      padding-left: 1rem;
     }
 }
 
 .social {
   @include flex();
+  justify-content: space-around;
   .socialMediaIcons{
     svg {
       width: 40px;
       margin: 5px;
       vertical-align: middle;
     }
+    margin: 0 1rem;
   }
 }
 
