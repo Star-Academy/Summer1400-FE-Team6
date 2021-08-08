@@ -22,7 +22,6 @@ async function sginUp() {
         },
         body: JSON.stringify(body)
     });
-    let responseJson = await response.json();
     if (response.ok) {
         //todo dont know
         window.alert("ثبت نام شدید :)");
@@ -45,10 +44,9 @@ async function sginUp() {
 }
 
 submitBtn.addEventListener("click", () => {
-
     if (username.value && email.value && password.value && firstName.value && lastName.value){
             sginUp();
-    } else {
+    }else {
         window.alert("فیلد ها خالی است !");
     }
 });
