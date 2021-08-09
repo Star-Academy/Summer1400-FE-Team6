@@ -2,11 +2,6 @@
 
 html {
   scroll-behavior: smooth;
-  height: 100%;
-
-  body {
-    height: 100%;
-  }
 }
 
 ::-webkit-scrollbar {
@@ -28,70 +23,77 @@ html {
   background: white;
 }
 
+
 main {
-  display: grid;
-  height: 100%;
-  grid-template-columns: 25rem auto;
-
   .my-side-bar {
-    background: global.$carbon_black;
+    position: fixed;
+    left: 0;
+    right: 0;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    .home {
-      margin-top: 2rem;
-      text-align: center;
-
-      img {
-        width: 30%;
-      }
+    justify-content: space-between;
+    background: global.$carbon_black;
+    padding: 1.5rem;
+    .menu-icon {
+      z-index: 2;
     }
-
-    .options {
-      @include global.flex();
+    .menu {
+      z-index: 1;
+      background-color: #1a1a1a;
+      position: fixed;
+      display: flex;
+      top: -100%;
+      height: 100%;
+      right: 0;
+      bottom: 0;
       flex-direction: column;
+      align-items: center;
+      justify-content: center;
       width: 100%;
-      margin-top: 10rem;
+      transition: top 0.3s;
+      &.open {
+        top: 0;
+      }
+      .menu-items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        a {
+          position: relative;
+          text-align: center;
+          padding: 2px;
+          margin: 0.7rem;
+          font-size: 2rem;
+          &:hover {
+            color: inherit;
+          }
+          &:not(.underlined)::before {
+            transition: 0.5s transform ease-in-out;
+            transform: scaleX(0);
+          }
 
-      a {
-        position: relative;
-        text-align: center;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        font-size: 2rem;
-        margin: 10px;
+          &:not(.underlined):hover::before {
+            transform: scaleX(1);
+          }
 
-        &:hover {
-          color: inherit;
-        }
-        &:not(.underlined)::before {
-          transition: 0.5s transform ease-in-out;
-          transform: scaleX(0);
-        }
-
-        &:not(.underlined):hover::before {
-          transform: scaleX(1);
-        }
-
-        &::before{
-          content: "";
-          position: absolute;
-          width: 100%;
-          height: 3px;
-          border-radius: 3px;
-          top: 100%;
-          background: linear-gradient(130deg, #12b2b2, cyan);
+          &::before{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            border-radius: 3px;
+            top: 100%;
+            background: linear-gradient(130deg, #12b2b2, cyan);
+          }
         }
       }
+
     }
 
     .logout {
       font-size: 1.2rem;
-      display: flex;
-      align-items: center;
       text-align: center;
-      margin-top: auto;
-      margin-bottom: 15rem;
       &:hover {
         color: inherit;
       }
@@ -101,14 +103,14 @@ main {
   .content {
     display: flex;
     flex-direction: column;
-    overflow-y: scroll;
-    min-width: fit-content;
+    height: 100%;
+    min-height: calc(100vh - 64px);
+    padding-top: 64px;
     .playlist-header {
       width: 100%;
       display: flex;
-      flex-shrink: 0;
       background-image: linear-gradient(to top right, #098080, #111010, #000000);
-      height: 20rem;
+      height: 15rem;
       align-items: center;
       border-bottom: 2px ridge cyan;
       .music-icon {
@@ -121,25 +123,22 @@ main {
       }
 
       h1 {
-        margin: auto 2rem auto 2rem;
-        font-size: 4rem;
-        min-width: max-content;
+        font-size: 3rem;
       }
     }
 
     .items {
       background-image: linear-gradient(to top right, #1a1a1a, global.$carbon_black, black);
       padding-top: 2rem;
-      padding-bottom: 5rem;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
-
+      justify-content: space-between;
+      height: 100%;
       .list-songs {
         height: 100%;
         background-color: rgba(0, 0, 0, 0.7);
         margin-top: 3rem;
-        margin-bottom: 1rem;
         padding: 2rem;
 
         ul {
@@ -179,6 +178,7 @@ main {
 
             .song-name {
               font-size: 2rem;
+              padding-top: 0.25rem;
             }
 
             .row-2 {
@@ -209,7 +209,8 @@ main {
 .page-btn {
   display: flex;
   justify-content: center;
-
+  align-items: center;
+  padding: 1.5rem;
   button {
     margin: 0 1rem;
     padding: 1rem;
@@ -240,7 +241,8 @@ main {
 
   .view-options {
     div {
-      display: inline;
+      margin: 1rem;
+      display: block;
     }
 
     label {
@@ -262,14 +264,14 @@ main {
 
   .search-options {
     margin-left: 2rem;
-
+    display: grid;
+    place-items: center;
     button {
       background-color: transparent;
       font-size: 1.8rem;
       border: none;
       border-radius: 5px;
       color: white;
-
       &:hover {
         cursor: pointer;
         color: global.$dark_cyan;
@@ -295,4 +297,69 @@ main {
 
 .display-none {
   display: none;
+}
+
+@media screen and (min-width: 768px){
+  .menu-icon {
+    display: none;
+  }
+  main {
+    .my-side-bar {
+      .menu {
+        background-color: initial;
+        position: initial;
+        flex-direction: row;
+        transition: none;
+        justify-content: space-between;
+        .menu-items {
+          flex-direction: row;
+          margin: auto  ;
+        }
+      }
+    }
+    .content {
+      min-height: calc(100vh - 118px);
+      .playlist-header {
+        h1 {
+          font-size: 3.5rem;
+        }
+      }
+      padding-top: 118px;
+    }
+  }
+}
+
+@media screen and (min-width: 992px){
+  main {
+    .my-side-bar {
+      box-sizing: border-box;
+      flex-direction: column;
+      width: 25rem;
+      height: 100%;
+      .menu {
+        flex-direction: column;
+        .menu-items {
+          flex-direction: column;
+          margin-top: 15rem;
+        }
+      }
+      .logout {
+        margin-bottom: 10rem;
+      }
+    }
+    .content {
+      padding-top: 0;
+      padding-right: 25rem;
+      min-height: 100vh;
+      .playlist-header {
+        height: 20rem;
+        .music-icon img {
+          width: 12rem;
+        }
+        h1 {
+          font-size: 4rem;
+        }
+      }
+    }
+  }
 }

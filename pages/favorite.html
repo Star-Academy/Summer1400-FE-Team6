@@ -19,14 +19,20 @@
 
 <main>
     <nav class="my-side-bar">
-        <a href="index.html" class="home">
-            <img src="../assets/images/logo.png" alt="logo" class="logo">
+        <a href="javascript:void(0);" class="menu-icon">
+            <i class="fa fa-bars fa-2x"></i>
         </a>
-        <div class="options">
-            <a href="playlist.html" class="all-songs">همه آهنگ ها</a>
-            <a href="favorite.html" class="favorite-songs underlined">آهنگ های مورد علاقه</a>
+        <div class="menu">
+            <a href="index.html" class="home">
+                <img src="../assets/images/logo.png" alt="logo" class="logo">
+            </a>
+            <div class="menu-items">
+                <a href="playlist.html" class="all-songs">همه آهنگ ها</a>
+                <a href="favorite.html" class="favorite-songs underlined">آهنگ های مورد علاقه</a>
+                <a href="#" class="my-profile"> پروفایل من</a>
+            </div>
         </div>
-        <a href="#" class="logout">خارج شدن از حساب کاربری
+        <a href="#" class="logout" id="logout">خارج شدن از حساب کاربری
             <i class="fas fa-sign-out-alt"></i>
         </a>
     </nav>

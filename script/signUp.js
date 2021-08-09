@@ -15,7 +15,7 @@ loginStatus();
 
 async function sginUp() {
     let body = {username: username.value, email: email.value, password: password.value, firstName:firstName.value, lastName:lastName.value };
-    let response = await fetch('http://130.185.120.192:5000/user/register', {
+    let response = await fetch('https://songs.code-star.ir/user/register', {
         method: 'POST',
         headers:{
             'Content-Type': 'application/json',
