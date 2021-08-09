@@ -41,9 +41,6 @@ a {
   color: aliceblue;
   text-decoration: none;
 }
-a:hover {
-  color: #00efd1;
-}
 
 footer {
   display: flex;

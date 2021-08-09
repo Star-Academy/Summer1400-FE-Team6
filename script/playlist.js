@@ -4,8 +4,8 @@ import { displaySongs } from "./utils.js";
 let filterSearch = document.getElementById("filter-search");
 let logout = document.getElementById("logout");
 
-const pagingUrl = "http://130.185.120.192:5000/song/page";
-const searchUrl = "http://130.185.120.192:5000/song/find";
+const pagingUrl = "https://songs.code-star.ir/song/page";
+const searchUrl = "https://songs.code-star.ir/song/find";
 
 function loginStatus(){
   if(localStorage.getItem("isLogin") === "false"){

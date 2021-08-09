@@ -9,7 +9,7 @@ const artist = document.querySelector(".artist");
 const currTime = document.getElementById("currTime");
 const durTime = document.getElementById("durTime");
 
-const baseUrl = "http://130.185.120.192:5000/song/one/";
+const baseUrl = "https://songs.code-star.ir/song/one/";
 
 let song;
 

@@ -1,9 +1,21 @@
 import { favoriteSongs, availableSongs } from "./data.js";
 
+const menuButton = document.querySelector(".menu-icon")
+const menu = document.querySelector(".menu")
+menuButton.addEventListener("click", openMenu)
+
+
+function openMenu() {
+    menu.classList.toggle("open");
+    menuButton.innerHTML = menu.classList.contains("open") ? '<i class="far fa-times-circle fa-2x"></i>'
+      : '<i class="fa fa-bars fa-2x"></i>'
+}
 
 function displaySongs(songs) {
   let listSongs = songs.map(createTemplate);
   clearList();
+  if (songs.length ===  0)
+    document.querySelector(".items ul").textContent = "متاسفانه نتیجه‌ای یافت نشد :("
   listSongs.forEach((song) =>
     document.querySelector(".items ul").appendChild(song)
   );
