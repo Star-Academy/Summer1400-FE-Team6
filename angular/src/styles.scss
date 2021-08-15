@@ -1,0 +1,23 @@
+:root {
+
+}
+
+@font-face {
+  font-family: vaziri;
+  src: url("assets/fonts/Vazir.ttf");
+}
+
+body {
+  font-family: vaziri, sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+}
