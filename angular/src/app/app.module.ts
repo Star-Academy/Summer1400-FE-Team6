@@ -7,6 +7,7 @@ import { SongsComponent } from './songs/songs.component';
 import { LandingComponent } from './landing/landing.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { AllsongsComponent } from './songs/allsongs/allsongs.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { SignupComponent } from './signup/signup.component';
     SongsComponent,
     LandingComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    AllsongsComponent
   ],
   imports: [
     BrowserModule,
