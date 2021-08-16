@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SongsComponent } from './songs/songs.component';
-import { AllsongsComponent } from './songs/allsongs/allsongs.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AllsongsComponent } from './dashboard/allsongs/allsongs.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/songs', pathMatch: 'full' },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   {
-    path: 'songs',
-    component: SongsComponent,
+    path: 'dashboard',
+    component: DashboardComponent,
     children: [
       { path: '', redirectTo: 'allsongs', pathMatch: 'full' },
       {

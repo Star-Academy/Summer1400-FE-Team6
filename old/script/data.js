@@ -1,5 +1,5 @@
-const favoriteSongs = localStorage.getItem("favorite-songs")
-  ? JSON.parse(localStorage.getItem("favorite-songs"))
+const favoriteSongs = localStorage.getItem("favorite-dashboard")
+  ? JSON.parse(localStorage.getItem("favorite-dashboard"))
   : [];
 
 let availableSongs;

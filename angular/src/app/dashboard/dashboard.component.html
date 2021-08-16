@@ -1,0 +1,25 @@
+<nav class="my-side-bar">
+  <a href="javascript:void(0);" class="menu-icon" (click)="isMenuOpen = !isMenuOpen">
+    <mat-icon>{{isMenuOpen ? 'close' : 'menu'}}</mat-icon>
+  </a>
+  <div [ngClass]="{'open':isMenuOpen, 'menu':true}">
+    <a href="index.html" class="home">
+      <img src="../../assets/svg/logo.svg" alt="logo" class="logo">
+    </a>
+    <div class="menu-items">
+      <a href="#" class="all-songs underlined">همه آهنگ ها</a>
+      <a href="#" class="favorite-songs">آهنگ های مورد علاقه</a>
+      <a href="#" class="my-profile"> پروفایل من</a>
+    </div>
+  </div>
+  <a href="#" class="logout" id="logout">خارج شدن از حساب کاربری
+    <mat-icon>logout</mat-icon>
+  </a>
+</nav>
+
+<div class="content">
+  <header><img src="../../assets/images/music_note.jpg" alt="header-pic">
+    <h1>همه آهنگ ها</h1>
+  </header>
+  <router-outlet></router-outlet>
+</div>
