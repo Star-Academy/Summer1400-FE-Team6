@@ -4,6 +4,7 @@ import { PagingOptions } from './allsongs/paging-options';
 import { Song } from './song';
 import {map, mergeMap} from 'rxjs/operators'
 import { merge, Observable } from 'rxjs';
+import { SearchOptions } from './allsongs/search-options';
 
 @Injectable({
   providedIn: 'root',
@@ -24,6 +25,15 @@ export class SongService {
       this.httpOptions
     ).pipe(
       map((res) => res.songs)
+    );
+  }
+  findSong(searchOptions: SearchOptions) {
+    return this.http.post<{songs: Song[]}>(
+      this.baseUrl + '/song/find',
+      searchOptions,
+      this.httpOptions
+    ).pipe(
+      map(res => res.songs)
     );
   }
 }

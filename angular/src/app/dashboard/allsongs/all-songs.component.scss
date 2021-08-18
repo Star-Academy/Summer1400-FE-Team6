@@ -8,7 +8,79 @@
     flex-direction: column;
     justify-content: space-between;
     .options {
-      margin-bottom: 7rem;
+      margin: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items:center;
+      .filter-options {
+        font-size: 1.5rem;
+        label[for="itemsPerPage"] {
+          margin-right: 3rem;
+        }
+        select{
+          border: 1px solid var(--color-primary-dark);
+          background-color: var(--color-bg-primary);
+          border-radius: 1rem;
+          color: white;
+          height: 3rem;
+          margin: 0.5rem;          
+        }
+      }
+      .search-options{
+        button{
+          overflow: hidden;
+          border-radius: 999px;
+          width: 5rem;
+          height: 5rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: width 0.7s;
+          border: 2px solid var(--color-primary-dark);
+          background: transparent;
+          &:hover{
+            width: 35rem;
+            mat-icon{
+              opacity: 0;
+            }
+            form {
+            opacity: 1;
+            transition: opacity 0.3s;
+            transition-delay: 0.4s;
+            }
+          }
+          mat-icon{
+            position: absolute;
+            color: var(--color-primary-light);
+            font-size: 3rem;
+            transform: translate(-2px, -2px);
+            transition: opacity 0.5s;
+          }
+          form {
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            font-size: 1.5rem;
+            width: 100%;
+            color: white;
+            input {
+              height: 2rem;
+              border: 2px ridge var(--color-gray-15);
+              background: transparent;
+              color: white;
+              &#number-relevant{
+                width: 2rem;
+                text-align: center;
+              }
+              &#search-box{
+                width: 8rem;
+              }
+            }
+          }
+        }
+      }
     }
     .songs-container{
       min-height: 8rem;
@@ -21,5 +93,11 @@
     .paging-buttons {
       margin-top: 7rem;
     }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .options {
+    flex-direction: column;
   }
 }
