@@ -1,0 +1,32 @@
+<header><img src="../../../assets/images/music_note.jpg" alt="header-pic">
+  <h1>همه آهنگ ها</h1>
+</header>
+<main>
+  <div class="options">
+    <form (change)="getSongs()">
+      <label for="sorter">بر اساس</label>
+        <select [(ngModel)]="pagingOptions.sorter" id="sorter" name="sorter">
+          <option *ngFor="let sorter of sorters" [value]="sorter.value">
+            {{sorter.viewValue}}
+          </option>
+        </select>
+
+      <select [(ngModel)] = "pagingOptions.desc" name="sortOrder">
+        <option [value]="false">صعودی</option>
+        <option [value]="true">نرولی</option>
+      </select>
+
+      <label for="itemsPerPage">تعداد نمایش</label>
+        <select id="itemsPerPage" name="itemsPerPage" [(ngModel)] = "pagingOptions.size">
+          <option *ngFor="let size of itemsPerPage" [ngValue]="size">
+            {{size}}
+          </option>
+        </select>
+
+    </form>
+  </div>
+  <div class="songs-container">
+    <app-song *ngFor="let song of songs$ | async" [song] = "song"></app-song>
+  </div>
+  <div class="paging-buttons"></div>
+</main>

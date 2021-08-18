@@ -11,7 +11,7 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$angular-primary: mat.define-palette(mat.$indigo-palette);
+$angular-primary: mat.define-palette(mat.$cyan-palette);
 $angular-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
@@ -35,7 +35,7 @@ $angular-theme: mat.define-light-theme((
 :root {
   --color-primary: #00efd1;
   --color-primary-light: cyan;
-  --color-primary-dark: #12b2b2;
+  --color-primary-dark: rgba(18, 178, 178, 0.5);
   --color-bg-primary: #1a1a1a;
 
 
@@ -100,91 +100,6 @@ a {
   width: 8rem;
 }
 
-///////////////////////////
-$dark_cyan: #00efd1;
-$carbon_black: #111010;
-
-@mixin flex($justify_content: center) {
-  display: flex;
-  justify-content: $justify_content;
-  align-items: center;
-}
-
-html {
-  height: 100%;
-  font-size: 62.5%;
-}
-
-* {
-  font-family: vaziri, sans-serif;
-  padding: 0;
-  margin: 0;
-}
-
-body {
-  font-size: 1.5rem;
-  color: aliceblue;
-  background-image: linear-gradient(to top right, #098080, #111010, #000000)
-}
-
-.main-header {
-  @include flex(space-around);
-  position: relative;
-  top: 0;
-  //padding: 15px 30px;
-  padding: 1.5rem 5rem;
-  background-color: $carbon_black;
-}
-
-.logo {
-  width: 8rem;
-}
-
-.nav-bar {
-  li {
-    padding: 1rem;
-    display: inline;
-  }
-}
-
-a {
-  color: aliceblue;
-  text-decoration: none;
-}
-
-footer {
-  @include flex(space-around);
-  background-color: $carbon_black;
-  //position: fixed;
-  //bottom: 0;
-  //left: 0;
-  //width: 100wv;
-  padding:  2rem;
-
-  //padding: 20px;
-}
-
-.links {
-  li {
-    //display: inline;
-    padding-left: 1rem;
-  }
-}
-
-.social {
-  @include flex();
-  justify-content: space-around;
-  .socialMediaIcons{
-    svg {
-      width: 40px;
-      margin: 5px;
-      vertical-align: middle;
-    }
-    margin: 0 1rem;
-  }
-}
-
 ul{
   list-style: none;
 }
-
