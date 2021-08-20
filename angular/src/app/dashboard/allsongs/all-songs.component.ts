@@ -100,7 +100,7 @@ export class AllSongsComponent implements OnInit {
 
   isLastPage(){
     if(!this.options.phrase) return false
-    return this.fetchedSongs.length < this.options.current * this.options.size
+    return this.fetchedSongs.length <= this.options.current * this.options.size
   }
 
   preventDefault(event: any){

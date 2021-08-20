@@ -1,3 +1,8 @@
 <header><img src="../../../assets/images/favorite_header.jpg" alt="header-pic">
   <h1>آهنگ های مورد علاقه</h1>
 </header>
+<main>
+  <div class="songs-container">
+    <app-song *ngFor="let song of favoriteSongs" [song]="song" [isLiked]= "true"></app-song>
+  </div>
+</main>
