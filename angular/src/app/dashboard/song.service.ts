@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { PagingOptions } from './allsongs/paging-options';
 import { Song } from './song';
-import {map, mergeMap} from 'rxjs/operators'
-import { merge, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { SearchOptions } from './allsongs/search-options';
 
 @Injectable({
@@ -16,24 +15,43 @@ export class SongService {
       'Content-Type': 'application/json',
     }),
   };
-  constructor(private http: HttpClient) {}
+  likedSongs!: Song[];
+
+  constructor(private http: HttpClient) {
+    this.likedSongs = JSON.parse(localStorage.getItem('likedSongs') ?? '[]');
+  }
+
+  checkIsLiked(song: Song) {
+    return this.likedSongs.some(el => el.id === song.id)
+  }
+
+  removeFromFavorite(song: Song) {
+    let index = this.likedSongs.findIndex((el) => el.id === song.id);
+    this.likedSongs.splice(index, 1);
+    localStorage.setItem('likedSongs', JSON.stringify(this.likedSongs));
+  }
+
+  addToFavorite(song: Song) {
+    this.likedSongs.push(song);
+    localStorage.setItem('likedSongs', JSON.stringify(this.likedSongs));
+  }
 
   getSongs(pagingOptions: PagingOptions) {
-    return this.http.post<{songs: Song[]}>(
-      this.baseUrl + '/song/page',
-      pagingOptions,
-      this.httpOptions
-    ).pipe(
-      map((res) => res.songs)
-    );
+    return this.http
+      .post<{ songs: Song[] }>(
+        this.baseUrl + '/song/page',
+        pagingOptions,
+        this.httpOptions
+      )
+      .pipe(map((res) => res.songs));
   }
   findSong(searchOptions: SearchOptions) {
-    return this.http.post<{songs: Song[]}>(
-      this.baseUrl + '/song/find',
-      searchOptions,
-      this.httpOptions
-    ).pipe(
-      map(res => res.songs)
-    );
+    return this.http
+      .post<{ songs: Song[] }>(
+        this.baseUrl + '/song/find',
+        searchOptions,
+        this.httpOptions
+      )
+      .pipe(map((res) => res.songs));
   }
 }

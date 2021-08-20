@@ -1,16 +1,22 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Song } from '../song';
+import { SongService } from '../song.service';
 
 @Component({
   selector: 'app-song',
   templateUrl: './song.component.html',
-  styleUrls: ['./song.component.scss']
+  styleUrls: ['./song.component.scss'],
 })
 export class SongComponent implements OnInit {
   @Input() song!: Song;
-  constructor() { }
+  @Input() isLiked!: boolean;
+  constructor(private songService: SongService) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  toggleLike(event: any) {
+    if (this.isLiked) this.songService.removeFromFavorite(this.song);
+    else this.songService.addToFavorite(this.song);
+    event.stopPropogation();
   }
-
 }

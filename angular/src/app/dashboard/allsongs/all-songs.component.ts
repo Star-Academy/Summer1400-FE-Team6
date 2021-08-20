@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Song } from '../song';
 import { SongService } from '../song.service';
 import { PagingOptions } from './paging-options';
@@ -11,18 +10,17 @@ import { SearchOptions } from './search-options';
   styleUrls: ['./all-songs.component.scss'],
 })
 export class AllSongsComponent implements OnInit {
-  songs$!: Observable<Song[]>;
-  pagingOptions: PagingOptions = {
+  displayedSongs: Song[] = [];
+  fetchedSongs: Song[] = [];
+  searchedPhrase!: string;
+  isSearchboxOpen = false
+  options: PagingOptions & SearchOptions = {
     sorter: null,
-    size: 10,
     desc: false,
     current: 1,
-  };
-  searchOptions: SearchOptions = {
+    size: 10,
     count: 10,
     phrase: '',
-    desc: this.pagingOptions.desc,
-    sorter: this.pagingOptions.sorter,
   };
   sorters = [
     { value: null, viewValue: 'جدیدترین' },
@@ -33,22 +31,86 @@ export class AllSongsComponent implements OnInit {
 
   constructor(private songService: SongService) {}
 
+  checkIsLiked(song: Song) {
+    return this.songService.checkIsLiked(song);
+  }
+
   ngOnInit(): void {
-    this.getSongs();
+    this.getAllSongs();
   }
 
   trackById(index: number, song: Song) {
     return song.id;
   }
 
-  getSongs() {
-    this.songs$ = this.songService.getSongs(this.pagingOptions);
+  getAllSongs() {
+    this.songService.getSongs(this.options).subscribe((songs) => {
+      this.displayedSongs = songs;
+    });
   }
 
-  searchSong() {
-    if (!this.searchOptions.phrase) this.getSongs();
+  findSong() {
+    this.songService.findSong(this.options).subscribe((songs) => {
+      this.fetchedSongs = songs;
+      this.pageFetchedSongs();
+    });
+  }
+
+  performSearch(searchedPhrase: string) {
+    this.options.current = 1;
+    this.options.phrase = searchedPhrase;
+    if (!searchedPhrase) this.getAllSongs();
     else {
-      this.songs$ = this.songService.findSong(this.searchOptions);
+      this.findSong();
     }
+  }
+
+  pageFetchedSongs() {
+    this.displayedSongs = this.fetchedSongs.slice(
+      (this.options.current - 1) * this.options.size,
+      this.options.current * this.options.size
+    );
+  }
+
+  changeFilter(event: any) {
+    this.options.current = 1;
+    if (!this.options.phrase) {
+      this.getAllSongs();
+    } else {
+      if (event.target.id === 'itemsPerPage') {
+        this.pageFetchedSongs();
+      } else {
+        this.findSong();
+      }
+    }
+  }
+
+  nextPage() {
+    this.options.current++;
+    if (this.options.phrase) this.pageFetchedSongs();
+    else this.getAllSongs();
+  }
+
+  previousPage() {
+    this.options.current--;
+    if (this.options.phrase) this.pageFetchedSongs();
+    else this
+    .getAllSongs();
+  }
+
+  isLastPage(){
+    if(!this.options.phrase) return false
+    return this.fetchedSongs.length < this.options.current * this.options.size
+  }
+
+  preventDefault(event: any){
+    console.log(event);
+    event.preventDefault();
+    event.stopPropogation();
+  }
+
+  openSearchBox(event: any) {
+    this.isSearchboxOpen = true;
+    event.stopPropogation();
   }
 }

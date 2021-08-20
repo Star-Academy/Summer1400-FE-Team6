@@ -5,61 +5,65 @@
 <main>
   <div class="options">
     <div class="filter-options">
-      <form (change)="getSongs()">
+      <form (change)="changeFilter($event)">
         <label for="sorter">بر اساس</label>
-        <select [(ngModel)]="pagingOptions.sorter" id="sorter" name="sorter">
+        <select [(ngModel)]="options.sorter" id="sorter" name="sorter">
           <option *ngFor="let sorter of sorters" [value]="sorter.value">
             {{ sorter.viewValue }}
           </option>
         </select>
-        <select [(ngModel)]="pagingOptions.desc" name="sortOrder">
-          <option [value]="false">صعودی</option>
-          <option [value]="true">نرولی</option>
+        <select [(ngModel)]="options.desc" name="sortOrder">
+          <option [ngValue]="false">صعودی</option>
+          <option [ngValue]="true">نرولی</option>
         </select>
-        <label for="itemsPerPage">تعداد نمایش</label>
-        <select
+        <label for="itemsPerPage">تعداد نمایش
+          <select
           id="itemsPerPage"
           name="itemsPerPage"
-          [(ngModel)]="pagingOptions.size"
+          [(ngModel)]="options.size"
         >
           <option *ngFor="let size of itemsPerPage" [ngValue]="size">
             {{ size }}
           </option>
         </select>
+        </label>
       </form>
     </div>
-    <div class="search-options">
-      <button>
-        <mat-icon>search</mat-icon>
-        <form (ngSubmit)="searchSong()">
+    <div class="search-options" [ngClass] = "{'isOpen': isSearchboxOpen}">
+      <div class="search-wrapper">
+        <form (ngSubmit)="performSearch(searchBox.value)" #formfoa = "ngForm">
           <label for="search-box">پیدا کن</label>
           <input
-            placeholder="شادمهر"
-            type="text"
-            id="search-box"
-            name="search-box"
-            [(ngModel)]="searchOptions.phrase"
+          placeholder="شادمهر"
+          type="text"
+          id="search-box"
+          name="search-box"
+          #searchBox
           />
           <label>را در حداکثر</label>
           <input
-            required
-            type="number"
-            min="5"
-            id="number-relevant"
-            name="number-relevant"
-            [(ngModel)]="searchOptions.count"
+          required
+          type="number"
+          min="5"
+          id="number-relevant"
+          name="number-relevant"
+          [(ngModel)]="options.count"
           />
           <span>نتیجه اول</span>
           <button type="submit" style="display: none"></button>
         </form>
-      </button>
+        <mat-icon class="search-icon" (click) = "isSearchboxOpen = !isSearchboxOpen">{{!isSearchboxOpen ? 'search' : 'autorenew'}}</mat-icon>
+      </div>
     </div>
   </div>
   <div class="songs-container">
     <app-song
-      *ngFor="let song of songs$ | async; trackBy: trackById"
-      [song]="song"
+      *ngFor="let song of displayedSongs; trackBy: trackById"
+      [song]="song" [isLiked] = "checkIsLiked(song)"
     ></app-song>
   </div>
-  <div class="paging-buttons"></div>
+  <div class="paging-buttons">
+    <button (click) = "nextPage()" [disabled] = "isLastPage()">صفحه بعد</button>
+    <button (click) = "previousPage()" [disabled] = "options.current === 1">صفحه قبل</button>
+  </div>
 </main>

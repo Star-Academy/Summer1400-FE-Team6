@@ -11,78 +11,93 @@
       margin: 3rem;
       display: flex;
       justify-content: space-between;
-      align-items:center;
+      align-items: center;
       .filter-options {
         font-size: 1.5rem;
-        label[for="itemsPerPage"] {
-          margin-right: 3rem;
+        form {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
         }
-        select{
+        select {
           border: 1px solid var(--color-primary-dark);
           background-color: var(--color-bg-primary);
           border-radius: 1rem;
           color: white;
           height: 3rem;
-          margin: 0.5rem;          
+          margin: 0.5rem;
         }
       }
-      .search-options{
-        button{
-          overflow: hidden;
-          border-radius: 999px;
-          width: 5rem;
-          height: 5rem;
+      .search-options {
+        overflow: hidden;
+        border-radius: 999px;
+        width: 5rem;
+        height: 5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: width 0.7s;
+        border: 2px solid var(--color-primary-dark);
+        background: var(--color-bg-primary);
+        .search-wrapper {
           display: flex;
           align-items: center;
-          justify-content: center;
-          transition: width 0.7s;
-          border: 2px solid var(--color-primary-dark);
-          background: transparent;
-          &:hover{
-            width: 35rem;
-            mat-icon{
-              opacity: 0;
-            }
-            form {
-            opacity: 1;
-            transition: opacity 0.3s;
-            transition-delay: 0.4s;
-            }
-          }
-          mat-icon{
-            position: absolute;
-            color: var(--color-primary-light);
-            font-size: 3rem;
-            transform: translate(-2px, -2px);
-            transition: opacity 0.5s;
-          }
+          justify-content: space-around;
+          flex-grow: 1;
           form {
-            opacity: 0;
-            display: flex;
+            display: none;
             align-items: center;
-            justify-content: center;
-            gap: 0.8rem;
+            justify-content: space-between;
+            gap: 1rem;
             font-size: 1.5rem;
-            width: 100%;
             color: white;
+            label{
+              flex-shrink: 0;
+            }
+            span {
+              flex-shrink: 0;
+            }
             input {
               height: 2rem;
               border: 2px ridge var(--color-gray-15);
               background: transparent;
               color: white;
-              &#number-relevant{
+              &#number-relevant {
                 width: 2rem;
                 text-align: center;
               }
-              &#search-box{
+              &#search-box {
                 width: 8rem;
               }
             }
           }
+          mat-icon {
+            cursor: pointer;
+            font-size: 3rem;
+            color: var(--color-primary-light);
+            transform: translate(-2px, -2px);
+            margin: auto 0;
+          }
         }
+        &.isOpen {
+          width: 38rem;
+          .search-wrapper {
+            form {
+              display: flex;
+            }
+            mat-icon{
+              transform: translate(-2px, -3px);
+            }
+          }
+        }
+        // .search-icon {
+        // color: var(--color-primary-light);
+        //   font-size: 3rem;
+        //   transition: opacity 0.5s;
+        // }
       }
     }
-    .songs-container{
+    .songs-container {
       min-height: 8rem;
       background-color: rgba(0, 0, 0, 0.7);
       display: flex;
@@ -91,7 +106,21 @@
       align-items: center;
     }
     .paging-buttons {
-      margin-top: 7rem;
+      margin: 4rem auto;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      justify-content: center;
+      button{
+        background-color: transparent;
+        border: none;
+        font-size: 1.5rem;
+        color: rgba(255, 255, 255, 0.274);
+        &:not(:disabled) {
+          cursor: pointer;
+          color: white;
+        }
+      }
     }
   }
 }
@@ -99,5 +128,9 @@
 @media screen and (max-width: 768px) {
   .options {
     flex-direction: column;
+    .search-options{
+      order: -1;
+      align-self: flex-end;
+    }
   }
 }
