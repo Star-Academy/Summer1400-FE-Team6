@@ -56,14 +56,28 @@
       </div>
     </div>
   </div>
-  <div class="songs-container">
-    <app-song
-      *ngFor="let song of displayedSongs; trackBy: trackById"
-      [song]="song" [isLiked] = "checkIsLiked(song)"
-    ></app-song>
+  <div class="songs-container" >
+    <ng-container *ngIf="displayedSongs.length then fetched else loading">
+    </ng-container>
   </div>
-  <div class="paging-buttons">
-    <button (click) = "nextPage()" [disabled] = "isLastPage()">صفحه بعد</button>
-    <button (click) = "previousPage()" [disabled] = "options.current === 1">صفحه قبل</button>
+  <div [hidden]="true" class="paging-buttons">
+    <button (click) = "nextPage()" [disabled] = "isLastPage()" [hidden]="!displayedSongs.length">صفحه بعد</button>
+    <button (click) = "previousPage()" [disabled] = "options.current === 1" [hidden]="!displayedSongs.length">صفحه قبل</button>
   </div>
 </main>
+
+<ng-template #loading>
+  <div class="loading">
+    <span> در حال بارگذاری</span>
+    <mat-spinner [diameter]="75"></mat-spinner>
+  </div>
+</ng-template>
+
+<ng-template #fetched>
+  <app-song
+    *ngFor="let song of displayedSongs; trackBy: trackById"
+    [song]="song"
+  ></app-song>
+</ng-template>
+
+

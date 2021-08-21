@@ -20,6 +20,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { SongComponent } from './dashboard/song/song.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PlayerComponent } from './player/player.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { PlayerComponent } from './player/player.component';
     FavoriteComponent,
     SongComponent,
     PlayerComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +48,7 @@ import { PlayerComponent } from './player/player.component';
     MatSlideToggleModule,
     MatButtonToggleModule,
     HttpClientModule,
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

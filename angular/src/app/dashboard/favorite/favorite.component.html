@@ -3,6 +3,11 @@
 </header>
 <main>
   <div class="songs-container">
-    <app-song *ngFor="let song of favoriteSongs" [song]="song" [isLiked]= "true"></app-song>
-  </div>
+    <ng-container *ngIf="favoriteSongs.length then notEmpty else Empty"></ng-container>
+    <ng-template #notEmpty>
+      <app-song *ngFor="let song of favoriteSongs" [song]="song"></app-song>
+    </ng-template>  </div>
+  <ng-template #Empty>
+    <span style="font-size: 2rem">خالی همچون کویر...</span>
+  </ng-template>
 </main>

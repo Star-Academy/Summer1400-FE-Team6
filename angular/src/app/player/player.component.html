@@ -1,7 +1,7 @@
 <main>
     <div class="song-container" *ngIf="(song$ | async) as song">
         <h2 class="title">
-            <a href="playlist.html">
+            <a routerLink="/dashboard">
                 بازگشت به پلی لیست ↩
             </a>
         </h2>
@@ -9,7 +9,7 @@
         <h2 class="song-name" id="title">{{song.name}}</h2>
         <h3 class="artist">{{song.artist}}</h3>
         <div class="control">
-                <i (click)="togglePlay()" [ngClass]="{'far': true, 'fa-3x':true, 'fa-pause-circle': isPlaying, 'fa-play-circle':!isPlaying}"></i>
+                <i (click)="togglePlay()" [ngClass]="['far', 'fa-3x', isPlaying? 'fa-pause-circle':'fa-play-circle']"></i>
             <div class="timeline">
                 <div id="currTime">{{currentTime}}</div>
                 <div id="durTime">{{duration}}</div>

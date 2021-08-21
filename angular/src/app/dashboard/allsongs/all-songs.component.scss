@@ -93,12 +93,20 @@
       }
     }
     .songs-container {
-      min-height: 8rem;
+      min-height: 20rem;
       background-color: rgba(0, 0, 0, 0.7);
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
+      .loading {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        span{
+          font-size: 2rem;
+        }
+      }
     }
     .paging-buttons {
       margin: 4rem auto;

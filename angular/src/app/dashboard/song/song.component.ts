@@ -9,15 +9,18 @@ import { SongService } from '../song.service';
 })
 export class SongComponent implements OnInit {
   @Input() song!: Song;
-  @Input() isLiked!: boolean;
   constructor(private songService: SongService) {}
 
   ngOnInit(): void {}
 
-  toggleLike(event: any) {
+  get isLiked() {
+    return this.songService.checkIsLiked(this.song);
+  }
+
+  toggleLike(event: Event) {
     if (this.isLiked) this.songService.removeFromFavorite(this.song);
     else this.songService.addToFavorite(this.song);
-    this.isLiked = !this.isLiked;
-    event.stopPropogation();
+    event.stopPropagation();
+    event.preventDefault();
   }
 }
