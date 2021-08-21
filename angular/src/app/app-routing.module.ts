@@ -6,12 +6,14 @@ import {LandingComponent} from "./landing/landing.component";
 import {LoginComponent} from "./login/login.component";
 import {SignupComponent} from "./signup/signup.component";
 import { FavoriteComponent } from './dashboard/favorite/favorite.component';
+import { PlayerComponent } from './player/player.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
   {path: 'landing', component: LandingComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
+  {path: 'player/:id', component: PlayerComponent},
   {
     path: 'dashboard',
     component: DashboardComponent,

@@ -19,6 +19,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { SongComponent } from './dashboard/song/song.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PlayerComponent } from './player/player.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     AllSongsComponent,
     FavoriteComponent,
     SongComponent,
+    PlayerComponent,
   ],
   imports: [
     BrowserModule,

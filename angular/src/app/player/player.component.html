@@ -1,0 +1,49 @@
+<main>
+    <div class="song-container" *ngIf="(song$ | async) as song">
+        <h2 class="title">
+            <a href="playlist.html">
+                بازگشت به پلی لیست ↩
+            </a>
+        </h2>
+        <img [src] ="song.cover" alt="music cover picture" class="cover" id="cover">
+        <h2 class="song-name" id="title">{{song.name}}</h2>
+        <h3 class="artist">{{song.artist}}</h3>
+        <div class="control">
+                <i (click)="togglePlay()" [ngClass]="{'far': true, 'fa-3x':true, 'fa-pause-circle': isPlaying, 'fa-play-circle':!isPlaying}"></i>
+            <div class="timeline">
+                <div id="currTime">{{currentTime}}</div>
+                <div id="durTime">{{duration}}</div>
+            </div>
+            <div class="progress">
+                <div class="duration" id="progress"  [ngStyle]="{width: progressPercent + '%'}"></div>
+            </div>
+
+            <audio #audio controls hidden (timeupdate)="updateProgress($event)" [autoplay]="isPlaying" >
+                <source type="audio/mpeg" [src]="song.file">
+                پشتیبانی نمی شود!
+            </audio>
+        </div>
+    </div>
+</main>
+<footer>
+    <div class="copyright">تمام حقوق سایت محفوظ است.</div>
+    <div class="social">
+        <div class="socialMediaIcons">
+            <a href="https://twitter.com" target="_blank">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </div>
+
+        <div class="socialMediaIcons">
+            <a href="https://www.instagram.com" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+
+        <div class="socialMediaIcons">
+            <a href="https://ca.linkedin.com" target="_blank">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </div>
+    </div>
+</footer>

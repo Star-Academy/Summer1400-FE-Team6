@@ -1,0 +1,79 @@
+main {
+  height: calc(100vh - 6.4rem);
+  background-image: linear-gradient(to top right, #098080, #111010, #000000);
+  display: grid;
+  place-items: center;
+  .song-container {
+    display: flex;
+    flex-flow: column wrap;
+    color: aliceblue;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 15px 20px 15px black;
+    background-color: rgba(0, 0, 0, 0.7);
+    background-size: cover;
+    border-radius: 10px;
+    // border: 2px solid var(--color-primary);
+    width: 50rem;
+    max-width: 70%;
+    .title {
+      margin: 2rem 0;
+    }
+
+    .progress {
+      background-color: white;
+      height: 5px;
+      border-radius: 999rem;
+      width: 100%;
+    }
+
+    .duration {
+      height: 5px;
+      width: 0;
+      border-radius: 999rem;
+      background-image: linear-gradient(130deg, cyan, #00efd1, #12b2b2);
+    }
+
+    .timeline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .song-name {
+      margin-top: 1vh;
+      font-size: 2.2vw;
+    }
+    .artist {
+      margin-top: 0;
+      font-size: 1vw;
+    }
+    img {
+      width: 60%;
+      margin: auto;
+    }
+    .album {
+      margin: 0;
+      font-size: 0.8vw;
+    }
+
+    .release-date {
+      margin: 2px;
+      font-size: 0.8vw;
+    }
+
+    .control {
+      width: 70%;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      direction: ltr;
+      i {
+        cursor: pointer;
+      }
+      input {
+        display: none;
+      }
+    }
+  }
+}

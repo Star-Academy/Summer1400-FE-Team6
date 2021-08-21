@@ -104,6 +104,32 @@ ul{
   list-style: none;
 }
 
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--color-bg-primary);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  font-size: 1.5rem;
+  .social {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    .socialMediaIcons{
+      svg {
+        width: 40px;
+        margin: 5px;
+        vertical-align: middle;
+      }
+      margin: 0 1rem;
+    }
+  }
+}
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

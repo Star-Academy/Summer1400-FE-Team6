@@ -1,5 +1,5 @@
-<div class="song-item" [id]='song.id'>
-  <a href="#">
+<div class="song-item">
+  <a [routerLink]="['/player', song.id]">
     <img [src]="song.cover" alt="cover" class="cover">
     <span class="song-name">{{song.name}}</span>
     <span class="row-2">
