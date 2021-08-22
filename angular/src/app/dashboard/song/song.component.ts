@@ -9,9 +9,12 @@ import { SongService } from '../song.service';
 })
 export class SongComponent implements OnInit {
   @Input() song!: Song;
-  constructor(private songService: SongService) {}
 
-  ngOnInit(): void {}
+  constructor(private songService: SongService) {
+  }
+
+  ngOnInit(): void {
+  }
 
   get isLiked() {
     return this.songService.checkIsLiked(this.song);

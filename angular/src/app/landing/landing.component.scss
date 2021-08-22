@@ -6,6 +6,32 @@ body{
   flex-direction: column;
 
 }
+$dark_cyan: #00efd1;
+$carbon_black: #111010;
+
+@mixin flex($justify_content: center) {
+  display: flex;
+  justify-content: $justify_content;
+  align-items: center;
+}
+.main-header {
+  @include flex(space-around);
+  position: relative;
+  top: 0;
+  //padding: 15px 30px;
+  padding: 1.5rem 5rem;
+  background-color: $carbon_black;
+}
+
+.logo {
+  width: 8rem;
+}
+.nav-bar {
+  li {
+    padding: 1rem;
+    display: inline;
+  }
+}
 
 .banner {
   background-image: url("../../assets/images/index-bg.jpg");
@@ -75,12 +101,5 @@ video {
 
 }
 
-$dark_cyan: #00efd1;
-$carbon_black: #111010;
 
-@mixin flex($justify_content: center) {
-  display: flex;
-  justify-content: $justify_content;
-  align-items: center;
-}
 
