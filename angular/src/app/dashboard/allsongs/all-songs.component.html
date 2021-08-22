@@ -57,12 +57,12 @@
     </div>
   </div>
   <div class="songs-container" >
-    <ng-container *ngIf="displayedSongs.length then fetched else loading">
+    <ng-container *ngIf="!isFetching then fetched else loading">
     </ng-container>
   </div>
   <div [hidden]="true" class="paging-buttons">
-    <button (click) = "nextPage()" [disabled] = "isLastPage()" [hidden]="!displayedSongs.length">صفحه بعد</button>
-    <button (click) = "previousPage()" [disabled] = "options.current === 1" [hidden]="!displayedSongs.length">صفحه قبل</button>
+    <button (click) = "nextPage()" [disabled] = "isLastPage()" [hidden]="isFetching">صفحه بعد</button>
+    <button (click) = "previousPage()" [disabled] = "options.current === 1" [hidden]="isFetching">صفحه قبل</button>
   </div>
 </main>
 

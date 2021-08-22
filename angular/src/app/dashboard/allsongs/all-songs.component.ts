@@ -12,8 +12,8 @@ import { SearchOptions } from './search-options';
 export class AllSongsComponent implements OnInit {
   displayedSongs: Song[] = [];
   fetchedSongs: Song[] = [];
-  searchedPhrase!: string;
-  isSearchboxOpen = false
+  isSearchboxOpen = false;
+  isFetching!: boolean;
   options: PagingOptions & SearchOptions = {
     sorter: null,
     desc: false,
@@ -31,10 +31,6 @@ export class AllSongsComponent implements OnInit {
 
   constructor(private songService: SongService) {}
 
-  checkIsLiked(song: Song) {
-    return this.songService.checkIsLiked(song);
-  }
-
   ngOnInit(): void {
     this.getAllSongs();
   }
@@ -44,15 +40,19 @@ export class AllSongsComponent implements OnInit {
   }
 
   getAllSongs() {
+    this.isFetching = true;
     this.songService.getSongs(this.options).subscribe((songs) => {
       this.displayedSongs = songs;
+      this.isFetching = false;
     });
   }
 
   findSong() {
+    this.isFetching = true;
     this.songService.findSong(this.options).subscribe((songs) => {
       this.fetchedSongs = songs;
       this.pageFetchedSongs();
+      this.isFetching = false;
     });
   }
 
@@ -94,16 +94,15 @@ export class AllSongsComponent implements OnInit {
   previousPage() {
     this.options.current--;
     if (this.options.phrase) this.pageFetchedSongs();
-    else this
-    .getAllSongs();
+    else this.getAllSongs();
   }
 
-  isLastPage(){
-    if(!this.options.phrase) return false
-    return this.fetchedSongs.length <= this.options.current * this.options.size
+  isLastPage() {
+    if (!this.options.phrase) return false;
+    return this.fetchedSongs.length <= this.options.current * this.options.size;
   }
 
-  preventDefault(event: any){
+  preventDefault(event: any) {
     console.log(event);
     event.preventDefault();
     event.stopPropogation();
