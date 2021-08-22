@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef , ViewChild } from '@angular/core';
-import {LoginService} from "./login.service";
 import {Router} from "@angular/router";
+import {AuthService} from "../authService/auth.service";
 
 @Component({
   selector: 'app-login',
@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
   @ViewChild('username') emailInput!: ElementRef;
   @ViewChild('password') passwordInput!: ElementRef;
 
-  constructor(private  loginServer:LoginService, private router: Router) { }
+  constructor(private  authService:AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     const password = this.passwordInput.nativeElement.value;
 
     try {
-      const token = await this.loginServer.login(email, password);
+      const token = await this.authService.login(email, password);
       await this.router.navigateByUrl('/dashboard');
     } catch {
       console.log('ERROR');

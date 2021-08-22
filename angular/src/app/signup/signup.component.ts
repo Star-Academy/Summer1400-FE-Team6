@@ -1,6 +1,6 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Router} from "@angular/router";
-import {SignupService} from "./signup.service";
+import {AuthService} from "../authService/auth.service";
 
 @Component({
   selector: 'app-signup',
@@ -15,7 +15,7 @@ export class SignupComponent implements OnInit {
   @ViewChild('fName') firstnameInput!: ElementRef;
   @ViewChild('lName') lastnameInput!: ElementRef;
 
-  constructor(private signupService: SignupService, private router: Router) {
+  constructor(private authService: AuthService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -29,7 +29,7 @@ export class SignupComponent implements OnInit {
     let lastname = this.passwordInput.nativeElement.value;
 
     try {
-      const token = await this.signupService.sginup(username, email, password, firstname, lastname);
+      const token = await this.authService.sginup(username, email, password, firstname, lastname);
       await this.router.navigateByUrl('/dashboard');
     } catch {
       console.log('ERROR');
