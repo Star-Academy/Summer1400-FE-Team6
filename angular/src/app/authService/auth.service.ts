@@ -1,53 +1,37 @@
 import { Injectable } from '@angular/core';
+import { User } from '../user';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
-  constructor() { }
+  constructor(private http: HttpClient) {}
   public readonly BASE_URL = 'https://songs.code-star.ir/';
-
-
-  private static async sendRequest(url: string, body?: object): Promise<any> {
-    const init: RequestInit = {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    };
-
-    if (body) {
-      init.method = 'POST';
-      init.body = JSON.stringify(body);
-    }
-
-    return fetch(url, init).then((res) => {
-      if (res.ok) return res.json();
-      throw res.json();
-    });
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    }),
+  };
+  public async login(email: string, password: string) {
+    // const responseJson = await AuthService.sendRequest(
+    //   this.BASE_URL + 'user/login',
+    //   { email, password }
+    // );
+    // localStorage.setItem('id', responseJson.id);
+    // localStorage.setItem('token', responseJson.token);
+    // localStorage.setItem('isLogin', 'true');
+    // return responseJson;
   }
 
-
-  public async login(email: string, password: string): Promise<string> {
-    const responseJson = await AuthService.sendRequest(this.BASE_URL + 'user/login', {email, password});
-    localStorage.setItem("id", responseJson.id)
-    localStorage.setItem("token", responseJson.token);
-    localStorage.setItem("isLogin", "true");
-    return responseJson;
-  }
-
-  public async sginup(username: string, email: string, password: string, firstname: string, lastname: string): Promise<string> {
-
-    const responseJson = await AuthService.sendRequest(this.BASE_URL + 'user/register', {
-      username,
-      email,
-      password,
-      firstname,
-      lastname
-    });
-    localStorage.setItem("id", responseJson.id)
-    localStorage.setItem("token", responseJson.token);
-    localStorage.setItem("isLogin", "true");
-    return responseJson;
+  async signUp(user: User) {
+    let response = await this.http
+      .post<{ token: string; id: number }>(
+        this.BASE_URL + 'user/register',
+        user,
+        this.httpOptions
+      )
+      .toPromise();
+    //Do whatever with response token and id
   }
 }

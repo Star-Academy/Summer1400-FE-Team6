@@ -3,29 +3,29 @@
     <img src="../../assets/images/logo.png" alt="لوگو" class="logo">
   </a></header>
 <main>
-  <form action="">
+  <form #signUpForm="ngForm" (ngSubmit)="signupClick()">
     <div class="firstN-lastN">
       <div>
         <label for="fName">نام</label>
-        <input type="text" id="fName" name="fName">
+        <input type="text" id="fName" name="fName" [(ngModel)]="user.firstName">
       </div>
       <div>
         <label for="lName">نام خانوادگی</label>
-        <input type="text" id="lName" name="lName" >
+        <input type="text" id="lName" name="lName" [(ngModel)]="user.lastName">
       </div>
     </div>
     <label for="username">یورنیم</label>
-    <input type="text" id="username" name="username" >
+    <input type="text" id="username" name="username" [(ngModel)]="user.username" required>
 
     <label for="email">ایمیل</label>
-    <input type="email" id="email" name="email" >
+    <input type="email" id="email" name="email" [(ngModel)]="user.email" required>
 
     <label for="password">پسورد</label>
-    <input type="password" id="password" name="password" pattern="" >
+    <input type="password" id="password" name="password" [(ngModel)]="user.password" required>
 
-    <button id="submit" (click)="signupClick()">ثبت نام</button>
+    <button type="submit" [disabled]="!signUpForm.valid">ثبت نام</button>
 
-    <a href="login" >
+    <a routerLink="login" >
       قبلا ثبت نام کرده‌اید ؟
     </a>
   </form>
