@@ -9,8 +9,6 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
   isMenuOpen = false;
-  constructor(private route: ActivatedRoute) {}
-  ngOnInit(): void {
-    console.log(this.route.toString());
-  }
+  constructor() {}
+  ngOnInit(): void {}
 }

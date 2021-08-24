@@ -13,7 +13,7 @@
   width="25"
   height="25"
   id="svg2"
-  (click) = "toggleLike($event)"
+  (click) = "toggleLike(); $event.stopPropagation(); $event.preventDefault();"
   [ngStyle] = "{'fill': isLiked ? 'cyan' : 'white'}"
 >
   <defs

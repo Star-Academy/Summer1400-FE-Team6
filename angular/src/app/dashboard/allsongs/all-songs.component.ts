@@ -107,9 +107,4 @@ export class AllSongsComponent implements OnInit {
     event.preventDefault();
     event.stopPropogation();
   }
-
-  openSearchBox(event: any) {
-    this.isSearchboxOpen = true;
-    event.stopPropogation();
-  }
 }
