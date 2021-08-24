@@ -101,10 +101,4 @@ export class AllSongsComponent implements OnInit {
     if (!this.options.phrase) return false;
     return this.fetchedSongs.length <= this.options.current * this.options.size;
   }
-
-  preventDefault(event: any) {
-    console.log(event);
-    event.preventDefault();
-    event.stopPropogation();
-  }
 }

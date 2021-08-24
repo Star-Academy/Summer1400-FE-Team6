@@ -11,7 +11,7 @@ import { SongService } from '../dashboard/song.service';
   styleUrls: ['./player.component.scss'],
 })
 export class PlayerComponent implements OnInit {
-  song$!: Observable<Song>;
+  song!: Song;
   duration!: string;
   currentTime!: string;
   progressPercent!: number;
@@ -24,9 +24,11 @@ export class PlayerComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.song$ = this.route.paramMap.pipe(
-      switchMap((params) => this.songService.getSongById(+params.get('id')!))
-    );
+    this.route.paramMap
+      .pipe(
+        switchMap((params) => this.songService.getSongById(+params.get('id')!))
+      )
+      .subscribe((res) => (this.song = res));
   }
 
   updateProgress(event: any) {
