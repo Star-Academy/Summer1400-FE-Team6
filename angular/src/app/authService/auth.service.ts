@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '../user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {Login} from "../login";
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,7 @@ export class AuthService {
       'Content-Type': 'application/json',
     }),
   };
-  public async login(email: string, password: string) {
+  public async login(login:Login) {
     // const responseJson = await AuthService.sendRequest(
     //   this.BASE_URL + 'user/login',
     //   { email, password }
@@ -22,6 +23,17 @@ export class AuthService {
     // localStorage.setItem('token', responseJson.token);
     // localStorage.setItem('isLogin', 'true');
     // return responseJson;
+    let response = await this.http
+      .post<{ token: string; id: number }>(
+        this.BASE_URL + 'user/login',
+        login,
+        this.httpOptions
+      )
+      .toPromise();
+    localStorage.setItem('token', response.token);
+    localStorage.setItem('isLogin', 'true');
+    return response;
+
   }
 
   async signUp(user: User) {
@@ -32,6 +44,9 @@ export class AuthService {
         this.httpOptions
       )
       .toPromise();
+    localStorage.setItem('token', response.token);
+    localStorage.setItem('isLogin', 'true');
+    return response;
     //Do whatever with response token and id
   }
 }

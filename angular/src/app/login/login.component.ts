@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef , ViewChild } from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthService} from "../authService/auth.service";
+import {Login} from "../login";
 
 @Component({
   selector: 'app-login',
@@ -8,23 +9,30 @@ import {AuthService} from "../authService/auth.service";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  @ViewChild('username') emailInput!: ElementRef;
-  @ViewChild('password') passwordInput!: ElementRef;
+  login: Login ={
+    username:'',
+    password:''
+  }
 
   constructor(private  authService:AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  public async loginClick(){
-    const email = this.emailInput.nativeElement.value;
-    const password = this.passwordInput.nativeElement.value;
+  // public async loginClick(){
+  //
+  //   try {
+  //     const token = await this.authService.login(this.login);
+  //     await this.router.navigateByUrl('/dashboard');
+  //   } catch {
+  //     console.log('ERROR');
+  //   }
+  // }
 
-    try {
-      const token = await this.authService.login(email, password);
-      await this.router.navigateByUrl('/dashboard');
-    } catch {
-      console.log('ERROR');
-    }
+  public signupClick() {
+    this.authService.login(this.login);
+    this.router.navigateByUrl('/dashboard');
+
   }
+
 }
