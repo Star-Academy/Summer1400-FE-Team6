@@ -129,8 +129,9 @@
     box-sizing: border-box;
     flex-direction: column;
     width: 25rem;
-    height: 100%;
     padding-top: 3rem;
+    top: 0;
+    bottom: 0;
     .menu {
       flex-direction: column;
       .menu-items {

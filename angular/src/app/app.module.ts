@@ -3,7 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import {
+  DashboardComponent,
+  LogoutDialog,
+} from './dashboard/dashboard.component';
 import { LandingComponent } from './landing/landing.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
@@ -22,6 +25,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { PlayerComponent } from './player/player.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -35,6 +41,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     SongComponent,
     PlayerComponent,
     PageNotFoundComponent,
+    LogoutDialog,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +56,11 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MatButtonToggleModule,
     HttpClientModule,
     MatProgressSpinnerModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatCheckboxModule,
   ],
+  entryComponents: [LogoutDialog],
   providers: [],
   bootstrap: [AppComponent],
 })

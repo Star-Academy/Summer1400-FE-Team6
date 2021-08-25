@@ -1,31 +1,25 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {Router} from "@angular/router";
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../authService/auth.service';
 
-let loggedIn = "<li><a href=\"dashboard\">پلی لسیت‌ها</a></li><li><a id='logout' (click)='logout'>خروج از حساب کاربری</a></li>";
+let loggedIn =
+  "<li><a href=\"dashboard\">پلی لسیت‌ها</a></li><li><a id='logout' (click)='logout'>خروج از حساب کاربری</a></li>";
 
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
-  styleUrls: ['./landing.component.scss']
+  styleUrls: ['./landing.component.scss'],
 })
 export class LandingComponent implements OnInit {
+  constructor(private router: Router, private authService: AuthService) {}
 
-  constructor(private router:Router) { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-
-    if(localStorage.getItem("isLogin") === "true"){
-      let navBar = document.getElementById("nav-top");
-      // @ts-ignore
-      navBar.innerHTML = loggedIn;
-    }
+  get isLoggedIn() {
+    return !!this.authService.currentUser;
   }
 
-
-  public logout(){
-    localStorage.clear();
-    localStorage.setItem("isLogin", "false");
-    this.router.navigateByUrl('');
+  public logout() {
+    this.authService.logOut();
   }
-
 }

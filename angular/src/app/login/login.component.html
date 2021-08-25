@@ -10,11 +10,13 @@
     <label for="password">پسورد</label>
     <input type="password" id="password" name="password" ngModel required>
 
+    <label for="rememberMe">مرا به خاطر بسپار</label>
+    <mat-checkbox color="primary" id="rememberMe" [ngModel]="true" name="rememberMe"></mat-checkbox>
     <span class="forgot-text"><a href="#"> رمز عبور خود را فراموش کردید ؟</a></span>
 
     <button [disabled]="!loginForm.valid" id="submit" type="submit">ورود</button>
 
-    <a href="signup" >
+    <a routerLink="/signup" >
       آیا ثبت نام نکرده‌اید ؟
     </a>
   </form>

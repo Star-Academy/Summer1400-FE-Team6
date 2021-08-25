@@ -18,7 +18,10 @@ interface AuthenticatedUser {
 })
 export class AuthService implements CanActivate {
   currentUser?: AuthenticatedUser;
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) {
+    if (localStorage.getItem('user'))
+      this.currentUser = JSON.parse(localStorage.getItem('user')!);
+  }
   public readonly BASE_URL = 'https://songs.code-star.ir/';
 
   httpOptions = {
@@ -27,7 +30,7 @@ export class AuthService implements CanActivate {
     }),
   };
 
-  public login(username: string, password: string) {
+  public login(username: string, password: string, rememberMe: boolean) {
     this.http
       .post<AuthenticatedUser>(
         this.BASE_URL + 'user/login',
@@ -36,23 +39,33 @@ export class AuthService implements CanActivate {
       )
       .subscribe((user) => {
         this.currentUser = user;
+        if (rememberMe)
+          localStorage.setItem('user', JSON.stringify(this.currentUser));
         this.router.navigateByUrl('/dashboard');
       });
   }
 
-  async signUp(user: User) {
-    let response = await this.http
+  signUp(user: User) {
+    this.http
       .post<{ token: string; id: number }>(
         this.BASE_URL + 'user/register',
         user,
         this.httpOptions
       )
-      .toPromise();
-    //Do whatever with response token and id
+      .subscribe((user) => {
+        this.currentUser = user;
+        this.router.navigateByUrl('/dashboard');
+      });
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     if (!this.currentUser) this.router.navigateByUrl('/login');
     return !!this.currentUser;
+  }
+
+  logOut() {
+    this.currentUser = undefined;
+    localStorage.removeItem('user');
+    this.router.navigateByUrl('/');
   }
 }

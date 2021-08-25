@@ -6,12 +6,22 @@
   </div>
   <nav class="nav-bar">
     <ul id="nav-top">
-      <li>
-        <a href="login">ورود</a>
-      </li>
-      <li>
-        <a href="signup">ثبت نام</a>
-      </li>
+      <ng-template [ngIf]="!isLoggedIn" [ngIfElse]="loggedIn">
+        <li>
+          <a routerLink="/login">ورود</a>
+        </li>
+        <li>
+          <a routerLink="/signup">ثبت نام</a>
+        </li>
+      </ng-template>
+      <ng-template #loggedIn>
+        <li>
+          <a routerLink="/dashboard">پلی لسیت‌ها</a>
+        </li>
+        <li>
+          <a id='logout' (click)='logout()'>خروج از حساب کاربری</a>
+        </li>
+      </ng-template>
     </ul>
   </nav>
 </header>

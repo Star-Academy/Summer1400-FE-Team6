@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../authService/auth.service';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,6 +11,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
   isMenuOpen = false;
-  constructor() {}
+  constructor(private authService: AuthService, private dialog: MatDialog) {}
   ngOnInit(): void {}
+
+  logout() {
+    // const dialogRef = this.dialog.open(LogoutDialog);
+    this.authService.logOut();
+  }
 }
+
+@Component({
+  selector: 'logout-dialog',
+  templateUrl: 'logout-dialog.html',
+})
+export class LogoutDialog {}

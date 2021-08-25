@@ -141,3 +141,9 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+.mat-dialog-container {
+  background-color: var(--color-gray-15);
+  font-family: vaziri, sans-serif !important;
+  color: aliceblue;
+}
