@@ -144,6 +144,8 @@ input[type=number] {
 
 .mat-dialog-container {
   background-color: var(--color-gray-15);
-  font-family: vaziri, sans-serif !important;
   color: aliceblue;
+  .mat-dialog-title {
+    font-family: vaziri, sans-serif !important;
+  }
 }

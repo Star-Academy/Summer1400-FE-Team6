@@ -11,12 +11,11 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class DashboardComponent implements OnInit {
   isMenuOpen = false;
-  constructor(private authService: AuthService, private dialog: MatDialog) {}
+  constructor(private dialog: MatDialog) {}
   ngOnInit(): void {}
 
-  logout() {
-    // const dialogRef = this.dialog.open(LogoutDialog);
-    this.authService.logOut();
+  openDialog() {
+    const dialogRef = this.dialog.open(LogoutDialog);
   }
 }
 
@@ -24,4 +23,9 @@ export class DashboardComponent implements OnInit {
   selector: 'logout-dialog',
   templateUrl: 'logout-dialog.html',
 })
-export class LogoutDialog {}
+export class LogoutDialog {
+  constructor(private authService: AuthService) {}
+  logOut() {
+    this.authService.logOut();
+  }
+}
