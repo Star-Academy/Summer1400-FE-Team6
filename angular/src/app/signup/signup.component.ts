@@ -21,7 +21,5 @@ export class SignupComponent implements OnInit {
 
   public signupClick() {
     this.authService.signUp(this.user);
-    this.router.navigateByUrl('/dashboard');
-
   }
 }

@@ -1,38 +1,29 @@
-import { Component, OnInit, ElementRef , ViewChild } from '@angular/core';
-import {Router} from "@angular/router";
-import {AuthService} from "../authService/auth.service";
-import {Login} from "../login";
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../authService/auth.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  login: Login ={
-    username:'',
-    password:''
+  constructor(private authService: AuthService, private router: Router) {}
+
+  ngOnInit(): void {}
+
+  public login(form: NgForm) {
+    const { username, password } = form.value;
+    this.authService.login(username, password);
+    // const email = this.emailInput.nativeElement.value;
+    // const password = this.passwordInput.nativeElement.value;
+    //
+    // try {
+    //   const token = await this.authService.login(email, password);
+    //   await this.router.navigateByUrl('/dashboard');
+    // } catch {
+    //   console.log('ERROR');
+    // }
   }
-
-  constructor(private  authService:AuthService, private router: Router) { }
-
-  ngOnInit(): void {
-  }
-
-  // public async loginClick(){
-  //
-  //   try {
-  //     const token = await this.authService.login(this.login);
-  //     await this.router.navigateByUrl('/dashboard');
-  //   } catch {
-  //     console.log('ERROR');
-  //   }
-  // }
-
-  public signupClick() {
-    this.authService.login(this.login);
-    this.router.navigateByUrl('/dashboard');
-
-  }
-
 }

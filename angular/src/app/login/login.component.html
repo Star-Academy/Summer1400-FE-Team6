@@ -3,16 +3,16 @@
     <img src="../../assets/images/logo.png" alt="لوگو" class="logo">
   </a></header>
 <main>
-  <form action="">
+  <form #loginForm = "ngForm" (ngSubmit)="login(loginForm)">
     <label for="username">یوزرنیم</label>
-    <input type="text" id="username" name="username" [(ngModel)]="lo.username">
+    <input type="text" id="username" name="username" ngModel required>
 
     <label for="password">پسورد</label>
-    <input type="password" id="password" name="password" >
+    <input type="password" id="password" name="password" ngModel required>
 
     <span class="forgot-text"><a href="#"> رمز عبور خود را فراموش کردید ؟</a></span>
 
-    <button id="submit" type="button" (click)="loginClick()">ورود</button>
+    <button [disabled]="!loginForm.valid" id="submit" type="submit">ورود</button>
 
     <a href="signup" >
       آیا ثبت نام نکرده‌اید ؟

@@ -1,39 +1,43 @@
 import { Injectable } from '@angular/core';
 import { User } from '../user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {Login} from "../login";
+import {
+  ActivatedRouteSnapshot,
+  CanActivate,
+  Router,
+  RouterStateSnapshot,
+} from '@angular/router';
+
+interface AuthenticatedUser {
+  id: number;
+  token: string;
+}
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService {
-  constructor(private http: HttpClient) {}
+export class AuthService implements CanActivate {
+  currentUser?: AuthenticatedUser;
+  constructor(private http: HttpClient, private router: Router) {}
   public readonly BASE_URL = 'https://songs.code-star.ir/';
+
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
     }),
   };
-  public async login(login:Login) {
-    // const responseJson = await AuthService.sendRequest(
-    //   this.BASE_URL + 'user/login',
-    //   { email, password }
-    // );
-    // localStorage.setItem('id', responseJson.id);
-    // localStorage.setItem('token', responseJson.token);
-    // localStorage.setItem('isLogin', 'true');
-    // return responseJson;
-    let response = await this.http
-      .post<{ token: string; id: number }>(
+
+  public login(username: string, password: string) {
+    this.http
+      .post<AuthenticatedUser>(
         this.BASE_URL + 'user/login',
-        login,
+        { username, password },
         this.httpOptions
       )
-      .toPromise();
-    localStorage.setItem('token', response.token);
-    localStorage.setItem('isLogin', 'true');
-    return response;
-
+      .subscribe((user) => {
+        this.currentUser = user;
+        this.router.navigateByUrl('/dashboard');
+      });
   }
 
   async signUp(user: User) {
@@ -44,9 +48,11 @@ export class AuthService {
         this.httpOptions
       )
       .toPromise();
-    localStorage.setItem('token', response.token);
-    localStorage.setItem('isLogin', 'true');
-    return response;
     //Do whatever with response token and id
+  }
+
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    if (!this.currentUser) this.router.navigateByUrl('/login');
+    return !!this.currentUser;
   }
 }
