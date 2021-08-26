@@ -14,14 +14,7 @@ export class AllSongsComponent implements OnInit {
   fetchedSongs: Song[] = [];
   isSearchboxOpen = false;
   isFetching!: boolean;
-  options: PagingOptions & SearchOptions = {
-    sorter: null,
-    desc: false,
-    current: 1,
-    size: 10,
-    count: 10,
-    phrase: '',
-  };
+  options!: PagingOptions & SearchOptions;
   sorters = [
     { value: null, viewValue: 'جدیدترین' },
     { value: 'name', viewValue: 'نام آهنگ' },
@@ -32,14 +25,32 @@ export class AllSongsComponent implements OnInit {
   constructor(private songService: SongService) {}
 
   ngOnInit(): void {
-    this.getAllSongs();
+    this.retrieveState();
   }
 
   trackById(index: number, song: Song) {
     return song.id;
   }
 
+  saveState() {
+    sessionStorage.setItem('state', JSON.stringify(this.options));
+  }
+
+  retrieveState() {
+    this.options = JSON.parse(sessionStorage.getItem('state')!) ?? {
+      sorter: null,
+      desc: false,
+      current: 1,
+      size: 10,
+      count: 10,
+      phrase: '',
+    };
+    if (this.options.phrase) this.findSong();
+    else this.getAllSongs();
+  }
+
   getAllSongs() {
+    this.saveState();
     this.isFetching = true;
     this.songService.getSongs(this.options).subscribe((songs) => {
       this.displayedSongs = songs;
@@ -48,6 +59,7 @@ export class AllSongsComponent implements OnInit {
   }
 
   findSong() {
+    this.saveState();
     this.isFetching = true;
     this.songService.findSong(this.options).subscribe((songs) => {
       this.fetchedSongs = songs;
