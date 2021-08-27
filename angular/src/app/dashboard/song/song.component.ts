@@ -19,7 +19,6 @@ export class SongComponent implements OnInit {
   }
 
   toggleLike() {
-    if (this.isLiked) this.songService.removeFromFavorite(this.song);
-    else this.songService.addToFavorite(this.song);
+    this.songService.toggleLike(this.song);
   }
 }

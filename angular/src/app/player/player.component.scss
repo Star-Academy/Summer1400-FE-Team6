@@ -1,78 +1,96 @@
+.background {
+  position: fixed;
+  background-size: cover;
+  filter: blur(30px);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
+}
+
 main {
   height: calc(100vh - 6.4rem);
-  background-image: linear-gradient(to top right, #098080, #111010, #000000);
   display: grid;
   place-items: center;
+  overflow: hidden;
   .song-container {
+    mat-icon {
+      font-size: 4rem;
+      cursor: pointer;
+    }
+    .top{
+      box-sizing: border-box;
+      display: flex;
+      width: 100%;
+      padding: 3rem;
+      .add {
+        margin: 0 1.5rem;
+      }
+      .back{
+        margin-right: auto;
+      }
+      .favorite{
+        margin-right: 1rem;
+      }
+    }
     display: flex;
     flex-flow: column wrap;
     color: aliceblue;
-    justify-content: center;
     align-items: center;
-    box-shadow: 15px 20px 15px black;
     background-color: rgba(0, 0, 0, 0.7);
     background-size: cover;
-    border-radius: 10px;
-    // border: 2px solid var(--color-primary);
-    width: 50rem;
+    width: 70rem;
     max-width: 70%;
-    .title {
-      margin: 2rem 0;
-    }
-
-    .progress {
-      background-color: white;
-      height: 5px;
-      border-radius: 999rem;
-      width: 100%;
-    }
-
-    .duration {
-      height: 5px;
-      width: 0;
-      border-radius: 999rem;
-      background-image: linear-gradient(130deg, cyan, #00efd1, #12b2b2);
-    }
-
-    .timeline {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
 
     .song-name {
-      margin-top: 1vh;
-      font-size: 2.2vw;
+      margin-top: 2rem;
+      font-size: 3.5rem
     }
     .artist {
-      margin-top: 0;
-      font-size: 1vw;
+      font-size: 2rem;
     }
     img {
-      width: 60%;
-      margin: auto;
-    }
-    .album {
-      margin: 0;
-      font-size: 0.8vw;
+      width: 35rem;
+      margin: 0 auto;
     }
 
-    .release-date {
-      margin: 2px;
-      font-size: 0.8vw;
-    }
 
     .control {
-      width: 70%;
-      margin-top: 2rem;
-      margin-bottom: 2rem;
-      text-align: center;
-      direction: ltr;
-      i {
-        cursor: pointer;
+      width: 100%;
+      margin-top: auto;
+      .timing{
+        direction: ltr;
+        margin: 0 0.5rem;
+        .timer {
+          margin: 0 0.5rem;
+          font-size: 1.5rem;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+        .progress {
+          width: 100%;
+          //background-color: white;
+          //height: 5px;
+          //border-radius: 999rem;
+          //width: 100%;
+          //.duration {
+          //  height: 5px;
+          //  width: 0;
+          //  border-radius: 999rem;
+          //  background-image: linear-gradient(130deg, cyan, #00efd1, #12b2b2);
+          //}
+        }
       }
-      input {
-        display: none;
+    }
+    .actions{
+      padding-bottom: 4rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      mat-icon {
+        font-size: 3rem;
       }
     }
   }

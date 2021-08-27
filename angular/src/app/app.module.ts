@@ -28,6 +28,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatDialogModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatSliderModule,
   ],
   entryComponents: [LogoutDialog],
   providers: [],

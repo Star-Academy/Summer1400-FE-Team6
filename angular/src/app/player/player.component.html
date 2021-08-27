@@ -1,30 +1,42 @@
-<main>
-    <div class="song-container" *ngIf="song">
-        <h2 class="title">
-            <a routerLink="/dashboard">
-                بازگشت به پلی لیست ↩
-            </a>
-        </h2>
-        <img [src] ="song.cover" alt="music cover picture" class="cover" id="cover">
-        <h2 class="song-name" id="title">{{song.name}}</h2>
-        <h3 class="artist">{{song.artist}}</h3>
-        <div class="control">
-                <i (click)="togglePlay()" [ngClass]="['far', 'fa-3x', isPlaying? 'fa-pause-circle':'fa-play-circle']"></i>
-            <div class="timeline">
-                <div id="currTime">{{currentTime}}</div>
-                <div id="durTime">{{duration}}</div>
-            </div>
-            <div class="progress">
-                <div class="duration" id="progress"  [ngStyle]="{width: progressPercent + '%'}"></div>
-            </div>
-
-            <audio #audio controls hidden (timeupdate)="updateProgress($event)" [autoplay]="isPlaying" >
-                <source type="audio/mpeg" [src]="song.file">
-                پشتیبانی نمی شود!
-            </audio>
+<ng-template [ngIf]="song">
+  <div class="background" [ngStyle]="{'background-image': 'url(' + song.cover + ')'}" >
+  </div>
+  <main>
+    <div class="song-container">
+      <div class="top">
+<!--        <mat-icon class="add">add_circle_outline</mat-icon>-->
+        <mat-icon class="favorite" (click)="songService.toggleLike(song)" [ngStyle]="{'color': songService.checkIsLiked(song) ? 'var(--color-primary)': 'unset'}">favorite</mat-icon>
+        <mat-icon class="back" (click)="location.back()">arrow_back</mat-icon>
+      </div>
+      <img [src]="song.cover" alt="music cover picture" class="cover" id="cover">
+      <h2 class="song-name" id="title">{{song.name}}</h2>
+      <h3 class="artist">{{song.artist}}</h3>
+      <div class="control">
+        <div class="timing">
+          <div class="timer">
+            <div id="currTime">{{currentTime}}</div>
+            <div id="durTime">{{duration}}</div>
+          </div>
+          <mat-slider class="progress" color="primary" invert="true" [value]="progressPercent" (input)="setTime($event)"></mat-slider>
         </div>
+        <audio #audio controls hidden (timeupdate)="updateProgress($event)" autoplay>
+          <source type="audio/mpeg" [src]="song.file">
+          پشتیبانی نمی شود!
+        </audio>
+        <div class="actions">
+<!--          <div class="volume">-->
+<!--            <mat-icon>volume_up</mat-icon>-->
+<!--          </div>-->
+<!--          <mat-icon>shuffle</mat-icon>-->
+<!--          <mat-icon>fast_forward</mat-icon>-->
+          <mat-icon (click)="togglePlay()" style="font-size: 5rem">{{isPlaying ? 'pause_circle_outline' : 'play_circle_outline'}}</mat-icon>
+<!--          <mat-icon>fast_rewind</mat-icon>-->
+<!--          <mat-icon>repeat</mat-icon>-->
+        </div>
+      </div>
     </div>
-</main>
+  </main>
+</ng-template>
 <footer>
     <div class="copyright">تمام حقوق سایت محفوظ است.</div>
     <div class="social">
