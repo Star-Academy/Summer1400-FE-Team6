@@ -3,35 +3,47 @@
   </div>
   <main>
     <div class="song-container">
-      <div class="top">
-<!--        <mat-icon class="add">add_circle_outline</mat-icon>-->
-        <mat-icon class="favorite" (click)="songService.toggleLike(song)" [ngStyle]="{'color': songService.checkIsLiked(song) ? 'var(--color-primary)': 'unset'}">favorite</mat-icon>
-        <mat-icon class="back" (click)="location.back()">arrow_back</mat-icon>
+      <mat-icon class="expand" (click)="toggleLyrics()">{{showLyrics ? 'expand_less' : 'expand_more'}}</mat-icon>
+      <div class="lyrics" [ngStyle]="{'transform' : showLyrics ? 'none' : 'translateY(-100%)'}">
+        <p *ngFor="let line of song.lyrics.split('\n')">
+          {{line}}
+        </p>
       </div>
-      <img [src]="song.cover" alt="music cover picture" class="cover" id="cover">
-      <h2 class="song-name" id="title">{{song.name}}</h2>
-      <h3 class="artist">{{song.artist}}</h3>
-      <div class="control">
-        <div class="timing">
-          <div class="timer">
-            <div id="currTime">{{currentTime}}</div>
-            <div id="durTime">{{duration}}</div>
-          </div>
-          <mat-slider class="progress" color="primary" invert="true" [value]="progressPercent" (input)="setTime($event)"></mat-slider>
+      <div class="play" [ngStyle]="{'transform' : showLyrics ? 'translateY(100%)' : 'none'}">
+        <div class="top">
+<!--                  <mat-icon class="add">add_circle_outline</mat-icon>-->
+          <mat-icon class="favorite" (click)="songService.toggleLike(song)"
+                    [ngStyle]="{'color': songService.checkIsLiked(song) ? 'var(--color-primary)': 'unset'}">favorite
+          </mat-icon>
+          <mat-icon class="back" (click)="location.back()">arrow_back</mat-icon>
         </div>
-        <audio #audio controls hidden (timeupdate)="updateProgress($event)" autoplay>
-          <source type="audio/mpeg" [src]="song.file">
-          پشتیبانی نمی شود!
-        </audio>
-        <div class="actions">
-<!--          <div class="volume">-->
-<!--            <mat-icon>volume_up</mat-icon>-->
-<!--          </div>-->
-<!--          <mat-icon>shuffle</mat-icon>-->
-<!--          <mat-icon>fast_forward</mat-icon>-->
-          <mat-icon (click)="togglePlay()" style="font-size: 5rem">{{isPlaying ? 'pause_circle_outline' : 'play_circle_outline'}}</mat-icon>
-<!--          <mat-icon>fast_rewind</mat-icon>-->
-<!--          <mat-icon>repeat</mat-icon>-->
+        <img [src]="song.cover" alt="music cover picture" class="cover" id="cover">
+        <h2 class="song-name" id="title">{{song.name}}</h2>
+        <h3 class="artist">{{song.artist}}</h3>
+        <div class="control">
+          <div class="timing">
+            <div class="timer">
+              <div id="currTime">{{currentTime}}</div>
+              <div id="durTime">{{duration}}</div>
+            </div>
+            <mat-slider class="progress" color="primary" invert="true" [value]="progressPercent"
+                        (input)="setTime($event)"></mat-slider>
+          </div>
+          <audio #audio controls hidden (timeupdate)="updateProgress($event)" autoplay>
+            <source type="audio/mpeg" [src]="song.file">
+            پشتیبانی نمی شود!
+          </audio>
+          <div class="actions">
+            <!--          <div class="volume">-->
+            <!--            <mat-icon>volume_up</mat-icon>-->
+            <!--          </div>-->
+            <!--          <mat-icon>shuffle</mat-icon>-->
+            <!--          <mat-icon>fast_forward</mat-icon>-->
+            <mat-icon (click)="togglePlay()"
+                      style="font-size: 5rem">{{isPlaying ? 'pause_circle_outline' : 'play_circle_outline'}}</mat-icon>
+            <!--          <mat-icon>fast_rewind</mat-icon>-->
+            <!--          <mat-icon>repeat</mat-icon>-->
+          </div>
         </div>
       </div>
     </div>

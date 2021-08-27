@@ -15,82 +15,111 @@ main {
   place-items: center;
   overflow: hidden;
   .song-container {
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 70rem;
+    max-width: 70%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    height: 68rem;
+    .lyrics {
+      padding: 2.5rem 1rem 2rem;
+      text-overflow: ellipsis;
+      width: 100%;
+      transition: transform 1s;
+      transform: translateY(-100%);
+      display: flex;
+      p{
+        width: 100%;
+      }
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      text-align: center;
+      overflow-y: auto;
+    }
+    .expand {
+      position: absolute;
+      z-index: 10;
+    }
     mat-icon {
       font-size: 4rem;
       cursor: pointer;
     }
-    .top{
-      box-sizing: border-box;
-      display: flex;
+    .play{
       width: 100%;
-      padding: 3rem;
-      .add {
-        margin: 0 1.5rem;
-      }
-      .back{
-        margin-right: auto;
-      }
-      .favorite{
-        margin-right: 1rem;
-      }
-    }
-    display: flex;
-    flex-flow: column wrap;
-    color: aliceblue;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.7);
-    background-size: cover;
-    width: 70rem;
-    max-width: 70%;
-
-    .song-name {
-      margin-top: 2rem;
-      font-size: 3.5rem
-    }
-    .artist {
-      font-size: 2rem;
-    }
-    img {
-      width: 35rem;
-      margin: 0 auto;
-    }
-
-
-    .control {
-      width: 100%;
-      margin-top: auto;
-      .timing{
-        direction: ltr;
-        margin: 0 0.5rem;
-        .timer {
-          margin: 0 0.5rem;
-          font-size: 1.5rem;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-        }
-        .progress {
-          width: 100%;
-          //background-color: white;
-          //height: 5px;
-          //border-radius: 999rem;
-          //width: 100%;
-          //.duration {
-          //  height: 5px;
-          //  width: 0;
-          //  border-radius: 999rem;
-          //  background-image: linear-gradient(130deg, cyan, #00efd1, #12b2b2);
-          //}
-        }
-      }
-    }
-    .actions{
-      padding-bottom: 4rem;
+      position: absolute;
       display: flex;
+      transition: transform 1s;
+      flex-direction: column;
       justify-content: center;
-      gap: 1rem;
-      mat-icon {
-        font-size: 3rem;
+      text-align: center;
+      .top{
+        box-sizing: border-box;
+        display: flex;
+        width: 100%;
+        padding: 3rem;
+        .add {
+          margin: 0 1.5rem;
+        }
+        .back{
+          margin-right: auto;
+        }
+        .favorite{
+          margin-right: 1rem;
+        }
+      }
+      .song-name {
+        margin-top: 2rem;
+        font-size: 3.5rem
+      }
+      .artist {
+        font-size: 2rem;
+      }
+      img {
+        width: 35rem;
+        margin: 0 auto;
+      }
+
+
+      .control {
+        width: 100%;
+        margin-top: auto;
+        .timing{
+          direction: ltr;
+          margin: 0 0.5rem;
+          .timer {
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          }
+          .progress {
+            width: 100%;
+            //background-color: white;
+            //height: 5px;
+            //border-radius: 999rem;
+            //width: 100%;
+            //.duration {
+            //  height: 5px;
+            //  width: 0;
+            //  border-radius: 999rem;
+            //  background-image: linear-gradient(130deg, cyan, #00efd1, #12b2b2);
+            //}
+          }
+        }
+      }
+      .actions{
+        padding-bottom: 4rem;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        mat-icon {
+          font-size: 3rem;
+        }
       }
     }
   }

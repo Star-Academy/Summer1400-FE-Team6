@@ -17,6 +17,7 @@ export class PlayerComponent implements OnInit {
   currentTime!: string;
   progressPercent!: number;
   isPlaying = true;
+  showLyrics = false;
 
   @ViewChild('audio') audio!: ElementRef;
   constructor(
@@ -30,7 +31,10 @@ export class PlayerComponent implements OnInit {
       .pipe(
         switchMap((params) => this.songService.getSongById(+params.get('id')!))
       )
-      .subscribe((res) => (this.song = res));
+      .subscribe((res) => {
+        this.song = res;
+        console.log(this.song.lyrics.split('\n'));
+      });
   }
 
   updateProgress(event: any) {
@@ -60,5 +64,9 @@ export class PlayerComponent implements OnInit {
     if (this.isPlaying) this.audio.nativeElement.pause();
     else this.audio.nativeElement.play();
     this.isPlaying = !this.isPlaying;
+  }
+
+  toggleLyrics() {
+    this.showLyrics = !this.showLyrics;
   }
 }
