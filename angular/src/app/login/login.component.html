@@ -10,8 +10,11 @@
     <label for="password">پسورد</label>
     <input type="password" id="password" name="password" ngModel required>
 
+    <div class="remember_me">
     <label for="rememberMe">مرا به خاطر بسپار</label>
     <mat-checkbox color="primary" id="rememberMe" [ngModel]="true" name="rememberMe"></mat-checkbox>
+    </div>
+
     <span class="forgot-text"><a href="#"> رمز عبور خود را فراموش کردید ؟</a></span>
 
     <button [disabled]="!loginForm.valid" id="submit" type="submit">ورود</button>
