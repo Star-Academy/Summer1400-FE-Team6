@@ -5,15 +5,17 @@
 <main>
   <form #loginForm = "ngForm" (ngSubmit)="login(loginForm)">
     <label for="username">یوزرنیم</label>
-    <input type="text" id="username" name="username" ngModel required>
+    <input #username type="text" id="username" name="username" ngModel required>
 
-    <label for="password">پسورد</label>
+    <label #password for="password">پسورد</label>
     <input type="password" id="password" name="password" ngModel required>
 
-    <label for="rememberMe">مرا به خاطر بسپار</label>
-    <mat-checkbox color="primary" id="rememberMe" [ngModel]="true" name="rememberMe"></mat-checkbox>
     <span class="forgot-text"><a href="#"> رمز عبور خود را فراموش کردید ؟</a></span>
 
+    <div class="remember">
+    <label for="rememberMe">مرا به خاطر بسپار</label>
+      <mat-checkbox color="primary" id="rememberMe" [ngModel]="true" name="rememberMe"></mat-checkbox>
+    </div>
     <button [disabled]="!loginForm.valid" id="submit" type="submit">ورود</button>
 
     <a routerLink="/signup" >

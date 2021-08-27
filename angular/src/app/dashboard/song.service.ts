@@ -22,13 +22,18 @@ export class SongService {
   }
 
   getSongById(id: number) {
-    return this.http.get<{song: Song}>(this.baseUrl + '/song/one/' + id, this.httpOptions).pipe(
-      map(res => res.song)
-    )
+    return this.http
+      .get<{ song: Song }>(this.baseUrl + '/song/one/' + id, this.httpOptions)
+      .pipe(map((res) => res.song));
   }
 
   checkIsLiked(song: Song) {
-    return this.likedSongs.some(el => el.id === song.id)
+    return this.likedSongs.some((el) => el.id === song.id);
+  }
+
+  toggleLike(song: Song) {
+    if (this.checkIsLiked(song)) this.removeFromFavorite(song);
+    else this.addToFavorite(song);
   }
 
   removeFromFavorite(song: Song) {

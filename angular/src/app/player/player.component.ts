@@ -1,9 +1,10 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Song } from '../dashboard/song';
 import { switchMap } from 'rxjs/operators';
 import { SongService } from '../dashboard/song.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-player',
@@ -19,8 +20,9 @@ export class PlayerComponent implements OnInit {
 
   @ViewChild('audio') audio!: ElementRef;
   constructor(
+    public location: Location,
     private route: ActivatedRoute,
-    private songService: SongService
+    public songService: SongService
   ) {}
 
   ngOnInit(): void {
@@ -36,6 +38,12 @@ export class PlayerComponent implements OnInit {
     this.progressPercent = (currentTime / duration) * 100;
     this.currentTime = this.timeFixer(currentTime.toFixed(0));
     this.duration = this.timeFixer(duration.toFixed(0));
+  }
+
+  setTime(change: any) {
+    console.log(change);
+    this.audio.nativeElement.currentTime =
+      (this.audio.nativeElement.duration * change.value) / 100;
   }
 
   timeFixer(time: number) {

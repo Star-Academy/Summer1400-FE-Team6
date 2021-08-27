@@ -16,14 +16,9 @@ export class LoginComponent implements OnInit {
   public login(form: NgForm) {
     const { username, password, rememberMe } = form.value;
     this.authService.login(username, password, rememberMe);
-    // const email = this.emailInput.nativeElement.value;
-    // const password = this.passwordInput.nativeElement.value;
-    //
-    // try {
-    //   const token = await this.authService.login(email, password);
-    //   await this.router.navigateByUrl('/dashboard');
-    // } catch {
-    //   console.log('ERROR');
-    // }
+  }
+
+  public toggleFocus(event: any, elem: HTMLElement) {
+    if (event.target.value) elem.classList.toggle('focused');
   }
 }

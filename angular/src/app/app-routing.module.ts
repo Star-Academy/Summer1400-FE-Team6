@@ -15,7 +15,11 @@ const routes: Routes = [
   { path: 'home', component: LandingComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'player/:id', component: PlayerComponent },
+  {
+    path: 'player/:id',
+    component: PlayerComponent,
+    canActivate: [AuthService],
+  },
   {
     path: 'dashboard',
     component: DashboardComponent,

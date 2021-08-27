@@ -40,7 +40,13 @@
     }
 
     label {
+      align-self: flex-start;
       margin-bottom: 10px;
+      //transition: transform, 0.5s;
+      //transform: translate(-3rem, 3rem);
+      //&.floating {
+      //  transform: initial;
+      //}
     }
 
     button {
@@ -49,6 +55,10 @@
 
     a {
       text-decoration: underline;
+    }
+
+    .remember {
+      margin: 1rem;
     }
 
     input {
