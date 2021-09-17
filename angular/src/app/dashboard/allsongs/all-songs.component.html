@@ -1,0 +1,83 @@
+<header>
+  <img src="../../../assets/images/music_note.jpg" alt="header-pic" />
+  <h1>همه آهنگ ها</h1>
+</header>
+<main>
+  <div class="options">
+    <div class="filter-options">
+      <form (change)="changeFilter($event)">
+        <label for="sorter">بر اساس</label>
+        <select [(ngModel)]="options.sorter" id="sorter" name="sorter">
+          <option *ngFor="let sorter of sorters" [value]="sorter.value">
+            {{ sorter.viewValue }}
+          </option>
+        </select>
+        <select [(ngModel)]="options.desc" name="sortOrder">
+          <option [ngValue]="false">صعودی</option>
+          <option [ngValue]="true">نرولی</option>
+        </select>
+        <label for="itemsPerPage">تعداد نمایش
+          <select
+          id="itemsPerPage"
+          name="itemsPerPage"
+          [(ngModel)]="options.size"
+        >
+          <option *ngFor="let size of itemsPerPage" [ngValue]="size">
+            {{ size }}
+          </option>
+        </select>
+        </label>
+      </form>
+    </div>
+    <div class="search-options" [ngClass] = "{'isOpen': isSearchboxOpen}">
+      <div class="search-wrapper">
+        <form (ngSubmit)="performSearch(searchBox.value)" #formfoa = "ngForm">
+          <label for="search-box">پیدا کن</label>
+          <input
+          placeholder="شادمهر"
+          type="text"
+          id="search-box"
+          name="search-box"
+          #searchBox
+          />
+          <label>را در حداکثر</label>
+          <input
+          required
+          type="number"
+          min="5"
+          id="number-relevant"
+          name="number-relevant"
+          [(ngModel)]="options.count"
+          />
+          <span>نتیجه اول</span>
+          <button type="submit" style="display: none"></button>
+        </form>
+        <mat-icon class="search-icon" (click) = "isSearchboxOpen = !isSearchboxOpen">{{!isSearchboxOpen ? 'search' : 'autorenew'}}</mat-icon>
+      </div>
+    </div>
+  </div>
+  <div class="songs-container" >
+    <ng-container *ngIf="!isFetching then fetched else loading">
+    </ng-container>
+  </div>
+  <div [hidden]="true" class="paging-buttons">
+    <button (click) = "nextPage()" [disabled] = "isLastPage()" [hidden]="isFetching">صفحه بعد</button>
+    <button (click) = "previousPage()" [disabled] = "options.current === 1" [hidden]="isFetching">صفحه قبل</button>
+  </div>
+</main>
+
+<ng-template #loading>
+  <div class="loading">
+    <span> در حال بارگذاری</span>
+    <mat-spinner [diameter]="75"></mat-spinner>
+  </div>
+</ng-template>
+
+<ng-template #fetched>
+  <app-song
+    *ngFor="let song of displayedSongs; trackBy: trackById"
+    [song]="song"
+  ></app-song>
+</ng-template>
+
+

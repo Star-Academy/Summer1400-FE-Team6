@@ -1,0 +1,13 @@
+<header><img src="../../../assets/images/favorite_header.jpg" alt="header-pic">
+  <h1>آهنگ های مورد علاقه</h1>
+</header>
+<main>
+  <div class="songs-container">
+    <ng-container *ngIf="favoriteSongs.length then notEmpty else Empty"></ng-container>
+    <ng-template #notEmpty>
+      <app-song *ngFor="let song of favoriteSongs" [song]="song"></app-song>
+    </ng-template>  </div>
+  <ng-template #Empty>
+    <span style="font-size: 2rem">خالی همچون کویر...</span>
+  </ng-template>
+</main>

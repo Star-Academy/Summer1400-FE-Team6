@@ -1,0 +1,22 @@
+<nav class="my-side-bar">
+  <a href="javascript:void(0);" class="menu-icon" (click)="isMenuOpen = !isMenuOpen">
+    <mat-icon>{{isMenuOpen ? 'close' : 'menu'}}</mat-icon>
+  </a>
+  <div [ngClass]="{'open':isMenuOpen, 'menu':true}">
+    <a routerLink="/" class="home">
+      <img src="../../assets/svg/logo.svg" alt="logo" class="logo">
+    </a>
+    <div class="menu-items">
+      <a routerLink="allsongs" routerLinkActive="underlined" (click)="isMenuOpen=false">همه آهنگ ها</a>
+      <a routerLink="favorite" routerLinkActive="underlined" (click)="isMenuOpen=false">آهنگ های مورد علاقه</a>
+      <a routerLink="my-profile" routerLinkActive="underlined" (click)="isMenuOpen=false"> پروفایل من</a>
+    </div>
+  </div>
+  <a href="javascript:void(0);" class="logout" id="logout" (click)="openDialog()">خارج شدن از حساب کاربری
+    <mat-icon>logout</mat-icon>
+  </a>
+</nav>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

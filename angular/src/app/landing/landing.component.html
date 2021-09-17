@@ -1,0 +1,65 @@
+<header class="main-header">
+  <a href="index.html" class="home">
+    <img src="../../assets/images/logo.png" alt="لوگو" class="logo">
+  </a>
+  <div>
+  </div>
+  <nav class="nav-bar">
+    <ul id="nav-top">
+      <ng-template [ngIf]="!isLoggedIn" [ngIfElse]="loggedIn">
+        <li>
+          <a routerLink="/login">ورود</a>
+        </li>
+        <li>
+          <a routerLink="/signup">ثبت نام</a>
+        </li>
+      </ng-template>
+      <ng-template #loggedIn>
+        <li>
+          <a routerLink="/dashboard">پلی لسیت‌ها</a>
+        </li>
+        <li>
+          <a id='logout' (click)='logout()'>خروج از حساب کاربری</a>
+        </li>
+      </ng-template>
+    </ul>
+  </nav>
+</header>
+<main>
+  <div class="banner">
+    <div class="moto">
+      در طلب آهنگ ...
+    </div>
+    <div>
+      <button onclick="document.location='signup'">
+        ثبت نام
+      </button>
+      <button onclick="document.location='login'">
+        ورود
+      </button>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="copyright">تمام حقوق سایت محفوظ است.</div>
+  <div class="social">
+    <div class="socialMediaIcons">
+      <a href="https://twitter.com" target="_blank">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </div>
+
+    <div class="socialMediaIcons">
+      <a href="https://www.instagram.com" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+
+    <div class="socialMediaIcons">
+      <a href="https://ca.linkedin.com" target="_blank">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </div>
+  </div>
+</footer>
